@@ -1,0 +1,46 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*  实现：自定义指令，使a是扩大十倍,并把a的结果给到节点中
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3 v-once>a初始的值:{{a}}</h3>
+    <h3>a现在的值:{{a}}</h3>
+    <button @click="a++">a自增</button>
+    <hr>
+    <h3 v-tens='a'></h3>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      a:1
+    },
+    directives:{
+      /* tens指令何时调用: 
+        1.指令和元素成功绑定时
+        2.指令所在模板重新解析时
+      */
+      tens(element,binding){
+        /* 
+          element：指令所在节点元素
+          binding: 一个对象(包含 指令名name-指令表达式expression-指令表达式的返回值value) 
+        */
+        element.innerText = ("a扩大十倍后:" +binding.value * 10)//扩大10倍数，并放在节点上
+      }
+    }
+  })
+</script>
+</body>
+</html>

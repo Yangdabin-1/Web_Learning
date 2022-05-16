@@ -1,0 +1,12 @@
+.box1 {
+  width: 0px;
+  height: 0px;
+  border: 50px solid red;
+  border-color: transparent transparent transparent #ff0000;
+}
+.box1:hover {
+  width: 0px;
+  height: 0px;
+  border: 50px solid red;
+  border-color: transparent transparent transparent #ffc0cb;
+}

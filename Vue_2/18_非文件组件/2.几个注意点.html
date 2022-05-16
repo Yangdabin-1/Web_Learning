@@ -1,0 +1,58 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    组件的命名规则
+      1.单个单词
+        - school
+        - School
+      2.多个单词
+        - old-school
+        - OldSchool  (不在vue脚手架环境使用时，会导致后续组件不能渲染)
+
+    可以通过设置组件时，添加name属性，让组件在vue开发工具的里名字为name:
+    
+    组件标签
+      1.<school></school>
+      2.<school/>  (vue脚手架环境下使用)
+
+    组件定义简写
+      const school = Vue.extend(options) ---> const school = options
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+<script>
+  Vue.config.productionTip = false
+  let school = {
+      name:'SCHOOL',
+      template: `
+      <div>
+        <h3>学校信息</h3>
+        <h1>学校名称:{{name}}</h1>
+        <h1>学校地址:{{address}}</h1>
+        <button @click="tip">点击提示</button>
+      </div>
+    `,
+      data() {
+        return {
+          name: '宁大科院',
+          address: '慈溪'
+        }
+      },
+      methods: {
+        tip() {
+          alert(this.name)
+        }
+      },
+    }
+</script>
+</body>
+</html>

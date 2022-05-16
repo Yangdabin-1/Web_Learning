@@ -1,0 +1,52 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*
+    监视属性的简写：
+    当需不要设置deep和immediate时可以这样简写
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>今天天气很{{weather}}</h1>
+    <button @click='change'>切换天气</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      ishot:true 
+    },
+    computed:{
+      weather(){  //'weather'
+        return this.ishot?'炎热':'凉爽'
+      }
+    },
+    methods: {
+      change(){
+        this.ishot = !this.ishot
+      }
+    },
+    //watch的简写
+    watch:{
+      ishot(newvalue,oldvalue){    
+        console.log('ishot被修改了:从'+ oldvalue+'-->'+newvalue)
+      }
+    }
+  })
+  // vm.$watch('ishot',function(newvalue,oldvalue){ 
+  //         console.log('ishot被修改了:从'+ oldvalue+'-->'+newvalue)
+  //       }
+  // )
+</script>
+</body>
+</html>

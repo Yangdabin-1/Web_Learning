@@ -1,0 +1,37 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style></style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+
+  <!-- 
+      v-html
+       - 会替换该节点里的文本内容
+       - 会解析到数据里的结构，并将这个结构渲染到页面
+
+      这个可能会导致安全问题
+        - 1.动态渲染任意HTML
+        - 2.不要再用户提交上使用v-html
+            用户可能会提交一段具有攻击性的代码
+   -->
+  <div id="root">
+    <h1 v-html="content"></h1>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      content:"h1的内容<a href='http://www.baiud.com'>百度</a>"
+    }
+  })
+</script>
+</body>
+</html>

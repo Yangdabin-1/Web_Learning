@@ -1,0 +1,76 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    v-model:也可以设置修饰符
+      .trim - 去掉前后空格
+      .number - 输入的字符串转为有效的数字 
+      .lzy -失去焦点在收集数据
+    
+    v-model:绑定的是value
+      1.对于radio,配置好标签的value就好
+      2.对于checkbox，没有配置value的话，收集的就是该框是否被选中
+        - 如果初始数据为非数组，vm收集的数据就是布尔值
+        - 如果初始数据为数组，vm收集的就是对于的value,value在组成数组
+
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <form @submit.prevent="demo">
+      账号:<input type="text" v-model.trim="userinfo.account"><br><br>
+      密码:<input type="password" v-model="userinfo.password"><br><br>
+      年龄:<input type="number" v-model.number="userinfo.age"><br><br>
+      性别: 
+        男<input type="radio" name="sex" v-model="userinfo.sex" value="男">
+        女<input type="radio" name="sex" v-model="userinfo.sex" value="女"><br><br>
+      爱好:
+        开飞机<input type="checkbox" v-model="userinfo.hobby" value="feiji"> 
+        开坦克<input type="checkbox" v-model="userinfo.hobby" value="tanke"> 
+        开火箭<input type="checkbox" v-model="userinfo.hobby" value="rocket"><br><br>
+        出生地点:
+      <select v-model="userinfo.city">
+        <option value="">select city</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="chengdu">成都</option>
+      </select><br><br>
+      其他信息:<textarea v-model.lazy="userinfo.other"></textarea>
+      <br><br>
+      <input type="checkbox" v-model="userinfo.accept">阅读并接受<a href="javascipt:;">《同意协议》</a><br><br>
+      <input type="submit">
+    </form>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      userinfo:{
+        account:'',
+        password:'',
+        sex:'男',
+        age:'',
+        hobby:[],
+        city:'beijing',
+        other:'',
+        accept:'',
+      }      
+    },
+    methods: {
+      demo(){
+        console.log(JSON.stringify(this.userinfo))
+      }
+  }
+  })
+</script>
+</body>
+</html>

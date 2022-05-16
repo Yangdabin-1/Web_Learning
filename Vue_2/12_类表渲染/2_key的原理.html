@@ -1,0 +1,63 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    key的作用+原理---->虚拟DOM对比算法(diff算法)
+      1.vue工作流程
+        初始化数据 --->数据转换为虚拟DOM------>虚拟DOM转为真实DOM
+
+      2.差异比较
+         - 如果数据发送改变，会重新指向上方流程，看情况是否产生新的真实DOM
+         - 数据改变,通过唯一标识，观察新数据的标识和旧数据的标识
+         - 如果标识相同，数据改变，则创建新的DOM
+           如果标识相同，数据不改变，复用之前的虚拟DOM，不新增新的真实DOM
+         - 如果找不到相同的标识，直接新增新的虚拟DOM
+
+      3.key作为唯一标识，适用index只适用于(不破坏数据顺序的情况)和(且不包含输入类的节点)
+        但是还是会新增与旧DOM一样的DOM,效率低，重复
+      
+      
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3>人员列表</h3>
+    <button @click="add">添加员工</button>
+    <ul>
+      <li v-for ="p of Persons" :key="p.id">
+        {{p.name}}-{{p.age}}
+        <input type="text">
+      </li>
+    </ul> 
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data(){
+      return {
+        Persons:[
+        {id:'01',name:'lily',age:13},
+        {id:'02',name:'jack',age:25},
+        {id:'03',name:'Nace',age:11}
+      ]
+      }
+    },
+    methods: {
+      add(){
+        let newp = {id:'04',name:'老刘',age:54}
+        this.Persons.unshift(newp)
+      }
+    },
+  })
+</script>
+</body>
+</html>

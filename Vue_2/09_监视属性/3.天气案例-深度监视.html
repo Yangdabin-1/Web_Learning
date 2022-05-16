@@ -1,0 +1,95 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 深度监视
+    1.vue自身可以检测到对象内部所有值的改变
+    2.但watch默认（监视一层）不可以深度监视，需要根据数据的具体结构
+    3.开启deep，就可以进行深度监视（监视多层）
+
+    所以，监测到对象，对象内的回调什么时候调用？
+     - （整个内存地址改变）或（开启深度监视，并改变内部的属性值）
+
+  
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>今天天气很{{weather}}</h1>
+    <button @click='change'>切换天气</button>
+    <br>
+    <!-- 检测a的变化 -->
+    <h3>a的值为{{number.a}}</h3>
+    <button @click='number.a++'>a+1</button>
+    <!-- 检测b的变化 -->
+    <h3>b的值为{{number.b}}</h3>
+    <button @click='number.b++'>b+1</button>
+    <!-- 检测number整体的变化：把number的内存地址彻底替换 -->
+    <button @click='number = {a:100,b:200}'>彻底替换number整体</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      ishot:true,
+      number:{  //number的值执行一个对象
+        a:1,
+        b:1
+      }
+    },
+    computed:{
+      weather(){
+        return this.ishot?'炎热':'凉爽'
+      }
+    },
+    methods: {
+      change(){
+        this.ishot = !this.ishot
+      }
+    },
+    watch:{
+      ishot:{
+        handler(newvalue,oldvalue){
+          console.log('ishot被修改了:从'+ oldvalue+'-->'+newvalue)
+        }
+      },
+      //监视多级结构中的某个属性，因为key是字符串，使用加''
+
+
+      'number.a':{
+        handler(newvalue,oldvalue){
+          console.log('a被修改了:从'+ oldvalue+'-->'+newvalue)
+        }
+      },
+
+      'number.b':{
+        handler(newvalue,oldvalue){
+          console.log('b被修改了:从'+ oldvalue+'-->'+newvalue)
+        }
+      },
+
+
+      //如果多级结构中属性多了，上述方法不方便，所以要
+      //监视多级结构的整个属性
+      //只有number的值改变了（！！！a,b改变并不影响number的值的改变，只是Number指向对象的属性改变而已），才会触发回调
+      //改变Number需要把（整个内存地址改变）或（开启深度监视，并改变内部的属性值）
+      'number':{
+        //开启深度监视,某个属性改变了，number的回调就会触发
+        deep:true,
+        handler(){
+          console.log('number被修改了')
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

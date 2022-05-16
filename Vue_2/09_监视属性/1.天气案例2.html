@@ -1,0 +1,38 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style></style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>今天天气很{{weather}}</h1>
+    <button @click='change'>切换天气</button>
+    <button @click='ishot = !ishot'>切换天气</button> 
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      ishot:true 
+    },
+    computed:{
+      weather(){
+        return this.ishot?'凉爽':'炎热'
+      }
+    },
+    methods: {
+      change(){
+        this.ishot = !this.ishot
+      }
+    }
+  })
+</script>
+</body>
+</html>

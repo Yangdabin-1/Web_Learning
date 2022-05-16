@@ -1,0 +1,50 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    1.Vue中常用的按键别名
+      - enter delete esc space tab(换行)
+      - u/d/l/r
+      -某些按键会触发别的事件：如Tab,会让输入框失去焦点，但是设置的事件依旧会触发
+
+    2.如果要使用不常用的按键别名，需要用特殊写法:Caps Lock->caps_lock
+
+    3.如果要使用特殊的按键（win,ctrl,alt,shirt）
+      -使用keyup:按下这个特殊按键后，再按下别的按键再松开，才会触发事件
+      -使用keydown:直接写键名
+    
+    4.可以使用按键码去指定按键（不推荐）  @keydown.13="showMsg"
+
+    5.可以自定义
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root"> 
+    <input type="text" placeholder="按下某个按键，返回内容" @keydown.tab="showMsg">
+    <input type="text" placeholder="按下某个按键，返回内容" @keydown.huiche="showMsg">
+  </div>
+</body>
+<script>
+  Vue.config.productionTip = false
+  Vue.config.keyCodes.huiche = 13
+  new Vue ({
+    el : '#root',
+    data:{
+      name:'asd'
+    },
+    methods : {
+      showMsg(event){
+        console.log('按下:'+ event.key+'返回:'+event.target.value)
+      }
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,28 @@
+// 这是隐藏的注释
+/* 这是显示的注释 */
+@color:red;
+@hezi:.box1;
+@gaodu:height;
+*{
+	margin: 0px;
+	padding: 0;
+	}
+@{hezi}{
+	position: relative;
+	margin:0px auto;
+	width: 200px;
+	@{gaodu}: 200px;
+	border: 1px solid black;
+	.box2{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin:auto;
+	background-color: @color;
+	}	
+}
+

@@ -1,0 +1,50 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+
+</style>
+<script src='../JS/vue.js'></script>
+</head>
+<body>
+  <div id="root">
+    <button @click="change">change</button>
+    <ul>
+      <li v-for="p of person">{{p.name}}+{{p.age}}</li>
+    </ul>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm =new Vue({
+    el:"#root",
+    data:{
+      person:[
+        {name:'lily',age:12},
+        {name:'asd',age:32}
+      ]
+    },
+    methods:{
+      change(){
+        //改法一
+      // this.person[0].age = 23,
+      // this.person[0].name = '张三'
+
+      //改法二
+      //用这种方法改变，显示上和vue开发者工具未改变，但是vm的属性中改变了，因为vue没有监视到整个行为
+      //这是面向过程的写法，操作的数组内的元素
+      this.person[0] = {name:'张三',age:32}
+      
+      //学习过数据检测后，怎么实现:对数组进行操作，取代第一个元素
+      //这是面向对象的手法，操作数组而不是操作数组的元素
+      this.person.splice(0,1,{name:'张三',age:32})
+    }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  #box1{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <!-- 点击a，即取消冒泡，又要取消跳转（默认事件） -->
+      <div id="box1" @click='showAlert("box1")'>
+        <a href="http://www.baidu.com"  @click.stop.prevent="showAlert('a')">去百度</a>
+      </div>
+    <!-- 按下组合按键 ctrl+y,才会触发事件 -->
+      <input type="text" @keyup.ctrl.y='showMsg'>
+  </div>
+
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    methods:{
+      showAlert(a){
+        alert(a)
+      },
+      showMsg(event){
+        console.log(event.target.value)
+      }
+    }
+  })
+</script>
+</body>
+</html>

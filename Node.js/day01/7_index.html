@@ -1,0 +1,35 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <title>网页名</title>
+  <style>
+    #box1{
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+      border-radius: 10px;
+      margin: 10px auto;
+      line-height: 200px;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+  <script>
+    window.onload =function(){
+      const btn01 = document.getElementById('btn01')
+      const box1 = document.getElementById('box1')
+      btn01.onclick = function(){
+        box1.style.backgroundColor = 'red'
+      }
+    }
+  </script>
+  </head>
+<body>
+  <div id='box1'>我是一个盒子</div>
+  <button id='btn01'>点击我变色</button>
+</body>
+</html>

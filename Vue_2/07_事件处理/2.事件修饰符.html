@@ -1,0 +1,80 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  .box1{
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    background-color: red;
+  }
+  .box2{
+    height: 100px;
+    height: 100px;
+    background-color: blue;
+  }
+ /*  Vue中的事件修饰符
+    1.prevent:阻止默认事件（a的默认事件是跳转，scrool默认事件是滚筒条滚动） 
+    2.stop:阻止冒泡
+    3.once:事件只会触发一次
+    
+    补充：
+    4.capture:使用事件的捕获模式，会在捕获阶段就会触发事件
+    5.self:只有event.target是当前操作的元素才会触发事件
+      如果点击box2，如果开启了冒泡，box1的事件也会因为冒泡而触发，此时event.target只指向了box2，尽管Box1的事件
+      也被触发，若要不触发box1,给Box1，修饰self
+    6.passive:事件的默认行为执行完后才会执行回调函数内的代码
+      scrool的事件是鼠标滚轮滚动，默认行为就是让滚动条滚动
+      wheel的事件是滚动条滚动,默认行为就是???
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    prevent
+    <a href="http://www.baidu.com" @click.prevent='showAlert'>点击</a>
+    <hr>
+    stop:点击2--冒泡的情况下，先显示2，再1
+    <div class="box1" @click="show('box1')">
+      box1
+      <div class='box2' @click.stop="show('box2')">
+        box2
+      </div>
+    </div>
+    <hr>
+    once
+    <a href="javascript:;" @click.once='showAlert'>只会触发一次</a>
+    <hr>
+    capture:点击2--先显示1，再2
+    <div class="box1" @click.capture="show('box1')">
+      box1
+      <div class='box2' @click="show('box2')">
+        box2
+      </div>
+    </div>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    methods:{
+      showAlert(){
+        alert('警告框')
+      },
+      showMsg(){
+        console.log('Hello')
+      },
+      show(a){
+        alert(a)
+      }
+    }
+  })
+</script>
+</body>
+</html>

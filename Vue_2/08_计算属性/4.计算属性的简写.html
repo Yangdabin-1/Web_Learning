@@ -1,0 +1,42 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    当只需读取计算属性时且不需要修改计算属性时，可以简写，不写setter
+      fullName函数本身就是getter函数
+  
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+  姓:<input type="text" v-model="firstName"><br>  
+  名:<input type="text" v-model="secondName"><br>
+  姓名:<span>{{fullName}}</span>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      firstName:'张',
+      secondName:'三'
+    },
+    computed:{
+      fullName(){//fullName函数本身就是getter函数
+          return this.firstName + '-' + this.secondName
+      }
+      //计算属性不能创建异步任务
+      //因为计算后的属性值是通过返回值而来的，不能别异步嵌套或嵌套异步
+    }
+  })
+</script>
+</body>
+</html>

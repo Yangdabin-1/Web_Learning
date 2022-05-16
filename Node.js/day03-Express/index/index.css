@@ -1,0 +1,10 @@
+#box1{
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+      border-radius: 10px;
+      margin: 10px auto;
+      line-height: 200px;
+      text-align: center;
+      font-size: 30px;
+    }

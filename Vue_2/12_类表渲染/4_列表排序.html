@@ -1,0 +1,64 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 列表排序
+    1.排序：
+      arr.sort((a,b)=>{
+              return a-b   返回正值，交换位置  返回负值/0 不交换位置
+      })
+
+    2.思路：从过滤好后的数组进行排序
+  */
+</style>
+<script src='../JS/vue.js'></script>
+</head>
+<body>
+  <div id="root">
+    <input type="text" placeholder="input name" v-model="keyWord"> <!--双向绑定关键词-->
+    <button @click="sortstyle = 0">原顺序</button>
+    <button @click="sortstyle = 1">自上而下升序</button>
+    <button @click="sortstyle = 2">自上而下降序</button>
+    <ul>
+      <li v-for='p of newpersons':key='p.id'>{{p.name}}-{{p.age}}-{{p.sex}}</li>
+    </ul>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:"#root",
+    data:{
+      keyWord:'',
+      persons:[
+        {id:"01",name:"周杰伦",age:25,sex:"男"},
+        {id:"02",name:"张杰",age:43,sex:"男"},
+        {id:"03",name:"飞伦海",age:33,sex:"男"},
+        {id:"04",name:"张雨绮",age:35,sex:"女"}
+      ],
+      sortstyle:0
+    },
+    computed:{
+      newpersons(){
+        //不先返回过滤好的数组，要返回的是过滤好且选择排序模式的数组
+        const resultarr = this.persons.filter((p)=>{  //返回的是过滤后的数组
+             return p.name.indexOf(this.keyWord) !== -1
+          })
+          //不需要排序的话，跳过此阶段，就直接返回结果数组
+        if(this.sortstyle){
+          resultarr.sort((a,b)=>{
+            //判断需要排序后，在判断选择的是升序还是降序
+            return this.sortstyle === 1 ? a.age-b.age : b.age-a.age
+          })
+        }
+        return resultarr
+      }
+    }
+  })
+</script>
+</body>
+</html>

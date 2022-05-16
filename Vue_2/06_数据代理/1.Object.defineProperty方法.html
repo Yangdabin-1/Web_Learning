@@ -1,0 +1,44 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title> Object.defineProperty</title>
+<style></style>
+</head>
+<body>
+<!--  -->
+<script>
+    let number = 10
+    let person = {
+      name : 'lily',
+      // age: 18  此种方法age可修改，枚举，删除  
+      //age:number  可行，但如果后期number会变化，但age不会变化
+    }
+    //通过对象方法控制属性 
+    //这种方法创建的属性，在控制台里是浅色的，此种方法age默认不可修改，枚举，删除
+    Object.defineProperty(person,'age',{
+      //其中几个基本的配置项
+      // value : 18, //属性值
+      // enumerable:true, //属性是否可以被枚举，默认false
+      // writable:true, //属性是否可以被修改，默认false
+      // configurable:true,//属性是否可以被删除，默认false
+
+      //别的配置项
+      //当属性age被读取时(person.age)，get函数（getter）就会被调用，get的返回值就是为age的值
+      get(){
+        console.log("age属性被读取了")
+        return number
+      },
+      //当属性age被修改时(修改方式：person.age=30)，set函数（setter）就会被调用
+      set(value){
+        console.log("age属性被修改了")
+        number = value
+      }  
+    })
+    
+</script>
+</body>
+</html>

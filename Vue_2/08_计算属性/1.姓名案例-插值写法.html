@@ -1,0 +1,31 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style></style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <!-- 插值语法：双向绑定 -->
+    同步显示修改后的姓名<br>
+  姓:<input type="text" v-model="firstName"><br>  
+  名:<input type="text" v-model="secondName"><br>
+  姓名:<span>{{firstName}} - {{secondName}}</span>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      firstName:'张',
+      secondName:'三'
+    }
+  })
+</script>
+</body>
+</html>

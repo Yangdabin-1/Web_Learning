@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+</head>
+<body>
+  <button id="btn1">发送GET请求</button>
+  <button id="btn2">发送POST请求</button>
+  <script>
+    const btn1 = document.getElementsByTagName('button')[0]
+    const btn2 = document.getElementsByTagName('button')[1]
+    axios.defaults.baseURL = 'http://127.0.0.1'
+    btn1.onclick = function(){
+      axios.get('/api/get',{
+        params:{
+          a : 10,
+          name :"张三"
+        },
+
+      }).then((result)=>{
+        console.log(result)
+      })
+    }
+    btn2.onclick = function(){
+      axios.post('/api/post',{
+        name:'李四', 
+        age:88
+      }).then((result)=>{
+        console.log(result)
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    条件渲染：有条件的进行渲染
+    1.v-show="布尔值/返回布尔值的表达式"
+      原理：设置某个元素的display为none
+      适用：元素需要频繁切换
+
+    2.v-if="布尔值"
+      原理:直接删除/增加某个元素节点
+      适用：元素不需要频繁切换(不用频繁增删而影响性能)
+      其他：
+        - 可以使用if+else if + else,但是结构中间不能打断
+        - 当需要用一个条件渲染多个元素时可以配合template标签（不会影响html结构）
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1 v-show="true">我的名字是:{{name}}</h1>
+    <h3>n的值为:{{n}}</h3>
+    <button @click="n++">点击n自增</button>
+
+    <div v-if='n === 1'>Angular</div>
+    <div v-else-if='n === 2'>React</div>
+    <div v-else-if='n === 3'>Vue</div>
+    <div v-else='n === 3'>NOOOOOO</div>
+
+    <!-- 一个条件渲染多个元素 -->
+    <div v-if='n === 2'> <!-- 这样会破坏结构 -->
+      <h3>A</h3>
+      <h3>B</h3>
+      <h3>C</h3>
+    </div>
+    <template v-if='n === 3'> <!-- 这样不会破坏结构，只能配合if  -->
+    <h3>1</h3>
+    <h3>2</h3>
+    <h3>3</h3>
+   </template>
+ 
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:"#root",
+    data:{
+      name:"天霸",
+      n:1
+    }
+  })
+</script>
+</body>
+</html>

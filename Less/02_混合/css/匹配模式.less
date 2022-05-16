@@ -1,0 +1,12 @@
+// 引入封装好的三角样式
+@import url("./trangle.less");
+
+.box1 {
+  // 匹配模式，通过第一位标识符来选择 选择器
+  .trangle(L,red);
+  
+  //&：代表当前选择器的夫选择器
+  &:hover{
+    .trangle(L,pink);
+  }
+}

@@ -1,0 +1,53 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*  
+    MVVM:
+      -M(model):对应data中的数据----->data
+      -V(view):对应模板----->DOM
+      -VM(view-model):对应vue的实例对象 ----->Vue
+    
+    为什么模板中的插值语法里能使用到data里的键名?
+      不是因为data里有这个键名,而是因为vue实例对象里有这个属性
+    
+    一般把实例对象的名字写为vm
+
+    发现:
+      1.data中的属性,最后都会出现在vm身上(涉及到数据代理)
+      2.vm+vm的原型对象身上所有的属性,都可以在vue模板上使用
+  
+    流程:
+      第一步:模板------->vm(进行DOM监听)-------->data
+      第二步:data------->vm(进行data绑定)-------->模板
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">  <!--模板-->
+    <h1>学校名字:{{name}}</h1>
+    <h1>学校地址:{{address}}</h1>
+    <h1>测试一:{{1+1}}</h1>
+    <h1>测试二:{{$el}}</h1>
+    <h1>测试三:{{_c}}</h1>
+    <h1>测试四:{{$delete}}</h1>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({  //vue实例:vm
+    el:'#root',
+    data :{   //data
+      name:'宁大科院',
+      address:'慈溪'
+    }
+  })
+  console.log(vm)
+</script>
+</body>
+</html>

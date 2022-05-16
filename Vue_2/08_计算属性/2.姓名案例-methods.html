@@ -1,0 +1,38 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style></style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+  姓:<input type="text" v-model="firstName"><br>
+  名:<input type="text" v-model="secondName"><br>
+  <!-- 插值语法+回调函数
+    methods方法，每次解析模板，都会重新调用fullName函数，效率低
+  -->
+  姓名:<span>{{fullName()}}</span>   <!-- 插入的是函数调用后的返回值 -->
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      firstName:'张',
+      secondName:'三'
+    },
+    /* 回调函数 */
+    methods:{
+      fullName(){
+        return this.data.firstName + '-' + this.secondName
+      }
+    }
+  })
+</script>
+</body>
+</html>

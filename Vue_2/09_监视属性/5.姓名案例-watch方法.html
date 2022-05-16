@@ -1,0 +1,57 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    watch vs computed
+    1.computed能实现的功能，watch也可以
+    2.computed无法执行异步任务，watch可以
+
+    vue中函数创建原则（this指向vm）
+    1.vue管理的函数，用普通函数创建
+    2.不被vue管理的函数（定时器的回调，ajax的回调，promise的then）,要用箭头函数
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+  姓:<input type="text" v-model="firstName"><br>  
+  名:<input type="text" v-model="secondName"><br>
+  姓名:<span>{{fullName}}</span>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      firstName:'张',
+      secondName:'三',
+      fullName:'张-三'
+    },
+    watch:{
+      //监视姓
+      firstName(newvalue){
+        //姓改变-->全名=新的姓+旧的名
+        setTimeout(() => {  //这里的定时器只能用箭头函数，this->vue 如果不用箭头函数，this就会->window
+          // 定时器是由window调用的
+          this.fullName = newvalue +'-'+this.secondName
+        }, 1000);
+        
+      },
+      //监视名
+      secondName(newvalue){
+        //名改变-->全名=旧的姓+新的名
+        this.fullName = this.firstName +'-'+newvalue
+      }
+    }
+    
+  })
+</script>
+</body>
+</html>

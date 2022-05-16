@@ -1,0 +1,42 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    如何动态改变数组的元素
+      1.直接通过索引更改数组的数据，页面并不会响应式变化，因为这种方式不是通过set和get实现监视的
+        数组的索引是没有getter和setter（比如数组的1项---1:(...)   这个1是没有getter/setter）
+      2.如何让vue监视到修改数组的行为并且有响应式呢？
+        - 通过对数组整体的改变：利用数组的方法（push,shift,unshift,reverse...等），会影响原数组的方法
+      3.实现原理：
+        - 利用了数组的方法，但是 hobby.push !==  Array.prototype.push
+          虽然hobby也是数组，但他的方法不等于Array原型上的方法，而是包裹而来的方法
+        - 1.hobby的push,是vue自己创建的，但他的方法实现是从Array原型上对应的方法调用而来的，然后对数组进行更新
+        - 2. 然后再解析模板,对页面进行更新
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>爱好</h1>
+    <ul>
+      <li v-for="(h,index) of hobby" :key="index">{{h}}</li>
+    </ul> 
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+        hobby:['running','swimming','basketball']
+    }
+  })
+</script>
+</body>
+</html>

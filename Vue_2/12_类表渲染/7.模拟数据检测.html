@@ -1,0 +1,52 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style>
+  /* 
+  模拟的是数据劫持（data加工的过程）
+    加工的方法：通过监视函数实现，监视函数通过.Object.defineProperty方法实现
+  */
+</style>
+<script>
+  //1.创建data
+  let data={
+    name:"hello",
+    age:13
+  }
+  //2.创建一个监视的实例对象
+    let obs = new Observer(data)
+    console.log(obs) 
+  //3.定义监视函数
+  function Observer(obj){
+    //1-获取监视对象（data）的所有键名
+    let keys = Object.keys(obj)
+    //对每个键名进行操作
+    keys.forEach((k)=>{
+    //2-通过this给实例对象（obs）添加键名，并设置setter/getter
+      Object.defineProperty(this,k,{
+        get(){
+          return obj[k]
+        },
+        set(newvalue){
+          console.log(`${k}被修改了`)
+          obj[k] = newvalue
+        }
+      })
+    })
+  }
+  //4.模拟一个vue实例对象
+  let vm = {}
+  //5.数据加工（劫持）
+  data = obs
+  vm._data = data
+
+</script>
+</head>
+<body>
+</body>
+</html>

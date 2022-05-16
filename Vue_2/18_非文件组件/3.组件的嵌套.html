@@ -1,0 +1,91 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    组件可以嵌套
+      - 深度越深的组件，越要写在上方
+      - app组件是vm之下，其他组件之上
+  
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root"></div>
+<script>
+  Vue.config.productionTip = false
+  const student = {
+    template : `
+      <div>
+        <h3>学生的信息</h3>
+        <h3>学生的名字{{name}}</h3>
+        <h3>学生的年龄{{age}}</h3 >
+      </div>
+    `,
+    data(){
+      return {
+        name:'张三',
+        age : 18
+      }
+    }
+  }
+  const school = {
+    template:`
+      <div>
+        <hello></hello>
+        <h3>学校的信息</h3>
+        <h3>学校的名字:{{name}}</h3>
+        <h3>学校的地址{{address}}</h3><hr>
+        <student></student> 
+      </div>
+    `,
+    data(){
+      return {
+          name:'宁大科院',
+          address:'慈溪'
+      }
+    },
+    components:{
+      student
+    }
+  }
+  const hello = {
+    template : `
+      <div>
+        <h1>hello{{name}}</h1>  
+      </div>
+    `,
+    data(){
+      return {
+        name:'世界'
+      }
+    }
+  }
+  const app = {
+    template : `
+     <div>   
+      <school></school>
+      <hello><hello>  
+      </div>      
+    `,
+    components:{
+      school,
+      hello
+    }
+  }
+  const vm = new Vue({
+    el:"#root",
+    template : `<app></app>`,
+    components:{
+      app
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  /* 
+    include => 指定需要编译的ts文件的路径
+    ** => 所有文件夹
+    * => 所有文件
+  */
+  "include": [
+    "./src/**/*"
+  ],
+  // exclude => 指定不需要编译的ts文件的路径
+  // 默认值是 => [node_moudles , bowser_components ...]
+  "exclude":[
+    "./src/noCompile/1.ts"
+  ],
+  // 当需要引入其他配置文件里的配置是 ,可以用 extends配置项进行引入
+  "extends": "./config/1.json",
+  // 指定编译某些ts文件 => 一般只有ts文件少时,才会使用到这个配置
+  "files": [
+    "./src/needCompile/1.ts",
+    "./src/needCompile/2.ts"
+  ],
+
+  // !!!编译器的选项  => 作用:决定编译器如何对TS进行编译
+  "compilerOptions": {
+    // 将ts 编译成哪个 ES版本
+    "target":"ES2015",
+    // 用到的模块化将编译成哪个版本 => "CommonJS", "AMD", "System", "ES6", "ES2015", "ES2020", "ESNext", "None", "ES2022", "Node16", "NodeNext
+    "module": "System",
+    // 指定项目中需要用到的库 => ES.. , dom , bom ...
+    // "lib":[]
+    // 指定ts 编译后,存放的文件夹路径
+    "outDir": "./js",
+    // 指定编译后的js , 统一合并到哪个js文件
+    "outFile": "./js/app.js",
+    // 是否需要 编译js文件,默认false
+    "allowJs":false,
+    //是否需要对js ,进行ts的语法检查 , 默认false
+    "checkJs":false,
+    // 是否需要取消 编译注释,默认fasle
+    "removeComments": false,
+    // 不生成编译后的js文件 => 一般用于需要ts语法检查,但不需要编译的情况
+    "noEmit":false,
+    // js 有语法不规范时 ,是否要编译
+    "noEmitOnError": false,
+
+    // 所有严格模式的总开关
+    "strict": false,
+    // 是否对编译后的js开启严格模式 => 语法更严格 => 如果js里使用了模块化,会自动开启严格模式
+    "alwaysStrict":false,
+    // 不允许有隐式的any出现 => 不指定的类型默认就是any
+    "noImplicitAny": false,
+    // 不允许有不明确类型的this => this执行有时是 window / object
+    "noImplicitThis": false,
+    // 是否严格检查空值 ==> 如果对一个空值进行操作,是否会报错
+    "strictNullChecks": false
+  }
+}

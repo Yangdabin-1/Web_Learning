@@ -1,0 +1,55 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*  实现：自定义指令，让其绑定的input元素自动获取焦点
+
+    函数写法相当于只有bind和updata，少了一个inserted.而给输入框设置获取焦点和获取父元素，需要在Inserted中进行
+    那么函数的写法的适用是分情况的 
+
+
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3 v-once>a初始的值:{{a}}</h3>
+    <h3>a现在的值:{{a}}</h3>
+    <button @click="a++">a自增</button>
+    <hr>
+    <input type="text" v-foucus="a">
+
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      a:1
+    },
+    directives:{
+     foucus:{
+       //被绑元素和指令绑定时后(一开始)
+       bind(element,binding){
+          element.value = binding.value
+       },
+       //被绑元素插入页面时
+       inserted(element,binding){
+          element.focus()
+       },
+       //指令所在模板被重新解析时
+       update(element,binding){
+          element.value = binding.value
+       }
+     }
+    }
+  })
+</script>
+</body>
+</html>

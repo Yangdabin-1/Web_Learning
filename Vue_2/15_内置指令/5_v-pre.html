@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    v-pre
+      1.添加v-pre的节点，不会vue所解析
+      2.所以可以把v-pre添加给不需要vue解析的节点，可以提升性能
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3 v-pre>呜呜呜</h3>
+    <h3 v-pre>a的初始值{{a}}</h3>
+    <h3>a的新值{{a}}</h3>
+    <button @click="add">点击a++</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      a:1
+    },
+    methods: {
+      add(){
+        this.a++
+      }
+    }
+  })
+</script>
+</body>
+</html>

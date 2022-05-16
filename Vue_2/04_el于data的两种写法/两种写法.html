@@ -1,0 +1,53 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    el和data两种写法:
+    el:
+      1.对象式写法:再创建vue实例时就写好el
+      2.函数式写法:实例外,通过实例的方法(由其原型对象继承而来的)写好  v1.$mount('#id')
+
+    data:
+      1.对象式写法:再创建实例时写好
+      2.函数式写法:实例里写好---data : function(return{name:'lily'})
+        学习组件时,必须要用函数式写法
+
+    Vue管理的函数的原则(data就是这种函数):函数不能用箭头函数创建,不然this会从vue变成window
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>我的名字是:{{name}}</h1>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let v1 = new Vue({
+    // el:"#root" 
+
+    data:{
+      name:'百度'
+    }
+    // //函数式写法
+    // data : function(){
+    //   name:'百度'
+    // },
+    // //函数简便写法
+    // data(){
+    //   return{
+    //   name:'百度'
+    //   }
+    // }
+  })
+  v1.$mount('#root');
+  
+</script>
+</body>
+</html>`

@@ -1,0 +1,20 @@
+
+// @_代表下方每一个trangle选择器都会添加这个
+.trangle(@_,@color){
+	width: 0px;
+	height: 0px;
+	border: 50px solid red;
+}
+
+.trangle(L,@color){
+	border-color: transparent  transparent transparent @color;
+}
+.trangle(R,@color){
+	border-color: transparent @color transparent transparent ;
+}
+.trangle(T,@color){
+	border-color:@color  transparent transparent transparent ;
+}
+.trangle(BO,@color){
+	border-color:  transparent transparent @color transparent ;
+}

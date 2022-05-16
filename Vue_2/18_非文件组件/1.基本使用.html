@@ -1,0 +1,115 @@
+<!Doctype HTML>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+  <title>Vue</title>
+  <style>
+    /* 
+    组件：实现局部功能 代码和资源的集合
+    一.Vue使用组件的三大步骤
+      1.定义组件（创造全局/局部组件方式一样）
+      2.注册组件（注册全局组件在全局内，注册局部组件在vue内）
+      3.使用组件(在对应的模板内，使用组件标签)
+
+    二.如何定义一个组件
+      1.在vue外创建一个组件，创建方式和创建vue实例类似
+        - 但是在组件中不能写el，因为el由vm决定
+        - data不能用对象写法（data指向一个对象），而是用函数写法.避免组件别复用时，数据会存在引用关系
+      2.在组件中的模板结构，可以用template配合模板字符串创建
+    
+    三.注册组件
+      - 全局： Vue.component('组件名',组件)
+      - 局部： 在vm的配置项components:{组件一，组件二}
+  */
+  </style>
+  <script src='../JS/vue.js'> </script>
+</head>
+
+<body>
+  <div id='root'>
+    <school></school>
+    <hr>
+    <student></student>
+    <hr>
+    <hello></hello>
+  </div>
+  <script>
+    Vue.config.productionTip = false
+    // 1.创建组件school
+    let school = Vue.extend({
+      template: `
+      <div>
+        <h3>学校信息</h3>
+        <h1>学校名称:{{name}}</h1>
+        <h1>学校地址:{{address}}</h1>
+        <button @click="tip">点击提示</button>
+      </div>
+    `,
+      data() {
+        return {
+          name: '宁大科院',
+          address: '慈溪'
+        }
+      },
+      methods: {
+        tip() {
+          alert(this.name)
+        }
+      },
+    })
+    // 1.创建组件student
+    let student = Vue.extend({
+      template: `
+      <div>
+        <h3>学生信息</h3>
+        <h1>学生名称:{{name}}</h1>
+        <h1>学生年龄:{{age}}</h1>
+        <button @click="tip">点击提示</button>
+      </div>
+    `,
+      data() {
+        return {
+          name: '张三',
+          age: 23
+        }
+      },
+      methods: {
+        tip() {
+          alert(this.name)
+        }
+      },
+    })
+    
+    //1.创建全局组件hello
+    let hello = Vue.extend({
+      template: `
+      <div>
+        <h3>hello{{name}}</h3>
+      </div>
+    `,
+      data() {
+        return {
+          name: '世界'
+        }
+      },
+    })
+    //2.注册全局组件
+    Vue.component('hello', hello)
+    
+    new Vue({
+      el: '#root',
+      //2.注册局部组件
+      components: {
+        //组件名:组件
+        school,
+        student,
+      }
+    })
+  </script>
+</body>
+
+</html>

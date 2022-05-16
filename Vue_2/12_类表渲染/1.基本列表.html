@@ -1,0 +1,67 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    v-for:
+    1.用于展示列表数据
+    2.常用:数组，对象
+    3.动态获取key，key为节点(例如每个li)的唯一标识
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3>遍历数组(人员列表)</h3>
+    <ul>
+      <li v-for ="p of Persons">{{p.name}}-{{p.age}}</li>
+    </ul>
+    <hr>
+    <h3>遍历数组(显示参数)</h3>
+    <ul>
+      <li v-for ="(p,index) of Persons" :key="index">{{p.name}}-{{p.age}}</li>
+    </ul>
+    <hr>
+    <h3>遍历对象(汽车信息)</h3>
+    <ul>
+      <li v-for ="(value,key) of car" :key="key">{{key}}-{{value}}</li>
+    </ul>
+    <hr>
+    <h3>遍历字符串(字符串)</h3>
+    <ul>
+      <li v-for ="(value,index) of str" :key="index">{{value}}-{{index}}</li>
+    </ul>
+    <h3>遍历数字</h3>
+    <ul>
+      <li v-for ="(value,index) of 5" :key="index">{{value}}-{{index}}</li>
+    </ul> 
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data(){
+      return {
+        Persons:[
+        {id:'01',name:'lily',age:13},
+        {id:'02',name:'jack',age:25},
+        {id:'03',name:'Nace',age:11}
+      ],
+        car:{
+          name:'BWM',
+          price:'$30000',
+          color:"red"
+      },
+      str:'hello'
+    }
+    }
+  })
+</script>
+</body>
+</html>

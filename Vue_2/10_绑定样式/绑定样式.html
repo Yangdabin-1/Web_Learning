@@ -1,0 +1,108 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  .basic{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  .happy{
+    background-color: rgb(109, 221, 109);
+  }
+  .sad{
+    background-color: rgb(255, 0, 0);
+  }
+  .normal{
+    background-color: rgb(246, 250, 0);
+  }
+
+  .atguigu1{
+    font-size: 30px
+  }
+  .atguigu2{
+    box-shadow:15px 15px 20px blue;
+  }
+  .atguigu3{
+    border-radius: 10px 10px;
+  }
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<!-- 
+    绑定样式：
+    1.class样式
+      - 字符串写法：放类名不确定时，要动态获取-----属性:"样式名" 可以随时更改
+      - 数组写法：放类名数量不确定，名字也不确定时------通过数组的push和shift，添加/删除数据
+      - 对象写法：当类名数量/名字确定时，考虑要不要开启某个样式时------类名:true/false 开/关
+
+
+    2.style样式
+      - 对象写法:style='{fontSize:xxx}'------类名要用驼峰
+        样式其实是键值对，当值需要动态获取时，记得加this;当值时固定时，要加"",能够区分属性值是属性/字符串
+      - 数组写法：:style='[styleobj1,styleobj2]'---里面的数据就都是样式对象
+ -->
+<body>
+  <div id="root">
+    <!-- 1.绑定class样式，用字符串 -->
+    <div class='basic' :class='mood'>test1</div><br>  <!--通过vue-->
+    <div class='basic' :class='"happy"'>test2</div><br><!--直接写表达式-->
+    <!-- 2.绑定class样式，用数组 -->
+    <div class='basic' :class='classArr'>test3</div><br><!--通过vue-->
+    <div class='basic' :class='["atguigu1","atguigu2","atguigu3"]'>test</div><br><!--直接写表达式-->
+    <!-- 3.绑定class样式，用对象 -->
+    <div class='basic' :class='classObj'>test4</div><br><!--通过vue-->
+    <div class='basic' :class='{atguigu3:true,sad:true}'>test5</div><br><!--直接写表达式-->
+
+
+    <!-- 4.绑定style样式,用对象-->
+    <div class='basic' :style='{fontSize: fsize +"px",fontStyle:"italic"}'>test6</div><br>
+    <div class='basic' :style='styleobj1'>test7</div><br>
+    <!-- 5.绑定style样式,用数组-->
+    <div class='basic' :style='styleArr'>test8</div><br>
+    <div class='basic' :style='[styleobj1,styleobj2]'>test9</div><br>
+
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+
+      //字符串
+      mood:'normal',
+
+      //数组
+      classArr:["atguigu1","atguigu2","atguigu3"],
+
+      //对象
+      classObj:{
+        atguigu1:true,
+        atguigu3:true,
+        happy:true
+      },
+
+      //可以具体修改style值，注意单位
+      fsize:30,
+      //对象
+      styleobj1:{
+        // fontSize: this.fsize +"px"
+        backgroundColor:"#bfa"
+      },
+      styleobj2:{
+        fontStyle:"italic"
+      },
+      //数组
+      styleArr:[{backgroundColor: "rgb(255, 123, 140)"},{fontStyle: "italic"}],
+  
+    },
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*模板语法分为两大类:
+  
+    1.插值语法:
+      可以用来解析标签体内容
+        {{***}}：***可以是属性，也可以是函数，也可以是函数调用
+        ***:可以来自于data，computed,参数
+
+    2.指令语法:
+      可以用来解析标签体
+      -标签体(标签体内容,标签体属性,绑定时间...)
+      -指令格式: v-???  (v-bind,v-if....)
+      -例子:(v-bind:)  bind(绑定)
+        省略写法---->只写冒号:
+        v-bind:href="***" ---->***也要写入表达式,也可以读到data里的所有属性
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>插值语法</h1>
+    <h3>我的名字:{{name}}</h3>
+    <hr>
+    <h1>指令语法</h1>
+    <a v-bind:href="web.url">我要访问网站:{{web.title.toUpperCase()}}</a>
+    <a :href="web.url"></a>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      name:'YWB',
+      web:{
+        url:'javascript:;',
+        title:'BaiDu'
+      }
+    }
+  })
+</script>
+</body>
+</html>

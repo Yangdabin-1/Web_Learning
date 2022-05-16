@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    v-once
+      1.v-once所在节点，在第一次动态渲染后，就不会在变化了
+      2.以后data在改变，也不会影响到once的节点中的属性了
+  
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3 v-once>a的初始值{{a}}</h3>
+    <h3>a的新值{{a}}</h3>
+    <button @click="add">点击a++</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:'#root',
+    data:{
+      a:1
+    },
+    methods: {
+      add(){
+        this.a++
+      }
+    }
+  })
+</script>
+</body>
+</html>

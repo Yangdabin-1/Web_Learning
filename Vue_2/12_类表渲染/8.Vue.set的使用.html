@@ -1,0 +1,74 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    给data里的某个属性再添加响应式属性，通过sent可以
+    但如果要往给 根数据对象(data)/vm里添加响应式属性,通过sent不可以
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>学校信息</h3>
+    <!-- <button @click="addleader">动态给给学校添加校长信息</button> -->
+    <h3>学校名字-{{name}}</h3>
+    <h3>学校地址-{{address}}</h3>
+    <!-- <h3 v-if="leader">学校地址-{{leader}}</h3> -->
+    <h3></h3>
+    <hr>
+    <button @click='addsex'>动态添加学生的性别信息</button>
+    <h1>学生姓名-{{student.name}}</h1>
+    <h1>学生年龄-{{student.age}}</h1>
+    <!-- v-if：如果有这个属性就显示，无就不显示 -->
+    <h1 v-if="student.sex">学生性别-{{student.sex}}</h1>
+    <h1>爱好</h1>
+    <ul>
+      <li v-for="(h,index) of student.hobby" :key="index">{{h}}</li>
+    </ul>
+    <hr>
+    <h3>朋友的信息</h3>
+    <ul>
+      <li v-for="(p,index) in student.friends" :key="index">名{{p.name}}-年龄{{p.age}}</li>
+    </ul>
+
+    
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      name:'宁大科院',
+      address:'慈溪',
+      student:{
+        name:'张三',
+        age:18,
+        friends:[
+          {name:'小红',age:19},
+          {name:'小李',age:17} 
+        ],
+        hobby:['running','swimming','basketball']
+      }
+    },
+    methods:{
+      addsex(){
+        //1.通过vm.$set()添加
+        // vm.$set(this.student,"sex","男")
+        //2.通过Vue.set()添加
+        Vue.set(this.student,"sex","男")
+      }
+      // addleader(){
+      //   vm.$set()
+      // }
+    }
+  })
+</script>
+</body>
+</html>

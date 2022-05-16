@@ -1,0 +1,54 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*  
+    1.两种写法：指令名：配置对象  指令名：回调函数=（指令名(){}）
+
+    2.指令名称长时，在模板中用-命名;在vm中要用""包裹指令名
+    vm会把驼峰名字自动转成连续拼写的小写单词 
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <button @click="a++">a自增</button>
+    <h3>a现在的值:{{a}}</h3>
+    <h3 v-tens="a"></h3>
+    <input type="text" v-foucus="a">
+
+  </div>
+<script>
+  Vue.config.productionTip = false
+  
+  //全局自定义指令
+  Vue.directive('tens',function(element,binding){
+        element.innerText = ("a扩大十倍后:" +binding.value * 10)//扩大10倍数，并放在节点上
+      })
+
+  Vue.directive('foucus',{
+       bind(element,binding){
+          element.value = binding.value
+       },
+       inserted(element,binding){
+          element.focus()
+       },
+       update(element,binding){
+          element.value = binding.value
+       }
+     })
+  new Vue({
+    el:'#root',
+    data:{
+      a:1
+    }
+  })
+</script>
+</body>
+</html>

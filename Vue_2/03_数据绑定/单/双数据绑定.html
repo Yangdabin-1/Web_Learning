@@ -1,0 +1,46 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+   Vue中的数据一般有两种绑定方式
+      1.单向绑定(v-bind)
+        data--->x-bind--->value  value改变并不会影响data改变
+        数据从data流向value
+
+      2.双向绑定(v-model)
+        data<---->x-model<------->value  data和value会互相影响 
+        数据再data,value来回流动
+      
+      双向绑定一般应用表单元素上(input,select...),所以v-model可以简写
+        v-model:value ---->v-model
+  */
+  
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="input1">
+  单向绑定:
+  <input type="text" v-bind:value="name"><br>
+  双向绑定一:
+  <input type="text" v-model:value="name"><br>
+  双向绑定二:
+  <input type="text" v-model="name">
+</div>
+<script>
+  Vue.config.productionTip = false
+  new Vue({
+    el:"#input1",
+    data :{
+      name:'百度'
+    }
+  })
+</script>
+</body>
+</html>

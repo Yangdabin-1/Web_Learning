@@ -1,0 +1,56 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+ /* 
+    实现:透明度从0-1,循环变化,通过一个定时器去控制变化
+      - 在配置项（挂载）mounted中使用定时器
+  
+    生命周期:
+      1.又名:生命周期函数，生命周期钩子（需要的时候在勾来使用）
+      2.此类函数就是Vue在关键时刻帮开发者调用的一种特殊函数
+      3.生命周期函数的名字固定
+      4.生命周期函数中的this执行vm 或 组件实例对象
+ */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h3 :style="{opacity}">一段文字</h3>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:"#root",
+    data:{
+      opacity:1
+    },
+    /* 
+    什么时候调用mounted？
+      - 在vue完成模板的解析，并将初始的真实的DOM挂载在页面上时
+      - 而后面所有的再次解析模板后的此类操作叫做 更新页面
+    */
+
+    // mounted之前还有别的周期函数
+    mounted(){ 
+      setInterval(() => {
+        this.opacity -= 0.01
+        if(this.opacity <=0) this.opacity = 1
+      }, 16);
+    }
+    // mounted之后也有别的周期函数
+  })
+  //通过外部的定时器实现（不推荐）
+  // setInterval(() => {
+  //       vm.opacity -= 0.01
+  //       if(vm.opacity <=0) vm.opacity = 1
+  //     }, 16);
+</script>
+</body>
+</html>

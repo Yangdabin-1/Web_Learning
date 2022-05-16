@@ -1,0 +1,83 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    时间戳->具体事件：通过工具库 dayjs,引入标签
+
+    过滤器：对一个属性进行特定格式化后再显示
+      - 本质也是函数
+      - 可以作为插值语法,也可以作为指令语法（v-model不能使用）
+    语法：
+      1.使用新的配置项，fliters，再fliters里加入过滤器
+      2.再模板中用管道符连接数据和过滤器
+        {{数据 | 过滤器1 | 过滤器2}}
+      3.流程：
+        - 数据作为过滤器1的参数
+        - 过滤器1的返回值作为过滤器2的参数
+        - 过滤器2的返回值作为插值语法里的参数
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+<script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.0/dayjs.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h3>当前的时间戳是{{time}}ms</h3>
+
+    <!-- computed方法 -->
+    <h3>格式化之后:{{fmtTime}}</h3>
+
+    <!-- methods方法 -->
+    <h3>格式化之后:{{getFmtTime()}}</h3>
+
+    <!-- 局部过滤器 -->
+    <h3>局部过滤器之后:{{time | FmtTimer}}</h3>
+
+    <!-- 全局过滤器 -->
+    <h3>全局过滤器之后:{{time | FmtTimer2}}</h3>
+
+    <!-- 多个管道符 -->
+    <h3>多管道符之后，只截取年份:{{time | FmtTimer |slice}}</h3>
+  </div>
+  
+<script>
+  Vue.config.productionTip = false
+
+  //全局过滤器
+  Vue.filter('FmtTimer2',function(value){
+    return dayjs(value).format('YYYY+MM+DD HH:mm:ss')
+  })
+  new Vue({
+    el:"#root",
+    data:{
+      time:Date.now()
+    },
+    computed:{
+      fmtTime(){
+        return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
+      }
+    },
+    methods: {
+      getFmtTime(){
+        return dayjs(this.time).format('YYYY/MM/DD HH:mm:ss')
+      }
+    },
+    //局部过滤器
+    filters:{
+      FmtTimer(value){
+        return  dayjs(value).format('YYYY--MM--DD HH:mm:ss')
+      },
+      slice(value){
+        return value.slice(0,4)
+      }
+    }
+  })
+</script>
+</body>
+</html>

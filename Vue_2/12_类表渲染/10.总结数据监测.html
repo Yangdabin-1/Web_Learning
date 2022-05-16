@@ -1,0 +1,81 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    给data里的某个属性再添加响应式属性，通过sent可以
+    但如果要往给data/vm里添加响应式属性,通过sent不可以
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>学生信息</h1>
+    <hr>
+    <button @click="student.age++">年龄+1</button>
+    <button @click="addsex">添加性别属性</button>
+    <button @click.once="addf">列表首位添加朋友</button>
+    <button @click.once="changename">修改首位朋友的名字为张三</button>
+    <button @click.once="addh">添加一个爱好</button>
+    <button @click.once="deletesm">移除爱好中的抽烟</button>
+    <button @click.once="changeh">设置第一个爱好为开车</button>
+    <h3>学生姓名-{{student.name}}</h3>
+    <h3>学生年龄-{{student.age}}</h3>
+    <h3 v-if="student.sex">学生性别-{{student.sex}}</h3>
+    <h3>爱好</h3>
+    <ul>
+      <li v-for="(h,index) of student.hobby" :key="index">{{h}}</li>
+    </ul>
+    <h3>朋友的信息</h3>
+    <ul>
+      <li v-for="(p,index) in student.friends" :key="index">名:{{p.name}}-年龄:{{p.age}}</li>
+    </ul>
+
+    
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      student:{
+        name:'张三',
+        age:18,
+        friends:[
+          {name:'小红',age:19},
+          {name:'小李',age:17} 
+        ],
+        hobby:['running','swimming','basketball','smoking']
+      }},
+    methods:{
+      addsex(){
+        Vue.set(this.student,'sex','男')
+      },
+      addf(){
+        this.student.friends.unshift({name:'小天',age:13})
+      },
+      changename(){
+        this.student.friends.splice(0,1,{name:'张三',age:this.student.friends[0].age})
+      },
+      changeh(){
+        this.student.hobby.splice(0,1,'开车')
+      },
+      addh(){
+        this.student.hobby.unshift('开飞机')
+      },
+      deletesm(){
+        this.student.hobby = this.student.hobby.filter((p)=>{
+          return p !== 'smoking'
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

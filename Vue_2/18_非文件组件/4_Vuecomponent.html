@@ -1,0 +1,65 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    Vuecomponent:
+    
+                       const school = Vue.extend(options)
+
+
+
+
+
+
+
+      1.school组件本身就是一个Vuecomponent构造函数，这个函数不是程序员定义的
+        而是Vue.extend（返回值是一个Vuecomponent函数）生成的
+      
+      2.我们只需要写组件化标签<school></school>,Vue解析是会帮我们自动创建school组件的实例对象
+      
+      3.!!!!  每次调用vue.extend 返回的都是一个新的Vuecomponent
+
+      4.
+      组件配置中，this都是指向Vuecomponent实例对象(又称：组件实例对象)----简称vc  
+      Vue配置中，this都是指向Vue的实例对象----简称vm
+
+      5.一个重要的内置关系
+        vc的原型对象的原型对象 指向 Vue的原型对象
+        component.prototype.__proto__ == Vue.prototype
+        作用:让vc可以访问Vue原型上的所有属性和方法去·
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+  </div>
+<script>
+  Vue.config.productionTip = false
+  const school = Vue.extend({
+    name:'School',
+    data(){
+      return {
+          name:'宁大科院',
+          address:'慈溪'
+      }
+    },
+  })
+  new Vue({
+    el:"#root",
+    components:{
+      school
+    },
+  
+  })
+  console.log(school.prototype.__proto__ === Vue.prototype)
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+// box2 和box1 样式重合
+//普通混合
+// .boxstyle{
+// 	width: 50px;
+// 	height: 50px;
+// 	background-color: pink;
+// }
+
+// 无输出的混合
+// .boxstyle(){
+// 	width: 50px;
+// 	height: 50px;
+// 	background-color: pink;
+// }
+
+// 带参数的混合
+// .boxstyle(@color){
+// 	width: 50px;
+// 	height: 50px;
+// 	background-color: @color;
+// }
+
+//带默认参数的混合
+// 如果默认参数和形参混搭，实参需要写满,哪怕形参有默认参数
+.boxstyle(@h:50px,@w:50px,@color){
+	width: @h;
+	height: @w;
+	background-color: @color;
+}
+
+.box1{
+	width: 200px;
+	height: 200px;
+	border: 1px solid black;
+	// 混合
+	.box2{
+		.boxstyle(100px,100px,blue)
+	}
+	.box3 {
+		.boxstyle(100px,100px,pink)
+	}
+}

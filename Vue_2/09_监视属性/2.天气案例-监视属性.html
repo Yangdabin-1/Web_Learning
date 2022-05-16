@@ -1,0 +1,65 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /*
+    监视属性
+    1.当监视属性改变时，回调函数会自动调用 
+    2.只能监视vm里的属性
+    3.两种写法
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>今天天气很{{weather}}</h1>
+    <button @click='change'>切换天气</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      ishot:true
+    },
+    computed:{
+      weather(){
+        return this.ishot?'炎热':'凉爽'
+      }
+    },
+    methods: {
+      change(){
+        this.ishot = !this.ishot
+      }
+    },
+    // //监视属性第一种：写入新的配置项 watch：{}
+    watch:{
+      //设置需要监视的对象
+      ishot:{
+           //配置对象
+        immediate:true,//是否一开始就监视对象
+        //handler什么时候调用？监视对象修改的时候调用
+        handler(newvalue,oldvalue){ //新值和旧值
+          console.log('ishot被修改了:从'+ oldvalue+'-->'+newvalue)
+        }
+      }
+    }
+  })
+  //监视属性第二种：调用vm的方法，vm.$watch('监视对象'，'配置对象')
+  //对象里的key是字符串，使用ishot是字符串
+  // vm.$watch('ishot',{
+  //   immediate:true,//是否一开始就监视对象
+  //       //handler什么时候调用？监视对象修改的时候调用
+  //       handler(newvalue,oldvalue){ //新值和旧值
+  //         console.log('ishot被修改了:从'+ oldvalue+'-->'+newvalue)
+  //       }
+  // })
+</script>
+</body>
+</html>

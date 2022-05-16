@@ -1,0 +1,53 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='keywords' content='关键词'>
+  <meta name='description' content='描述'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Vue</title>
+<style>
+  /* 
+    事件的绑定：
+      1.在模板上利用指令语法绑定事件
+        - v-on:click="函数名"------->回调函数写在vm里
+        - @click="函数名"
+      2.回调函数：
+        - 不需要数据代理，所以不写在data里，而写在methods对象中，这个回调最终会显示在vm身上指向
+        - vm里的回调函数尽量不要用箭头函数，会影响vue的指向
+      3.事件可以传参数，可以用$event，给event占位
+  
+  */
+</style>
+<script src='../JS/vue.js'> </script>
+</head>
+<body>
+  <div id="root">
+    <h1>欢迎光临{{name}}</h1>
+    <button v-on:click="showData1">点击一下显示信息</button>
+    <button v-on:click="showData2">点击一下</button>
+    <button v-on:click="showData3('hello',$event)">点击一下</button>
+  </div>
+<script>
+  Vue.config.productionTip = false
+  let vm = new Vue({
+    el:'#root',
+    data:{
+      name:'baidu'
+    },
+    methods:{
+      showData1(){
+        alert("事件触发")
+      },
+      showData2(event){
+        alert(event.target.innerText)
+      },
+      showData3(a,event){
+        alert(a + event)
+      }
+    }
+  }
+  )
+</script>
+</body>
+</html>
