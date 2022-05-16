@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<style>
+	*{
+		margin : 0px;
+		padding : 0px;
+	}
+	#outter{
+		width : 200px;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	window.onload =function(){
+		var front = document.getElementById("front");
+		var behind = document.getElementById("behind");
+		var lunbo = document.getElementById("lunbo");
+		var lunboarr =["../IMG/1.jpg","../IMG/2.jpg","../IMG/3.jpg","../IMG/4.jpg","../IMG/5.jpg"];
+		var index = 0;
+		var p =document.getElementById("p"); 
+		p.innerHTML = "一共有"+lunboarr.length+"张，现在时第"+ (index+1) +"张";
+		
+		front.onclick = function(){
+			index--;
+			if(index<0){index+=lunboarr.length;}
+			lunbo.src = lunboarr[index];
+			p.innerHTML = "一共有"+lunboarr.length+"张，现在时第"+ (index+1) +"张";
+		}
+		behind.onclick = function(){
+			index++;
+			if(index>4){index-=lunboarr.length;}
+			lunbo.src = lunboarr[index];
+			p.innerHTML = "一共有"+lunboarr.length+"张，现在时第"+ (index+1) +"张";
+		}
+		
+		
+		
+	}
+</script>
+<body>
+	<div id="outter">
+		<p id="p"></p>
+		<img id="lunbo" src="../IMG/1.jpg" width="200px" height="200px">
+		<button id="front">上一张</button>
+		<button id="behind">下一张</button>
+	</div>
+</body>
+</html>

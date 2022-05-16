@@ -1,0 +1,38 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+  /* BigInt
+  用来对JS中最大的数值,再变大
+  */
+  let max = Number.MAX_SAFE_INTEGER
+  console.log(max)//最大数值:9007199254740991
+  console.log(max + 1)//9007199254740992
+  console.log(max + 2) ////9007199254740992
+  //发现最大值加了一后,就无法变更大,所以引入 大整型-BigInt
+
+  //创建方法一(数值+n)
+  let number1 = 23n
+  console.log(number1,typeof number1) //23n  bigint
+  
+  //创建方式二(BigInt函数)
+  let number2 = BigInt(23)
+  console.log(number2,typeof number2)
+
+  //如何使用(和大整型计算的数据必须也是大整型)
+  // let number3 = number2 + 1  
+  let number3 = number2 + BigInt(Number.MAX_SAFE_INTEGER)
+  console.log(number3) //9007199254741014n  相加成功
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

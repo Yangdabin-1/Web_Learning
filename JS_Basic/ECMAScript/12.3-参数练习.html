@@ -1,0 +1,72 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+   //判断偶数
+  function isO(num){
+	  return num % 2 == 0;
+	  //相等运算符返回的是布尔值
+	  }
+   document.write(isO(3));
+   document.write(isO(4));
+   
+   
+   //输出身份信息
+   function ID(name,age,addres,power){
+	   console.log("我是" + name +",我" + age + "岁了,我住" + addres +",我能力" + power);   
+   }
+   document.write(ID("孙悟空",1000,"花果山","一万"));
+   //此方法参数太多，易出错
+   
+   
+   
+   //可以将多个参数封装成一个对象
+   //参数可以是对象
+   function ID2(obj){
+	   console.log("我是" + obj.name +",我" + obj.age + "岁了,我住" +  obj.addres +",我能力" +  obj.power);
+   }
+   var obj1 = {
+	   name : "猪八戒",
+	   age : 800,
+	   addres : "高老庄",
+	   power : "一百"
+   };
+   document.write(ID2(obj1));
+   
+   
+   //参数也可以是函数,函数嵌套
+   function doubleF(OBJ){
+	   OBJ(obj1);
+	   //函数1（对象参数）
+	      
+   }
+   document.write(doubleF(ID2));
+   //函数2（函数1(对象参数)）
+   //doubleF(ID2（obj1）)
+   
+   
+   
+   
+	//开发常用，将匿名函数作为实参传递给函数
+   function fun(a){
+	   console.log("实参是"+ a);
+   }
+   fun(function(){alert("hello");});
+   
+   
+   //函数和函数（）
+   fun(isO);
+   //返回 整个函数对象
+   fun(isO(4));
+   //返回 函数返回的结果;
+   
+   
+  </script>
+</body>
+</html>

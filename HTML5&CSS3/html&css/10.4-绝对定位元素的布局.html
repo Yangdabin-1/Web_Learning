@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+ <style>
+   .box1{
+     width:400px;
+     height: 400px;
+     background-color: #dc143c;
+
+     position: relative;   /*此处开启定位是作为box2的绝对定位的参照物（即在大盒子中移动）*/
+   
+    }
+   /*开启绝对定位后，水平布局改变
+        父元素宽/高=left/top+margin+border+width+right/bottom
+        多了上下左右
+      若发生过度约束
+        width/margin/left/right若有auto，会自动调整
+   */
+   .box2{
+     width: 100px;
+     height: 100px;
+     background-color:cyan;
+
+     position: absolute; 
+
+     left: 0;
+     right: 0;    /*rigth/left默认值都是auto,但right优先*/
+     top:0;
+     bottom: 0;   /*同上，bottom优先*/ 
+
+     margin-left: auto;
+     margin-right: auto;/*水平居中*/
+     margin-top: auto;
+     margin-bottom: auto;/*垂直居中*/
+
+     }
+
+</style>
+<body>
+   <div class="box1">
+     <div class="box2"></div>
+   </div>
+</body>
+</head>
+</html>

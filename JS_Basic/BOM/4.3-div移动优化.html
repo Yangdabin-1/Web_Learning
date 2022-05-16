@@ -1,0 +1,119 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	* {
+		margin: 0;
+	}
+	#box1 {
+		width: 30px;
+		height: 30px;
+		background-color: #BBFFAA;
+		/* 开启绝对定位 */
+		position: absolute;
+	}
+	#box2 {
+		width: 30px;
+		height: 30px;
+		background-color:red;
+		/* 开启绝对定位 */
+		position: absolute;
+		top:100px;
+	}
+	#line {
+		height: 1000px;
+		border: 1px solid black;
+		position: absolute;
+		left: 0px;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		//1.实现点下按钮，盒子移动到固定位置
+		var btn01 = document.getElementById("btn01");
+		var btn02 = document.getElementById("btn02");
+		var btn03 = document.getElementById("btn03");
+		var btn04 = document.getElementById("btn04");
+		var box1 = document.getElementById("box1");
+		var box2 = document.getElementById("box2");
+		
+		/* 创建一个函数，实现动画 
+		参数:
+			-obj:操作的对象
+			-speed:变化的速度
+			-target:对象需要变化到哪个值为止
+			-value:需要变化的属性
+			-fun1:回调函数,在当前定时器停止时调用
+		*/
+	   
+	   function change(obj,speed,target,value,fun1){
+		   var time;
+		   //这里为什么要给定时器设置从对象的属性，要让每次对象的每个计时器都要不同
+		   clearInterval(obj.time);  
+		   // obj.style.left = obj.offsetLeft + 400 + "px";	
+			/*  -判断移动应该是向左还是向右 
+				-这个应该写在定时器外面，不然速度变成负值后，在进行一次定时，会再次取反
+				所以定时器开始前就要定下来
+			*/
+			//这里用来把width变成offsetWidth;
+		   var value2 = "offset" + value.charAt(0).toUpperCase()+value.slice(1);
+		   //如果目标比现在值小,那么就反向移动
+			if(target < obj[value2]){
+				speed = -speed;//取反
+			}
+			//开启定时
+			obj.time = setInterval(function(){
+				//设置移动
+				obj.style[value] = obj[value2] + speed + "px";	
+				//这里的判断条件注意
+				if(speed>0 && obj[value2] > target||speed<0 && obj[value2] < target){
+					obj.style[value] = target + 'px';
+					clearInterval(obj.time);
+					fun1();
+				}
+        console.log("23");
+			},100);
+			
+			
+	   }//函数
+		btn01.onclick = function(){
+			//这里可以无限嵌套,定义多个动画;如果无需动画,调用空匿名函数
+			change(box1,14,400,"width",function(){
+				change(box1,14,200,"height",function(){
+					change(box1,14,20,"top",function(){});
+				});
+			});
+		};
+		btn02.onclick = function(){
+			change(box1,14,30,"width",function(){
+				change(box1,14,30,"height",function(){
+					change(box2,14,100,"top",function(){});
+				});
+			});
+		};
+		btn03.onclick = function(){
+			change(box2,14,400,"left",function(){});
+		};
+		btn04.onclick = function(){
+			change(box2,14,400,"width",function(){});
+		};
+		
+	}
+</script>
+</head> 
+<body>
+<button id="btn01">移动到终点</button>
+<button id="btn02">移动到起点</button>
+<button id="btn03">移动box2</button>
+<button id="btn04">变宽</button>
+<br><br>
+<div id="box1"></div>
+<div id="box2"></div>
+<div id="line"></div>
+
+</body>
+</html>

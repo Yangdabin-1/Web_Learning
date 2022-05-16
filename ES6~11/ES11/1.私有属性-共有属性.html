@@ -1,0 +1,35 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+  class Person{
+    //公有属性
+    name
+    age
+    //私有属性：不能再外部被调用，只能再内部被调用
+    #money
+    constructor(name,age,money){
+      this.name = name
+      this.age = age
+      this.#money = money
+    }
+    sayMoney(){ //内部调用私有属性
+      console.log(this.#money)
+    }
+  }
+  let p1 = new Person('Lily',23,'$3000')
+  console.log(p1)
+  console.log(p1.name)
+  // console.log(p1.#money) //会报错
+  console.log(p1.sayMoney())
+</script>
+</head>
+<body>
+</body>
+</html>

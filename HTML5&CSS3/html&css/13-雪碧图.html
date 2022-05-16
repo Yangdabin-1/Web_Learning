@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*
+      加载网页时，浏览器先在网页其他内容，在加载外部内容（音频，图片）
+      未使用的外部内容不会加载，所以会有毫秒的闪顿
+      通过雪碧图（css-sprite）可以解决
+    */
+
+
+
+
+
+
+
+
+
+
+    .box1{
+      /*固定需要显示的盒子大小*/
+      width: 301px;
+      height: 151px;
+      border: 1px red solid;
+
+      /*设置背景图片*/ 
+      background-image: url(../bmp/xuebi.jpg);
+
+       /*通过设置背景图片位置  设置偏移量*/ 
+      background-position: -607px 0;
+
+      /*通过更改位置可以使一张图片在同一窗口，有不同的显示*/
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+  </div>
+</body>
+</html>

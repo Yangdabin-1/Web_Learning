@@ -1,0 +1,37 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+   let string1 = `
+ <ul>
+    <li>
+      <a>复仇者联盟</a>
+      <p>上映日期:2019/2/21</p>
+    </li>
+    <li>
+      <a>闪电侠</a>
+      <p>上映日期:2011/2/21</p>
+    </li>
+  </ul>
+ `
+ let reg1 = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs
+//  console.log(reg1.exec(string1))//只能获取一次匹配的字符串
+
+// 想要匹配多次的字符串
+let result = string1.matchAll(reg1)
+console.log(result) //发现result里有next,说明他可迭代,使用for...in遍历
+//遍历到v是数组,存储着(匹配的全部内容,提取的内容一,提取的内容二)
+for(let v of result){
+  console.log(v)//有两个数组
+}
+</script>
+</head>
+<body>
+</body>
+</html>

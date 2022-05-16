@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charest='utf-8'>
+  <meta name='keywords' content='aa'>
+  <meta name='description' content='aaaa'>
+  <title>relative</title>
+  <style>
+    div {
+      font-size: 60px;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      /*三个盒子都开启定位元素*/
+
+    }
+
+    .box1 {
+      background-color: blueviolet;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+      /*z-index:值越大,层级越高
+      层级一样时，优先选择靠下的元素
+      
+      */
+    }
+
+    .box2 {
+      background-color: rgba(20, 226, 37, 0.7);
+      top: 100px;
+      left: 100px;
+      z-index: 2;
+
+    }
+
+    .box3 {
+      background-color: blue;
+      top: 150px;
+      left: 150px;
+      z-index: 3;
+    }
+    .box4{
+      width: 50px;
+      height: 50px;
+      background-color: darkorange;
+      position:absolute;
+      font-size: 32px;
+      z-index:5;
+      /*祖先元素的层级再高也不会盖住后代元素*/
+    }
+  </style>
+
+<body>
+  <div class="box1">1</div>
+  <div class="box2">2</div>
+  <div class="box3">3
+    <div class="box4">4</div>
+  </div>
+</body>

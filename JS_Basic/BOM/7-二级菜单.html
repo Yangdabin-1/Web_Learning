@@ -1,0 +1,110 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title>
+ <link rel="stylesheet" type="text/css" href="../css/iconfont/css/all.css"/>
+</head> 
+<style type="text/css">
+	#meau {
+		width: 150px;
+		background-color: #aaffff;
+		margin: 0 auto;
+	}
+	.cancleMeau {
+		height: 20px;
+		overflow: hidden;
+		background-color: #99FF99;
+	}
+	.top {
+		display: block;
+		height: 20px;
+		line-height: 20px;
+		background-color: #aa55ff;
+		color:white;
+		font-size: 13px;
+		padding: 8px auto;
+		padding-left:10px;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+		font-size: 14px;
+		padding: 5px 0;
+		padding-left: 10px;
+	}
+	a:hover {
+		background-color: #ffaa00;
+	}
+
+</style>
+<script src="../js/tools.js" type="text/javascript"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var top = document.getElementsByClassName("top");
+		//定义一个变量，来保存打开的菜单
+		var currentOpenDiv = top[0].parentNode;
+		//为top设置单击响应函数，折叠父元素
+		for(var i =0;i<top.length;i++){
+			top[i].num = i;
+			top[i].onclick = function(){
+				
+				var parentDiv = this.parentNode;
+				//关闭/打开折叠
+				changeClass(parentDiv,"cancleMeau");
+				//改变箭头按钮
+				if(judgeClass(top[this.num],"fa-caret-down")){
+					deleteClass(top[this.num],"fa-caret-down");
+					addClass(top[this.num],"fa-caret-right");
+				}else{
+					deleteClass(top[this.num],"fa-caret-right");
+					addClass(top[this.num],"fa-caret-down");
+					}
+				
+				
+				//如果当前打开菜单是=之前关闭的菜单，则不用关闭之前的菜单
+				if(currentOpenDiv !=parentDiv){
+					//关闭之前打开的菜单
+					addClass(currentOpenDiv,"cancleMeau");
+				}
+				
+				//再把opendiv为当前打开的菜单
+				currentOpenDiv = parentDiv;
+			}
+		}
+	}
+</script>
+<body>
+<div id="meau">
+	<div>
+		<span class="top fas fa-caret-down">在线工具</span>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优</a>
+		<a href="javascript:;">图片</a>
+		<a href="javascript:;">图片</a>
+		<a href="javascript:;">图片</a>
+	</div>
+	<div class="cancleMeau">
+		<span class="top fas fa-caret-right ">支持我们</span>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+	</div>
+	<div class="cancleMeau">
+		<span class="top fas fa-caret-right">合作伙伴</span>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+	</div>
+	<div class="cancleMeau">
+		<span class="top fas fa-caret-right">测试电流</span>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+		<a href="javascript:;">图片优化</a>
+	</div>
+</div>
+</body>
+</html>

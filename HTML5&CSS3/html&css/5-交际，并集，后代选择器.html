@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交集选择器，并集选择器，后代选择器</title>
+  <style>
+  div.red {
+          color: red;
+          border: 1px solid black;
+         }    /* 交集选择器   类.class  */
+
+  .green,
+  .yellow {
+          font-size: 20px;
+          }   /* 并集选择器  .class1,.class2  tag1,tag2         尽量使用多类名写法 */
+
+  ul li p a {
+              color: blue;
+            }
+  ul li a {
+            color:red;
+         }
+  body a {
+        color: yellow;
+        }            /* 后代选择器 一般不超过四个*/
+  </style>
+</head>
+<body>
+  <div class="red">红色文字</div>
+  <div class="green">绿色文字</div>
+  <p class="yellow">黄色文字</p>
+
+  <ul>
+    <li><p><a href="#">链接1</a></p></li>
+    <li></li>
+    <li><a href="#">链接1</a></li>
+    <li></li>
+  </ul>
+  <a href="#">链接3</a>
+
+</body>
+</html>

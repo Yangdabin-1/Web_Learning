@@ -1,0 +1,76 @@
+ <!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>模板</title> 
+</head> 
+<body>
+ <!--对象：一种复合的数据类型，对象中可以保存多个不同类型的数据-->
+ <!-- 分类
+	1.内建对象
+		-ES标准中定义的对象
+		-例： Math String Number Function Object
+	2.宿主对象
+		-JS运行环境提供的对象，目前主要指的是浏览器提供的对象
+		-例：BOM DOM (consle. document.)
+	3.自建对象
+  -->
+  <script>
+  
+	var ywb = new Object();
+	//new关键字调用的函数，是构造函数
+	//构造函数是专门用来创建对象的函数  还有Array、String、Boolean、Number...
+	ywb.name = "洋大彬";
+	ywb.sex = "男";
+	ywb.age = 22;
+	ywb.degree = "two";
+	
+	// 对象的属性名 命名自由度高
+	// 但ywb.1a2b = 123;会报错
+	//特殊命名可以用
+	ywb["phone"] = 110;
+	console.log(ywb["phone"]);
+	console.log(ywb.phone);
+	
+	delete ywb.degree;
+	//删除属性
+	
+	console.log(ywb);//输出对象
+	document.write(ywb.name);//输出某对象的某属性
+	
+	
+	
+	/*
+		ywb[]的优点
+			-可以传递属性值
+	*/ 
+	ywb["abc"]="hahahh";
+	var n = "abc";
+	console.log(ywb[n]);//n--"abc"---true
+	
+	
+	//JS对象的属性值可以是任意类型 boolean string number object
+		var lzy = new Object();
+		lzy.name = "lzy";
+		lzy.sex = "女";
+	ywb.girfrend = lzy;
+	//对象的某属性值可以是另一个对象
+	//对象A.属性1 = 对象B;
+	console.log(ywb.girfrend);
+	console.log(ywb.girfrend.name);
+	
+	/*
+	检查某对象中是否有某属性
+		-"某属性名" in 某对象
+		-有则返回true
+	*/
+   console.log("name" in ywb);//是否有name
+   console.log("height" in ywb);//是否有height
+		
+	document.write(ywb);
+	
+  </script>
+</body>
+</html>

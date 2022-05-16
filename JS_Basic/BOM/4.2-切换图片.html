@@ -1,0 +1,67 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<script type="text/javascript">
+	window.onload = function(){
+		var img1 = document.getElementById("img1");
+		var btn01 = document.getElementById("btn01");
+		var btn01 = document.getElementById("btn01");
+		var btn03 = document.getElementById("btn03");
+		var p = document.getElementById("p");
+		var span = document.getElementById("span");
+		btn01.onclick = function(){
+			var imgArr = ["../IMG/1.jpg","../IMG/2.jpg","../IMG/3.jpg","../IMG/4.jpg"];
+			var i = 0;
+			//关闭当前元素的上一个定时器，因为定时器会重复创建，多次点击就会加速切换图片
+			clearInterval(time);
+			var time = setInterval(function(){
+				span.innerHTML = i+1;
+				img1.src = imgArr[i];
+				i++;
+				if(i == imgArr.length){
+					i = 0;
+				}
+				
+			},1000);
+			
+			btn02.onclick = function(){
+				clearInterval(time);
+			}
+			
+			btn03.onclick = function(){
+				clearInterval(time);
+				 time = setInterval(function(){
+					 /*此处逻辑
+						图片切换停止后，继续切换图片
+						i不用手动++，因为停止后i已经++过了
+						1.判断索引是否超过，是则轮回，不是则继续输出对应图片
+						2.打印当前的图片序号
+						3，i++,得以切换图片
+					 */
+					 if(i == imgArr.length){
+					 	i = 0;
+					 }
+					 img1.src = imgArr[i];
+					 span.innerHTML = i+1;	
+					 i++;
+				},1000);
+			}
+			
+			
+		}
+	}
+</script>
+</head> 
+<body>
+	<p id="p">当前是第<span id="span">1</span>张图</p>
+	<img src="../IMG/1.jpg" width="300px" id="img1">
+	<br>
+	<button id="btn01">开始轮播</button>
+	<button id="btn02">停止</button>
+	<button id="btn03">继续</button>
+</body>
+</html>

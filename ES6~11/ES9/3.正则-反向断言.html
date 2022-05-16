@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>ģ��</title> 
+<style></style>
+<script>
+		//目的：通过正向/反向断言提取从数字555
+		let str = 'JS12345467哈哈哈555啦啦啦'
+		//正向断言
+		let reg1 = /\d+(?=啦)/  //d+：1/n个 =：满足 ？：1/0个
+		console.log(reg1.exec(str))
+		//反向断言
+		let reg2 = /(?<=哈)\d+/  //<表示在前面
+		console.log(reg2.exec(str))
+		
+</script>
+</head> 
+<body>
+</body>
+</html>

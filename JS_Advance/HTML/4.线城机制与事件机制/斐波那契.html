@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+	window.onload = function(){3
+		var input = document.getElementsByTagName("input")[0]
+		var btn01 = document.getElementById("btn01")
+		btn01.onclick = function(){
+			var num = +input.value
+			console.log(FBNQ(num))
+			
+		}
+		function FBNQ(num){
+			var add = [1,1] //1 1 2 3 5[]
+			add.length = num
+			for(var i = 2 ; i<num ; i++){
+				add[i] = add[i-1] + add[i-2]
+			}
+			return add[num-1]
+		}
+	}
+</script>
+</head> 
+<body>
+<input type="text" id="text"/>
+<button id="btn01">计算</button>
+</body>
+</html>

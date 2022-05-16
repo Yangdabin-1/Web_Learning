@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>伪类选择器</title>
+ <style>
+   
+  a:link {
+            font-size:18px;  /*未访问的链接*/
+            border: 1px solid red ;
+        }
+   a:visited {
+              color: red;  /*访问过后*//*访问过后因为浏览器有记录缓存所以之后会一直是访问过的样式*/
+             }
+   a:hover {
+            font-size: 25px;
+             color:indigo;      /*鼠标触碰时*/
+           }
+   a:active {
+              color: green;   /*激活进行时*/
+            }
+  /*伪类有顺序 lvha */
+
+ </style>
+<body>
+<a href="http://www.7k7k.com/" target="_blank">超链接111</a>
+ 
+</body>
+</head>
+</html>

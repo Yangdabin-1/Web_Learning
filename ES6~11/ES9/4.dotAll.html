@@ -1,0 +1,43 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>ģ��</title> 
+<style></style>
+<script>
+// .* 和 .*?        选择所有字符(除换行符以外)          （.*） 加了括号代表选中这个部分  
+//a.*b ----->贪婪模式:会读取以a开始b结尾的字符串，内容有多少就读取多少
+//a.*?b ----->懒惰模式：会读取以a开始b结尾的字符串，一旦读取到b就偷懒算是一段，然后继续往下寻找是否有匹配的字符串
+//a.+?b ----->懒惰模式，会读取以a开始b结尾的字符串，ab中间必须要有一个/多个 别的字符
+
+ let string = `
+ <ul>
+    <li>
+      <a>复仇者联盟</a>
+      <p>上映日期:2019/2/21</p>
+    </li>
+    <li>
+      <a>闪电侠</a>
+      <p>上映日期:2011/2/21</p>
+    </li>
+  </ul>
+ `
+  let reg1 = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs
+  let arr =[]
+  while(result = reg1.exec(string)){
+      console.log(result)
+      arr.push({'name':result[1],'data':result[2]})
+  }
+  console.log(arr)
+
+
+
+</script>
+</head> 
+<body>
+  
+</body>
+</html>

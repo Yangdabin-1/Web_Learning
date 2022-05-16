@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<!-- 
+  extends 和 super
+  继承方法 和 继承属性
+-->
+<script>
+	//class创建父类
+	class Teacher{
+		constructor(name,age){
+			this.name = name
+			this.ahe = age
+		}
+		Say(){
+			console.log(this.name)
+		}
+	}
+	//class创建子类，且继承父类的方法
+	class Student extends Teacher{
+		constructor(name,age,price) {
+			//继承父类的属性
+		    super(name,age)
+			this.price = price
+		}
+
+    //子类有的方法就不会去找父类
+    Say(){
+      console.log('子类的方法')
+    }
+	}
+	let s1 = new Student('aa',12,52)
+	console.log(s1)
+	s1.Say()
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

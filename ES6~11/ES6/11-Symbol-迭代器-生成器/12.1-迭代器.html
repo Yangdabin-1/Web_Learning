@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 迭代器（iterator）:是一种接口（属性）
+  那些有这种数据结构有这个接口：array,map...
+  任何一种数据结构只要部署了这个接口，就可以使用for..of遍历
+ */
+ let arr1 = ["a","b","c"]
+ for(let i of arr1){ //打印值
+	 console.log(i)
+ }
+/* 
+	for(let i of arr1){
+		 console.log(i)
+	}
+	1.这里的arr1 相当于调用 arr1[Symbol.iterator]().next()   {value: "a", done: false}
+		-就是arr1的iterator接口的next方法
+	2.这里的i 相当于next里的value
+ */
+ for(let i in arr1){ //打印索引
+ 	 console.log(i )
+	
+ }
+	/* 迭代器的原理*/
+	//0.数组这个结构体，里面有iterator这个接口，这个接口的值就是一个指针对象
+	//1.创建一个指针对象
+	var point = arr1[Symbol.iterator]()
+	/*
+	1)这个指针对象里有个next方法，调用这个方法可以指向数组的起始位置
+	2)并放回一个包含value和done的对象
+	3)再次调用指向下一个位置，直到找到最后一个
+	 */
+	console.log(point.next())//{value: "a", done: false}
+	console.log(point.next())//{value: "b", done: false}
+	console.log(point.next())//{value: "c", done: false}
+	console.log(point.next())//{value: undefined, done: true}
+	//value表示对应的值，done表示是否遍历完毕
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

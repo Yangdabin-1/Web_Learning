@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>   
+  //赋值运算符
+  var a=10;
+  document.write(a+=5);
+  document.write('<br>')
+
+
+  //关系运算符
+  //把值转换为数值再进行比较
+  document.write(6 >= 31);//true
+  document.write('28'> 8);//true
+
+  document.write(NaN > 999);//任何和NAN比较都是false
+
+  document.write('<br>');
+
+  //两个字符串比较
+   //从字符串的第一位开始一个个比较，若相同则跳下一位
+  document.write('1234' < '5');//true
+  document.write('1256' < '5');//false
+
+
+    //若两个字符串要比较实际大小，则把其中一个数据要转化为数值
+  document.write('18000' < '5');//true
+  document.write('18000' < +'5');//false
+
+  //若比较数值不是数值，则根据其Unicode编码比较
+  document.write('b' > '3');//true
+
+  document.write('<br>');
+  document.write("\u2620")
+  //在js输出万国码UTF-8  "\u+十六进制码"
+
+  //isNaN(); 判断是否为NaN
+  </script>
+
+  <h1 style="font-size: 50px;">&#9856;</h1>
+  <!-- 在页面中使用编码
+       使用 &# +（万国码的十进制码）；  
+  -->
+
+</body>
+</html>

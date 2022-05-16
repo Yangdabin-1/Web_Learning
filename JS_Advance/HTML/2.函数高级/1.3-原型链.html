@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/*	原型链 
+	
+	关键:类的显式原型属性就是实例的隐形原型属性
+		 类.prototype === 实例.__proto__
+		
+	特性：
+		1。Function 是自己的类和自己的实例
+		2.所有函数的隐式原型都指向函数对象的原型对象
+		3.所有的函数的显式原型都指向一个空对象，除了（object函数对象）
+	
+	属性：
+		1.读取对象的属性时，会从自身寻找，无则向原型链寻找
+		2.设置对象的属性时，会从自身寻找，无则在自身创建这个属性
+	隐式原型链和显式原型链？？？
+ */	
+   console.log(Object)//所有对象建立前，就有一个Object对象
+   function Person(){
+	   
+   }
+   var person1 = new Person();
+   Person.prototype.name = "A" //类的显式属性
+   person1.__proto__.age = 18  //实例的隐式属性
+   console.log(Person.prototype)
+   
+</script>
+</head> 
+<body>
+</body>
+</html>

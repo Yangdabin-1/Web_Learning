@@ -1,0 +1,80 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 
+	1.在执行全局代码前，JS引擎会创建一个栈来管理 执行上下文
+		压栈（前面先进去）先进后出
+	2.确定了全局执行上下文后，将window放入这个栈中
+	3.在确定了函数执行上下文并且调用后，将其放入栈中
+		出栈（上面先出去）后进先出
+	4.在函数执行完后，将其移除栈
+	5.在所有代码执行完后，栈的最底层只剩一个window
+ 
+ */
+ var a = 10   //1.执行全局上下文
+ function fun1(x){
+	 var b = 5
+	 fun2(x+b)    //  3.执行fun2 上下文
+ }
+ function fun2(y){
+	 var c = 4
+	 console.log(c+y+a)
+ }
+ fun1(5)//24              2.执行fun1上下文
+
+/* 
+	变量声明提前和函数声明提前的优先级
+	
+	函数声明优先级高于变量声明，但如果变量赋值了，变量就会覆盖函数
+*/
+	var ff 
+	function ff(){
+		
+	}
+	
+	function aa(){
+		
+	}
+	var aa 
+	
+	console.log(typeof ff)
+	console.log(typeof aa)
+	/* 题2 */
+	var k = 3  //这里相当于只声明，赋值只有调用的时候才用
+	function k(k){
+		console.log(k)
+	}
+	//k=3
+	//k(2)  //3(2)会报错
+	/* 
+	原因：1.k又是变量又是函数
+		 2.代码执行前，先声明f是个函数，后又声明f时变量，且赋值了3,所有此时f是个数值
+		 3.到了调用f，f却是数值，所有报错
+	 */
+
+  /* 题三 */
+  var num = 1		//1.执行全局上下文 window进栈
+  add(1)          //2.执行add2 add2进栈
+  function add(num){
+    if(num == 4){
+      return 1   //4.执行add4 add4入栈;return后 add4出栈
+    }
+    console.log("入栈:" + num)
+	add(num+1)  //3.执行add3 
+	//5.add3在最上面先出栈
+	//6.add2出栈
+	//7.add1出栈
+	//8.只剩window
+    console.log("出栈:" + num)
+  }
+</script>
+</head> 
+<body>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+   var arr1 =["a","b","c","d","e","f"];
+   var arr2 =["g","h","i","j","k","l"];
+   var arr3 =[2,5,6,1,3,7,10,8,0,4,10];
+   
+   //slice(a,b)  读取出数组的a到b元素  不影响原数组
+   // a<=读取<b  若b不写就是读取后面全部
+   console.log(arr1.slice(1,3));
+   
+   //splice(a,b,"新元素")  从a开始，删除b个元素
+   //	若b为0 则不删除
+   //这个函数执行并返回
+   result = arr2.splice(2,3);
+   console.log(result);
+
+	//concat()  将两个或多个数组拼接成一个新数组 不影响原数组
+	console.log(arr1.concat(arr2,arr3));
+	
+	//join() 把所有数组元素加入到一个字符串内 括号内填写各个元素之间的连接符
+	console.log(arr1.join("+"));
+	
+	//reverse() 把数组顺序反转  影响原数组
+	arr1.reverse();
+	console.log(arr1);
+	
+	/*
+		sort() 对数组内元素进行排序 对原数组有影响
+		形参a,b代表内随机一个元素a,后a之后的任意元素b
+		
+		return 正数 --->交换a,b位置
+		return 0/负数  --->不交换位置
+	 */
+	arr3.sort(function(a,b){
+	
+		// 升序 
+		// 如果a>b，返回正数，交换ab,即小数被放前面
+		return b-a;
+		//降序 return b-a;
+	});
+	
+	console.log("----------")
+	console.log(arr3);
+
+  </script>
+</body>
+</html>

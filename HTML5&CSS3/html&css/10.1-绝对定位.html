@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charest='utf-8'>
+  <meta name='keywords' content='aa'>
+  <meta name='description' content='aaaa'>
+  <title>absolute </title>
+  <style>
+    div {
+      font-size: 40px;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+      width: 200px;
+      height: 200px;
+    }
+
+    .box1 {
+      background-color: blueviolet;
+    }
+
+    .box2 {
+      background-color: rgb(70, 238, 3);
+
+      top:0px;
+      left: 0px;
+      position:absolute;
+
+      /*绝对定位
+       特点：
+          1.开启后，元素会从文档流脱离
+          2.元素性质会改变：行内块->块  块->宽高被内容撑开
+          3.层级会提升
+          4.元素是根据其包含块进行定位的
+       包含块（containing block）：
+          包含块就是离它最近的开启定位的祖先元素
+            如果都没开启绝对定位，包含块就是其根元素   
+        根元素：没有父节点的元素--body/head
+      */
+
+    }
+
+    .box3 {
+      background-color: blue;
+    }
+
+    .box4{
+      width: 300px;
+      height: 300px;
+      background-color: brown;
+      /* position:relative;   */
+    }
+    .box5{
+      width: 350px;
+      height: 350px;
+      background-color: crimson;
+      /* position: absolute; */
+    }
+  </style>
+
+<body>
+  <div class="box1">1</div>
+  <div class="box5">
+    5
+    <div class="box4">
+      4
+      <div class="box2">
+        2
+      </div>
+    </div>
+  </div>
+
+  <div class="box3">3</div>
+</body>

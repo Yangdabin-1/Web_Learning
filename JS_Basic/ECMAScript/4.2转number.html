@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 转number   a=Number(a);
+    /*
+      1:
+          String->number
+            -字符串中仅有数字，直接转换(空字符串=0)
+            -字符串中有非数字，则=NaN
+          boolean->number
+             ture->1  false->0
+          null->0
+          undefined->NaN
+
+      2:
+          字符串专用(对于非string，先转化为字符串再操作)
+            -parseint()   parsefloat()
+            -parseint("33.2")=33;   parsefloat("33.2abc")=33.2;   
+    */ 
+
+      var a="33";
+      a=Number(a);
+      document.write(a+"<br>");
+
+      var b=false;
+      b=Number(b);
+      document.write(b+"<br>");
+
+      var c="45.3de45"
+      c=parseFloat(c);
+      document.write(c);
+
+
+      
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

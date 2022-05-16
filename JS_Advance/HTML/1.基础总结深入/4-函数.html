@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  /* 
+    函数的创建
+      1.函数定义
+        function fun1 = {}
+      2.函数表达式
+        var fun2 = function(){}
+      3.构造函数
+        var fun3 = new Function()
+
+  
+    函数的几中调用
+      1.普通调用
+        fun1()
+      2.通过对象调用  函数->方法
+        obj.fun2()
+      3.通过构造函数调用 函数->类
+        new fun3()
+      4.通过apply/call调用  obj1中的方法fun2复制给obj2成为其方法
+        obj1.fun2.apply(obj2)
+  */
+  /* 
+    回调函数
+      条件：
+        1.由开发者定义
+        2.未调用
+        3.函数最后却执行了
+
+    常用的回调函数
+        1.DOM事件的回调函数、
+        2.定时器回调函数
+
+        3.Ajax请求回调函数
+        4.生命周期回调函数
+  
+  */
+  var btn01 = document.getElementById("btn01")
+  btn01.onclick = function(){//dom事件回调函数
+    alert(this.innerHTML)
+  }
+
+  settimeout(function(){//定时器回调函数
+    alert("asdf")
+  },2000)
+  
+
+</script>
+</head>
+<body>
+  <button id="btn01">按钮</button>
+</body>
+</html>

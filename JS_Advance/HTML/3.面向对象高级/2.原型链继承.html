@@ -1,0 +1,71 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style>
+/* 如何让学生实例使用老师类的原型对象的方法 */
+</style>
+<script>
+/*  原型链继承
+	作用：!!!继承父类型的原型链的方法!!!
+、	1.构造父类型对象
+	2.构造子类型对象
+	3.在父类型的原型对象上添加父类型的方法
+	4.把子类型的原型对象作为父类型的一个实例
+	Student.prototype = new Teacher()
+	5.为子类型的原型对象创建子类型的方法
+	**4，5步骤不要颠倒，不然子类型就无法有自己的方法，跑到父类型去了**
+	6.给子类型创建实例
+	7.在这个示例上调用父类型的方法
+	
+	记住：不管隐式原型和显示原型指向了一个实例对象还是类对象，隐式/显式原型永远都要去找一个原型对象	
+		-所有打印一个实例时，实例的__proto__会去找真正的原型对象，如果__proto__指向是实例对象，它会继续往下指向，知道指向了原型对象
+ */
+//老师类
+function Teacher(){
+	this.class = "老师数学"
+}
+Teacher.prototype.showTeacherClass = function(){
+	console.log(this.class)
+}
+//学生类
+function Student(){
+	this.likeclass = "学生英语"
+}
+//子类型的原型作为父类型的实例
+Student.prototype = new Teacher()
+//更改s1的原型的构造函数属性
+// Student.prototype.constructor = Student
+//学生类的原型
+Student.prototype.showStudentClass = function(){
+	console.log(this.likeclass)
+}
+//学生实例
+var s1 = new Student()
+s1.showTeacherClass()
+s1.showStudentClass()
+
+/* 最后问题：constructor
+	找到s1的构造函数
+ */
+console.log(s1.constructor)//不是Student
+/* 原因（一步步寻找原型链）
+		**s1.constructor**
+	1.在s1自身上找构造函数属性：因为s1是实例
+		且constructor只在原型上才有
+	2.寻找s1原型：s1的原型被改成了父类型的实例（Teacher的实里对象）
+	3.实例对象也无构造函数属性，去找它的原型（即object空对象/Teacher的原型）
+	4.找到了原型，也就找到了constructor,所以这个构造函数属性指向它的构造函数，Teacher
+	5.这是错误的，s1的构造函数应该是Student
+	6.所以需要强制更改+++++++++++++
+ */
+console.log(Student)
+
+</script>
+</head> 
+<body>
+</body>
+</html>

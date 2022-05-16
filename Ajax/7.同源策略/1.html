@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>首页</title>
+<style></style>
+<script>
+  /* 同源策略：服务器和客户端的协议，端口号，域名必须完全一致
+              否则就是跨域
+    协议：ftp/http/https
+  */
+ //地址：http://127.0.0.1:5500/7.同源端口/1.html
+ //这里用9000端口打开
+window.onclick = function(){
+  const btn = document.getElementById('btn1')
+  btn.onclick = function(){
+    const xhr = new XMLHttpRequest()
+    //因为满足同源策略，所以不用不全地址
+    xhr.open('GET','/data')
+    xhr.send()
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState ===4){
+        if(xhr.status >=200 && xhr.status < 300){
+          console.log(xhr.response)
+        }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <h1>YWB</h1>
+  <button id='btn1'>点击获取用户数据</button>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 第七种数据类型：Symbol
+	1.symbol值唯一，用来解决命名冲突
+	2.symbol不能与其他值进行运算
+	3.symbol定义的对象属性，不能用for--in来遍历
+	4.不能作为构造函数
+	
+	作用:当想要往一个对象种添加方法时，担心自己添加的方法名会和对象里的方法名重合，会导致原方法被覆盖，所以为新的方法添加一个唯一的名字，不会影响旧方法
+	
+	把symbol当做一个字符串就好
+ */
+
+	//创建symbol
+	let symbol1 = Symbol("这个symbo的描述")
+	console.log(symbol1,typeof symbol1) //Symbol() "symbol"
+	
+	//创建symbol函数
+	let s1 = Symbol("no.1")
+	let s2 = Symbol("no.2")
+	console.log(s1 == s2) //false
+	//创建symbol函数对象
+	let s3 = Symbol.for("no.100")
+	let s4 = Symbol.for("no.100")
+	console.log(s3 == s4) //true
+	
+	
+/* 给对象添加方法，属性 */
+	let obj1 = {
+		up : "up",
+    left:'left',
+		down : function(){
+			console.log("down")
+		},
+		[Symbol("left")] : "left" //直接添加
+	}
+
+	/* 向obj1添加up方法,为了防止旧方法中也有up,所以添加symbol的方法,与旧up区分开 */
+	let methods = {
+		up : Symbol('up'),
+		down : Symbol()
+	}
+	obj1[methods.up] = function(){
+		consol.log('这是新的up方法')
+	}
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

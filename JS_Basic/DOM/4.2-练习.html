@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dom查询</title>
+<link rel="stylesheet" type="text/css" href="../css/DOM查询.css"/>
+<script type="text/javascript">
+
+	var timeS = Date.now();
+	// 创建一个函数，用来给某个按钮生成节点，并给它绑定单击事件
+	function btclick(button,fun){
+		var btn = document.getElementById(button);
+		btn.onclick = fun;
+	}
+	window.onload = function(){
+		
+		//1
+		btclick("btn01",function(){
+			var bj = document.getElementById("bj");
+			console.log(bj);
+			
+		});
+		
+		//2
+		btclick("btn02",function(){
+			var li =document.getElementsByTagName("li");
+			for(var i = 0;i<li.length;i++){
+			console.log(li[i]);
+			}
+		});
+		
+		//3
+		btclick("btn03",function(){
+			var gender =document.getElementsByName("gender");
+			for(var i = 0;i<gender.length;i++){
+			console.log(gender[i]);
+			}
+		});
+		
+		//4
+		btclick("btn04",function(){
+			var city =document.getElementById("city");
+			var cityli =city.getElementsByTagName("li");
+			for(var i = 0;i<cityli.length;i++){
+			console.log(cityli[i]);
+			}
+		});
+		
+		//5
+		btclick("btn05",function(){
+			var city =document.getElementById("city");
+			var cityas = city.childNodes;//city.children 子元素
+			for(var i = 0;i<cityas.length;i++){
+			console.log(cityas[i]);
+			}
+		});
+		
+		//6
+		btclick("btn06",function(){
+			var phone = document.getElementById("phone");
+			var phonefc = phone.firstChild;
+			console.log(phonefc);
+		});
+		
+		//7
+		btclick("btn07",function(){
+			var bj = document.getElementById("bj");
+			var bjdad = bj.parentNode;
+			console.log(bjdad);
+		});
+		
+		//8
+		btclick("btn08",function(){
+			var android =document.getElementById("android");
+			var apb =android.previousSibling;
+			console.log(apb);
+		});
+		
+		//9
+		btclick("btn09",function(){
+			var un =document.getElementById("username");
+			console.log(un.value);
+		});
+		
+		//11
+		btclick("btn11",function(){
+			var bj =document.getElementById("city");
+			console.log(bj.innerHTML);//包括空格节点
+		});
+		var timeE = Date.now();
+		console.log(timeE-timeS);
+	}
+	
+	
+</script>
+</head>
+<body>
+<div id="total">
+	<div class="inner">
+		<p>
+			你喜欢哪个城市?
+		</p>
+ 
+		<ul id="city">
+			<li id="bj">北京</li>
+			<li>上海</li>
+			<li>东京</li>
+			<li>首尔</li>
+		</ul>
+ 
+		<br>
+		<br>
+ 
+		<p>
+			你喜欢哪款单机游戏?
+		</p>
+ 
+		<ul id="game">
+			<li id="rl">红警</li>
+			<li>实况</li>
+			<li>极品飞车</li>
+			<li>魔兽</li>
+		</ul>
+ 
+		<br />
+		<br />
+ 
+		<p>
+			你手机的操作系统是?
+		</p>
+ 
+		<ul id="phone"><li>IOS</li><li id="android">Android</li><li>Windows Phone</li></ul>
+	</div>
+ 
+	<div class="inner">
+		gender:
+		<input type="radio" name="gender" value="male"/>
+		Male
+		<input type="radio" name="gender" value="female"/>
+		Female
+		<br>
+		<br>
+		name:
+		<input type="text" name="name" id="username" value="abcde"/>
+	</div>
+</div>
+<div id="btnList">
+	<div><button id="btn01">查找#bj节点</button></div>
+	<div><button id="btn02">查找所有li节点</button></div>
+	<div><button id="btn03">查找name=gender的所有节点</button></div>
+	<div><button id="btn04">查找#city下所有li节点</button></div>
+	<div><button id="btn05">返回#city的所有子节点</button></div>
+	<div><button id="btn06">返回#phone的第一个子节点</button></div>
+	<div><button id="btn07">返回#bj的父节点</button></div>
+	<div><button id="btn08">返回#android的前一个兄弟节点</button></div>
+	<div><button id="btn09">返回#username的value属性值</button></div>
+	<div><button id="btn10">设置#username的value属性值</button></div>
+	<div><button id="btn11">返回#city的文本值</button></div>
+	
+</div>
+</body>
+</html>

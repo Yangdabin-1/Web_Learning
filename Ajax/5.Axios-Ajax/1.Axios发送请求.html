@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>Ajax工具库:Axios</title>
+<style></style>
+<!-- 引入Axios -->
+<script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script>
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js"></script> -->
+<script>
+window.onload = function(){
+  const btn = document.getElementsByTagName('button')
+  axios.defaults.baseURL = 'http://127.0.0.1:8000'
+  //axios-get
+  btn[0].onclick = function(){
+    axios.get('/axios-get',{
+      //URL参数
+      params:{  
+        id:100,
+        idd:1000
+      },
+      //请求头
+      headers:{
+        name:'axios'
+      }
+    }).then(result =>{ //返回结果，结果会自动转字符串为对象
+      console.log(result)
+    }) 
+  } 
+  //axios-post
+  btn[1].onclick = function(){
+    axios.post('/axios-post',{
+      username:'admin', //请求体
+      userpassword:"amdin"
+    },{//设置请求体之外的属性
+    params :{
+      id:9,
+      idd:900
+    },
+    headers :{
+      name:'responseheader'
+    }
+    }).then(result =>{
+      console.log(result)
+    }) 
+  }
+  //axios-all
+  btn[2].onclick = function(){
+    axios({
+      method:'POST',
+      url:'/axios',
+      params:{
+        id:10,
+        idd:1000
+      },
+      headers:{
+        name:'all'
+      },
+      data:{
+        username:'admin',
+        userpassword:'admin'
+      }
+    }).then(result =>{
+      console.log(result)
+    })
+  }
+}
+</script>
+</head>
+<body>
+  <button id="btn1">GET</button>
+  <button id="btn2">POST</button>
+  <button id="btn3">Axios通用</button>
+</body>
+</html>

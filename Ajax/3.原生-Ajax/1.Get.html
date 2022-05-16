@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style>
+  #box1{
+    width: 200px;
+    height: 200px;
+    border: 2px solid pink;
+  }
+</style>
+<script>
+window.onload =function(){
+  const btn1 = document.getElementById('btn1')
+  const box1 = document.getElementById('box1')
+  btn1.onclick = function(){
+    //1.创建对象
+    const xhr = new XMLHttpRequest()
+    //2.初始化,设置请求类型和路径,注意大写
+    // 在url后加参数直接加： ?a=1&b=1
+    xhr.open('GET','http://127.0.0.1:8000/server?a=1&b=1')
+    //3.发送
+    xhr.send()
+    //4.绑定事件 当准备状态改变时应该触发的事件
+    //readystate: 0 1 2 3 4
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+        //判断响应状态码 200-299(成功) 404 202
+        if(xhr.status >= 200 && xhr.status < 300){
+          //处理结果 行 头 空行 体
+          // console.log(xhr.status)//状态码
+          // console.log(xhr.statusText)//状态码字符串
+          // console.log(xhr.getAllResponseHeaders())//所有响应头
+          // console.log(xhr.response)//响应体
+          box1.innerHTML = xhr.response
+        }else{
+
+        }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <button id = "btn1">onclick</button>
+  <br><br>
+  <div id = 'box1'></div>
+</body>
+</html>

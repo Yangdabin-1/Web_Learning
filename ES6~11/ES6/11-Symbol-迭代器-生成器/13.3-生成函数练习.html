@@ -1,0 +1,104 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+//实现一：1s后输出111，2s输出222，3s输出333
+window.onload = function(){
+		/* 1.设置三个延时器
+		setTimeout(()=>{
+			console.log("111")
+		},1000)
+		setTimeout(()=>{
+			console.log("222")
+		},2000)
+		setTimeout(()=>{
+			console.log("333")
+		},3000) 
+		*/
+
+		/* 2.回调地狱
+		setTimeout(()=>{
+			console.log('111')
+			setTimeout(()=>{
+				console.log('222')
+				setTimeout(()=>{
+					console.log('333')
+				},1000)
+			},1000)
+		},1000) 
+		*/
+	   
+	   // 生成器函数
+	   time1 = ()=>{
+		   setTimeout(()=>{
+				console.log('111')
+				//跳到下一个分隔符
+				result.next()
+				
+		   },1000)
+	   }
+	   time2 = ()=>{
+	   		   setTimeout(()=>{
+	   				console.log('222')
+					result.next()
+	   		   },1000)
+	   }
+	   time3 = ()=>{
+	   		   setTimeout(()=>{
+	   				console.log('333')
+	   		   },1000)
+	   }
+	   function *time(){
+		   yield time1()
+		   yield time2()
+		   yield time3()
+	   }
+	   let result1 = time()
+	   // result.next()
+	  
+
+//实现二：异步编程：模拟获取用户信息，订单数据，商品数据.依此输出
+//
+	   function getusers(){
+		   setTimeout(()=>{
+			   const data = '用户数据'
+			   result2.next(data)
+		   },1000)
+	   }
+	   function getorders(){
+	   		   setTimeout(()=>{
+	   			   const data = '订单数据'
+				   result2.next(data)
+	   		   },1000)
+	   }
+	   function getgoods(){
+		   setTimeout(()=>{
+			   const data ='商品数据'
+			   result2.next(data)
+		   },1000)
+	   }
+	   function *showdata(){
+		   let users = yield getusers()
+		   console.log(users)
+		   let orders =yield getorders()
+		   console.log(orders)
+		   let goods =yield getgoods() 
+		   console.log(goods)
+	   }
+	   let result2 = showdata()
+	   result2.next()
+
+
+
+
+}
+</script>
+</head> 
+<body>
+</body>
+</html>

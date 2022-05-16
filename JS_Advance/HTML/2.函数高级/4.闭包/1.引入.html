@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 实现：显示按钮的顺序 */
+window.onload = function(){
+	var btn = document.getElementsByTagName("button")
+	
+	/* 方法一 */
+	for(var i = 0,length = btn.length ; i<length ; i++){ //1。
+		btn[i].num = i
+		btn[i].onclick = function(){
+			// console.log(this.num+1)
+		}
+	}//  ==>1.可以减少每次都需要计算数组长度的次数
+	
+	
+	/* 方法二：利用闭包 */
+	for(var i = 0,length = btn.length ; i<length ; i++){ 
+		function fun1(){
+			var j = i   //把全局变量变成局部变量
+			btn[i].onclick = function(){
+				// console.log(j + 1)
+			}
+		}
+		fun1()	
+	}
+	/* 另一种闭包 函数自调用 */
+	for(var i = 0,length = btn.length ; i<length ; i++){  //这里i是全局
+		(function fun1(i){  //这里i是局部
+			btn[i].onclick = function(){
+				console.log(i+1)
+			}
+		})(i) //i是全局
+	}
+}
+</script>
+</head> 
+<body>
+	<button>111</button>
+	<button>222</button>
+	<button>333</button>
+</body>
+</html>

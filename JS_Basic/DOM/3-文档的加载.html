@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<!-- 若要把script写在对象上方，会报错
+	原因:页面加载时从上到下一行行加载，运行JS代码时，对应的对象还未创建，也就无法为对象添加事件，也无法响应
+	解决:在整个页面加载结束后再执行JS代码
+	方法：使用onload事件，会在整个页面加载后再触发
+		-为window绑定一个onload事件 
+ -->
+ <script type="text/javascript">
+ 	window.onload = function(){
+		var bt2 = document.getElementById("bt2");
+		bt2.onclick = function(){
+			bt2.innerHTML = "失败";
+		}
+	}
+	//把所有需要最后触发的事件都写以上的回调函数即可 
+ </script>
+</head>
+
+<body>
+
+  <!-- script标签写在对象下方，能不能写在head里 -->	
+  <button id="bt1">注册</button>
+  <button id="bt2">登录</button>
+  <script>
+  var bt1 = document.getElementById("bt1");
+  bt1.onclick = function(){
+  	  bt1.innerHTML = "成功";
+  }
+  </script>
+</body>
+</html>

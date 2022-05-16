@@ -1,0 +1,11 @@
+/* 所有页面的基础样式表 */
+
+.clearfix::before,
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+a{
+  text-decoration: none;
+}

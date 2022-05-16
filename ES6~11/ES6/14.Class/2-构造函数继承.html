@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+	function Phone(brand,price){
+		this.brand = brand
+		this.price = price
+	}
+	Phone.prototype.Say = function(){
+		console.log("111111")
+	}
+	function SmartPhone(brand,price,size){
+		//把父类的属性继承给子类
+		Phone.call(this,brand,price)
+		this.size = size
+	}
+	//子类的原型为父类的实例
+	SmartPhone.prototype = new Phone
+	SmartPhone.prototype.constructor = SmartPhone //让s1的构造函数变回SmartPhone
+	let s1 = new SmartPhone("Huawei",6000,"5.5ch")
+	console.log(Phone.prototype)
+	console.log(s1.__proto__ == SmartPhone.prototype)
+	s1.Say()
+	console.log(s1 instanceof Phone)
+
+
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

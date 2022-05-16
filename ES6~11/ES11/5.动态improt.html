@@ -1,0 +1,21 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<!--  模块化->动态import
+静态improt:模块执行时,直接导入
+动态import:需要import时,再导入,通过 improt函数 导入 
+  1.import('模块路径').then(result=>{})
+  2.improt函数返回的是一个promise对象,而promise成功的值,就是模块里暴露的对象
+-->
+<script src="JS/app.js" type="module"></script>
+</head>
+<body>
+  <button>点击</button>
+</body>
+</html>

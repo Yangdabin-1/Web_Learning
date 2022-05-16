@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    // var cc=undefined;
+    // cc=String(cc);
+    // document.write(cc);
+    // document.write(typeof cc);
+ 
+    document.write("<br>");
+
+    var a=123;
+    document.write(a);
+    document.write(typeof a);
+    document.write("<br>");
+
+    a=a.toString();
+    document.write(a);
+    document.write(typeof a);
+    document.write("<br>");
+
+    a=123;
+    a=String(a);
+    document.write(a);
+    document.write(typeof a);
+    document.write("<br>");
+
+    a=null; //a=undefined  
+    a=a.toString();
+    document.write(a);
+    document.write(typeof a);
+    document.write("<br>");
+    //报错
+
+    /*
+      转String
+        一：调用被转换数据的toString方法
+            a=a.toString;
+            null和undefined用这种方法转换会报错
+
+        二：调用String函数
+            a=String(a);
+            null->"null"  undefined->"undefined"
+        三:用运算符拼接得到字符串
+            a=a+"";
+    */ 
+    //十六进制：0x??  八进制：0?? 二进制：0b??  
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	#lunbo {
+		width: 320px;
+		height: 300px;
+		background-color: #BBFFAA;
+		/* 整体居中 */
+		margin: 50px auto;
+		padding: 10px 0;
+		/* 这里开启相对定位,不会失去居中效果 */
+		position: relative;
+		overflow: hidden;
+	}
+	img{
+		width: 300px;
+		height: 300px;
+	}
+	#imglist {
+		/* 去列表符号 */
+		list-style: none;
+		/* 足够的宽度可以让图片水平排列 */
+		width: 2500px;
+		/* 开启定位,能够移动图片 */
+		position: absolute;
+		/* 设置默认值,方便JS修改 */
+		left:0px;
+
+	}
+	#imglist li {
+		/* 将每个图片变成水平排列 */
+		float: left;
+		/* 为图片设置外边距,同时外部两个容器的宽度也要加上这个值 */
+		margin: 0 10px;
+	}
+	#nav {
+		/* 开启定位,使其浮动与图片一个等级*/
+		position: absolute;
+		/* 把a放在下面*/
+		bottom: 15px;
+		/* 方便a在lunbo居中 */
+		left:0px;
+	}
+	a {
+		/* 使其浮动才可以设置宽高 */
+		float: left;
+		width: 15px;
+		height: 15px;
+		background-color: rgba(255, 0, 0, 0.5);
+		margin: 0 5px;
+		
+	}
+	a:hover {
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+</style>
+<script type="text/javascript" src="../js/tools.js"></script>
+<script type="text/javascript">
+	window.onload =function(){
+		var lunbo =document.getElementById("lunbo");
+		var imglist = document.getElementById("imglist");
+		var imgArr = document.getElementsByTagName("img");
+		var nav = document.getElementById("nav");
+		var allA = document.getElementsByTagName("a");
+		//使a居中
+		nav.style.left =  (lunbo.clientWidth - nav.clientWidth)/2 + "px";
+		//默认选中第一个图片
+		var index = 0;
+	
+		allA[index].style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+		//给每个超链接绑定单击响应函数
+		for(var i = 0;i<allA.length;i++){
+			var num;
+			//通过属性保存i
+			allA[i].num = i;
+			allA[i].onclick = function(event){
+				//点的时候关闭自动轮播,这样可以避免自动轮播和点击切换冲突
+				//关闭后也要记得开始，在切换图片结束后开启，回调函数
+				//在点击中结束，在点击完开启
+				clearInterval(time2);
+				//循环结束后,才执行事件,这里改如何获取索引
+				//将索引保存到属性中
+				// 这里不能用allA[i].num,因i一直都是5,而all[5]未定义
+				index = this.num;
+				//点击切换图片
+				// imglist.style.left = -index*320 + "px";
+				//使用动画效果切换图片
+				change(imglist,90,-index*320,"left",function(){
+					autoLunbo();
+				});
+				//点击后，a会变颜色
+				changeA();
+				console.log("点击："+index);
+			}
+		}//for循环
+		//开启自动切换
+		autoLunbo();
+
+		//设置a样式的函数，方便轮转和点击的时候修改a
+		function changeA(){
+			//添加图片后，如果当前索引是最后的一张图片
+			//则第一个a变黑，如何瞬间把切到第一张图片
+			//视觉效果上看不到切换
+			if(index == imgArr.length-1){
+				index = 0;
+				imglist.style.left = 0;
+			}
+			
+			//将所有a设置为红色
+			for(var i = 0;i<allA.length;i++){
+				allA[i].style.backgroundColor = "";
+				//这里修改的是内联样式，优先级比hover高，所有设置空串，不该属性
+			}
+			//将选中的a设置为黑色
+			allA[index].style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+		}
+		//用函数设置自动轮播，需要时调用，不需要是停止轮播
+		//可全局调用这个定时器
+		var time2;
+		function autoLunbo(){
+			time2 = setInterval(function(){
+				index++;
+				//使index一直是0-5
+				index %= imgArr.length;
+
+				change(imglist,90,-index*320,"left",function(){
+					//动画结束修改按钮a
+					changeA();
+				});
+			},3000)
+		}
+		
+	}//window
+</script>
+</head> 
+<body>
+	<div id="lunbo">
+		<ul id="imglist">
+			<li><img src="../IMG/1.jpg" ></li>
+			<li><img src="../IMG/2.jpg" ></li>
+			<li><img src="../IMG/3.jpg" ></li>
+			<li><img src="../IMG/4.jpg" ></li>
+			<li><img src="../IMG/5.jpg" ></li>
+			<!-- 头尾相接补图片可以使其循环 -->
+			<li><img src="../IMG/1.jpg" ></li>
+		</ul>
+		<ul id="nav">
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+		</ul>
+	</div>
+	
+</body>
+</html>

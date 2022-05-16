@@ -1,0 +1,48 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+	var s1 = "1a2b3c4d5e6f7g8h9A10B11";
+	
+	/* .split("分隔符")
+		不指定全局模式，也会全部拆分
+		将s1以d拆分数组 
+	*/
+	var res1 = s1.split("d");
+	console.log(res1[0] + "," + res1[1]);
+	
+	//以s1中的字母为分割符，拆分成数组
+	var res2 = s1.split(/[A-z]/);
+	console.log(res2);
+	
+	//检查想要值的索引search(); 
+	 // 有则返回第一次出现的索引，无则为-1
+	// 开启全局匹配也只会返回一个索引
+	var s2 = "nihao abc,nihao amc,nihao apc";
+	console.log(s2.search(/a[bmp]c/));
+	
+	/* 筛选出自己想要的值 match
+		默认模式下，找到想要的值其中一个，就不会继续寻找
+		开启全局匹配模式才能选择全部
+	 */
+	console.log(s1.match(/[a-z]/));  //返回了第一个字母
+	console.log(s1.match(/[a-z]/ig)); //返回了想要的匹配
+	
+	
+	/* 替换
+		.replace(需要去掉的内容,"填进去的内容")
+		不开启全局匹配，默认替换第一个
+	 */
+	console.log(s1.replace(/[A-z]/g,"@"));//1@2@3@4@5@6@7@8@9@10@11
+	
+	
+	
+  </script>
+</body>
+</html>

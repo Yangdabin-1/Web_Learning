@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+ <style>
+   table{
+     font-size: 12px;
+     width: 50%;
+     border: 1px solid pink;
+
+     text-align: center;
+     /*文字水平居中
+     tabel默认有垂直居中*/
+
+     /* border-spacing:0px; */
+     /*调整边框之间的距离：为零（叠加）*/
+
+     border-collapse:collapse;
+     /*设置边框重合*/
+
+   }
+   tr{
+    margin: 0 auto;
+   }
+   td{
+     border: 1px solid pink;
+     /*td里加边框让table的边框变复杂了*/
+   }
+   
+  table tr:nth-child(even){
+    background-color: #bfa;
+  }
+  /*用伪类选择器,选择奇数行*/
+
+  /*
+    表格布局法:尽量不用
+  利用display:table-cell将绿块居中*/
+  .box1{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    display: table-cell;
+
+    vertical-align: middle;
+    /*垂直居中*/
+
+    /* text-align:center;
+      文字可以居中,但元素不是文字无法居中
+    */
+
+  }
+  .box2{
+    width: 50px;
+    height: 50px;
+    background-color:greenyellow;
+    margin: 0 auto;
+    /*水平居中*/
+ 
+ }
+</style>
+<body>
+  <table>
+      <tr>
+        <td>科目</td>
+        <td>数学</td>
+        <td>英语</td>
+        <td>语文</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>66</td>
+        <td>78</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>66</td>
+        <td>78</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td>陶吴</td>
+        <td>62</td>
+        <td>98</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>66</td>
+        <td>78</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>66</td>
+        <td>78</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td>陶吴</td>
+        <td>62</td>
+        <td>98</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td>张三</td>
+        <td>66</td>
+        <td>78</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>66</td>
+        <td>78</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td>陶吴</td>
+        <td>62</td>
+        <td>98</td>
+        <td>77</td>
+      </tr>
+  </table>
+  <br>
+  <div class="box1">
+    <div class="box2">
+    </div>
+  </div>
+</body>
+</head>
+</html>

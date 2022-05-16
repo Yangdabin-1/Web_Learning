@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+  
+  //浏览器会向所有函数添加另一个隐藏的属性 arguments
+  
+  //arguments是类数组（不是数组，但具有数组某些特性）  储存参数
+  
+  //argument.callee == fun1
+  // 这个方法的属性指的是函数本身
+   function fun1(c,b,l){
+	   console.log(arguments[0]);
+	   console.log(arguments.callee);
+   }
+   fun1("33",2,true);
+  </script>
+</body>
+</html>

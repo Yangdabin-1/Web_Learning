@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>字体族</title>
+ <style>
+   .class1{
+     font-size: 2em;
+     font-family: serif;
+   }
+   /*
+   字体族
+    三个大类，一般作为兜底
+    -serif      衬线字体（字体尾部带勾）
+    -san-serif  非衬线字体
+    -monospace  等宽字体
+   不同浏览器选择的格式可能不一样，不同用户拥有的字体不用，所以最好指定多个字体格式
+   */
+   .class2{
+     font-size: 2em;
+    font-family: monospace;
+   }
+   .class3{
+     font-size: 2em;
+     font-family: sans-serif;
+   }
+   .class4{
+    font-size: 2em;
+     font-family: '宋体', Courier, monospace;
+     /*可以同时指定多个样式--使用层级从左到右*/
+   }
+
+   @font-face {
+     font-family: '给新字体取得名称';
+     src: url('../../新字体样式.ttf') format("truetype");
+     /*外接新的字体样式--选取路径--（保底的属性）字体文件格式:truetype     
+     字体有版权*/
+   }
+</style>
+<body>
+    
+<p class="class1">Hello</p>
+<p class="class2">Hello</p>
+<p class="class3">Hello</p>
+<p class="class4">Hello</p>
+
+</body>
+</head>
+</html>

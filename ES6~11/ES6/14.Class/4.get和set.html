@@ -1,0 +1,49 @@
+<!Doctype HTML>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+  /*
+    get可以用来封装动态的属性
+    set可以修改属性
+  */
+  class Teacher{
+    //设置参数
+    constructor(name,age){
+      this.name = name
+      this.age = age
+    }
+    //在原型上设置方法
+    SayName(){
+      console.log( this.name)
+    }
+    //在自身上设置方法
+    static SayAge(){
+      console.log(this.age)
+    }
+    //设置属性,它由形参，但是不能作为一般函数那样使用，不能传入实参，且不需要加括号调用
+    get grade(){
+      console.log("高三老师")
+      return "高三老师了"
+    }
+    //修改参数，此时形参的意义不是传入实参，而是给参数赋值，使这个set运行
+    //调用后，不会对原属性由影响
+    set grade(newVal){
+      console.log('变成大学老师')
+    }
+  }
+  let s1 = new Teacher()
+  s1.grade
+  // console.log(s1.grade('a'))
+  //此时使用了属性
+  s1.grade = 'free'
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>轮播图</title>
+ <style>
+   *{
+     margin: 0;
+     padding: 0;
+   }
+
+   ul{
+    width: 500px;
+    height: 500px;
+    /*若想使图片居中，要给ul设置宽高才有居中概念*/
+    list-style: none ;
+    margin: 50px auto;
+    position: relative;
+    /*带上定位，但不影响布局*/
+   }
+   li{
+     position:absolute;
+     /*让图片堆叠在一起*/
+   }
+   /*选择li中第几个元素，将他层级变高*/
+   li:nth-child(1){
+     z-index: 1;
+   }
+   .pointer a{
+     display:block;/*行内元素不可设高宽*/
+     float: left;/*水平排列*/
+     width: 15px;
+     height:15px;
+     border-radius:50%;
+     background-color: rgba(255,255,255,.3);
+     margin-left: 7px;
+
+     background-clip: content-box;
+     border: 4px solid transparent;
+
+   }
+   .pointer a:hover{
+     background-color: white;
+     border: 4px solid rgba(255,255,255,.3) ;
+   }
+    
+   .pointer{
+     position:absolute; 
+     z-index: 100;
+
+     bottom:20px;
+     left: 30px;
+     /*如果祖元素无定位，元素会消失，因为它参照物是html
+     所以要把ul带上定位
+     */
+   }
+</style>
+<body>
+  <ul>
+    <li><a href="javascript:;"><img src="../bmp/lunbo/1.jpg"></a></li>
+    <li><a href="javascript:;"><img src="../bmp/lunbo/2.jpg"></a></li>
+    <li><a href="javascript:;"><img src="../bmp/lunbo/3.jpg"></a></li>
+    <li><a href="javascript:;"><img src="../bmp/lunbo/4.jpg"></a></li>
+    <div class="pointer">
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+      <a href="javascript:;"></a>
+    </div>
+  </ul>
+  
+</body>
+</head>
+</html>

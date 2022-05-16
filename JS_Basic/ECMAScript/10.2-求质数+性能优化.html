@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<body>
+   <script>
+     
+    // console.time("质数耗时");
+    //  for(i = 2;i <= 100;i++){
+    //      var flag=true;
+    //    for(var j = 2;j < i;j++){
+    //      if(i % j ==0){
+    //        flag=false;
+    //      }
+    //    }
+    //    if(flag){
+    //       document.write(i+"<br>");
+    //    }
+    //  }
+    // console.timeEnd("质数耗时");
+    //608.67ms
+
+
+    // console.time("质数耗时");
+    //  for(i = 2;i <= 10000;i++){
+    //      var flag=true;
+    //    for(var j = 2;j < i;j++){
+    //      if(i % j ==0){
+    //        flag=false;
+    //        break;
+    //      }
+    //    }
+    //    if(flag){
+    //       document.write(i+"<br>");
+    //    }
+    //  }
+    //console.time("质数耗时");
+    //304ms
+
+
+     console.time("质数耗时");
+     for(i = 2;i <= 10000;i++){
+       var flag=true;
+       for(var j = 2;j <= Math.sqrt(i);j++){
+         if(i % j ==0){
+           flag=false;
+           break;
+         }
+       }
+       // if(flag){
+       //    document.write(i+"<br>");
+       // }
+     }
+    console.timeEnd("质数耗时");
+
+    //打印很耗时
+   
+
+   </script>
+</body>
+</head>
+</html>

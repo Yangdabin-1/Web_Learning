@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      非:可以用此来做布尔值的隐形转换
+      和Boolean()效果一样
+      ！a=false  !!a=true
+    */
+    var a=2;
+    a=!!a;
+    document.write(a + '->'+ typeof a +'<br>')
+
+
+
+     //与：若有一个false,结果为false
+     //    若第一个true,结果看第二个，返回第二个
+    var b=true,c=false;
+    result=b&&c;    //为false
+    document.write(result+'<br>');
+
+    var d=alert("会不会出行");
+    result=b&&d;
+    document.write(typeof result+'<br>');
+
+
+    //或：若有一个为ture,结果为true
+    //    若第一个为false，返回第二个
+
+    var aa=true,bb=false;
+    dd=alert("dierci")
+    result=bb||dd;//执行第二个
+    document.write(typeof result+'<br>');
+
+
+  
+    // result=false || 1;
+    // document.write(result+'<br>');
+
+
+
+
+  </script>
+</body>
+</html>

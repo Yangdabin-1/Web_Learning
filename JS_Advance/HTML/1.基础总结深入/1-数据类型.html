@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  //判读数据类型
+  /*
+  typeof：返回的是一个字符串("boolean")---无法区分null/object array/object--typeof function = "function"
+  instanceof：判断实例是否属于某一类
+  === :可以判断undefined/null，因为这两个对象都只有一个值
+  */
+  var a = true
+
+  var e = []
+  var d = {}//对象
+  var b = null
+
+  var c = undefined
+  console.log(a ==="boolean")//false
+  console.log(typeof a ==="boolean")//true
+
+  console.log(typeof b) //object
+  console.log(typeof d) //object
+  console.log(typeof e) //object
+
+  console.log(b === null)//true
+  console.log(c === undefined)//true
+
+  
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!Doctype HTML>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style>
+</style>
+<script>
+  //设置一个函数，可以发送请求并返回一个promise结果,运用asynac+await
+  //分析：发送一个请求需要URL，返回结果用return
+  function sendAjax(url){
+    let p = new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET',url)
+        xhr.send()
+        xhr.onreadystatechange = function(){
+          if(xhr.readyState == 4){
+            if(xhr.status >=200 && xhr.status<300){
+              resolve(xhr.response)
+            }else{
+              reject(xhr.status)
+            }
+          }
+        }
+    })
+    return p
+  }
+  //promise.then测试
+  // sendAjax('https://api.apiopen.top/getJoke').then(value=>{
+  //     console.log(value)
+  //   },reason=>{
+  //     console.warn(reason)
+  //   })
+
+
+  //asynac+await
+  async function main(){
+    try{
+      let value = await sendAjax('https://api.apiopen.top/getJoke')
+      console.log(value)
+    }catch(e){
+      console.warn(reason)
+    }   
+  }
+  main()
+</script>
+</head>
+<body>
+</body>
+</html>

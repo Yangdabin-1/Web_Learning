@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+ /*  JSON--->通过 字符串 来传送数据给其他编程语言
+     JSON分类：对象{}
+               数组[] 
+     JSON允许的值： 字符串，布尔值，数值，null,对象（不包括函数），数值
+
+            
+*/
+
+  //js的对象
+  // 传送对象，其中属性名要用引号标识
+  var obj1 = '{"name":"孙悟空","age":18,"address":"beijing"}';
+  var obj2 = {name:"猪八戒",age:18,address:"beijing"};
+  
+  //JS字符串 ---> JS对象
+  var newobj = JSON.parse(obj1);
+  //JS对象 ----> JS字符串
+  var newstring = JSON.stringify(obj2);
+  console.log(newstring);
+  console.log(newobj);
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 
+      数值类型
+        
+   -->
+  <script>
+
+    var a=111+222;
+    document.write(a);
+    document.write("<br>");
+    //可以直接运算
+
+    var e= "11" * "22";
+    document.write(e);
+    document.write("<br>");
+    //字符串内都是数值也可以运算
+
+    var f= "aa" * "12";
+    document.write(f);
+    document.write(typeof f +"<br>");
+    document.write("<br>");
+    //浏览器无法运算的 计算结果不是数值  NaN
+
+    var g= 0.1 + 0.2;
+    document.write(g);
+    document.write("<br>");
+    //g=0.300004  js计算浮点数可能结果不精确
+    //避免js来计算高精度的东西
+
+    var b=Number.MAX_VALUE;
+    document.write(b);
+    document.write("<br>");
+    //输出最大值 
+
+    var c=Number.MIN_VALUE;
+    document.write(c);
+    document.write("<br>");
+    //输出最小值
+
+    var d=Number.MAX_VALUE * Number.MAX_VALUE;
+    document.write(d);
+    document.write("<br><br>");
+    //当输出值大于最大值时 输出infinity (正无穷)
+
+    document.write(typeof f);
+    document.write(typeof d);
+    //NaN和 infinity 都是数值类型
+
+    
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

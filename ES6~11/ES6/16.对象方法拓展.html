@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title></title> 
+<style></style>
+<script>
+// 1.Object.is 判断两个值是否完全相等
+console.log(Object.is('A','A')) //True
+//2.Object.assign(obj1,obj2) 合并对象,相同部分 obj2会覆盖obj1
+let obj1 = {
+	name : "a",
+	age :12,
+	price :11
+}
+let obj2 = {
+	name : "b",
+	age :123
+}
+console.log(Object.assign(obj1,obj2))
+
+//3.Object.setPrototypeOf(obj1,obj3) 
+// 把obj3作为obj1的隐式属性指向的原型对象
+let obj3 = {
+	sayName(){
+		console.log(this.name)
+	}
+}
+Object.setPrototypeOf(obj1,obj3)
+console.log(obj1)
+</script>
+</head> 
+<body>
+</body>
+</html>

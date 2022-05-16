@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+     //Date
+	 
+	 //新建date对象，标识对象执行时的时间
+	 var day = new Date();
+	 var birthday = new Date("10/10/1999 13:00:05");//指定一个时间
+		  
+	 console.log(day);//显示代码调用时的时间
+
+
+	 
+	 console.log(day.getFullYear());//得到年
+	 console.log(day.getMonth())//得到月  1月是0 2月是1
+	 console.log(day.getDate());//得到日
+	 console.log(day.getDay());//得到周几
+	 console.log(day.getTime());//得到当前时间的时间戳（于标记时间的时间差）ms
+	 //1970/1/1 0:0:0
+	 console.log(Date.now());//当前时间的时间戳
+	 
+	 
+	 //来测试一个循环的性能
+	 var begin =Date.now();
+	 for(var i=1;i<=10;i++){
+		 document.write(i);
+	 }
+	 var end = Date.now();
+	 console.log(end - begin);//消耗2ms
+	 
+	 
+	 
+	  
+	 
+	 
+  </script>
+</body>
+</html>

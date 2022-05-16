@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<!-- 实现:输入框失去焦点是，返回信息，输入框变红 -->
+</head>
+<body>
+  请输入:<input type="text">
+  <p></p>
+  <script>
+    //1.创建对象
+    const input = document.querySelector('input')
+    const p = document.querySelector('p')
+    //2.在全局创建-改变函数
+    function change(data){
+     //2.1-改变颜色
+    input.style.border = '1px solid #f00'
+     //2.2-返回信息
+    p.innerHTML = data.msg
+    }
+    //3.绑定事件
+    input.onblur = function(){
+    //3.1-获取输入信息
+    let inputmsg =this.value
+    //3.2-创建一个script标签，向服务器发送请求
+    let script = document.createElement('script')
+    //3.3设置路径
+    script.src = 'http://127.0.0.1:8000/check-input'
+    document.body.appendChild(script)
+  }
+  </script>
+</body>
+</html>

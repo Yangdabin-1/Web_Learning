@@ -1,0 +1,55 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+  
+//获取元素节点（obj1），通过document对象调用
+	//1.返给指定ID的一个对象
+	var obj1 = document.getElementById("id1");
+   
+	//2.返回指定标签名的一组对象，这组对象通过类数组封装
+	var obj2 = document.getElementsByTagName("标签名");
+   
+	//3.返回指定名称的一组对象，也是类数组封装
+	var obj3 = document.getElementsByName("name");
+	
+	
+// 获取元素节点的子节点，通过具体的元素节点调用
+	// 1.方法:返回当前元素节点的指定名字的某个子节点
+	var son1 = obj1.getElementByTagName("子节点名称");
+	
+	// 2.属性:返回当前元素节点的所有子节点  childNodes属性会把所有子节点（包括文本节点：标签之间的换行，空格也算时一个文本节点）
+	var son2 = obj1.childNodes;
+	var son2 = obj1.children;  //获取父元素的所有子元素（这样空格就不会包括进去了）
+	
+	// 3.属性:返回当前元素节点的第一个子节点
+	var son3 = obj1.firstChild;
+	var son3 = obj1.firstElementChild;//获取父元素的第一个子元素  IE8-不兼容性
+	
+	// 4.属性:返回当前元素节点的最后一个子节点
+	var son4 = obj1.lastChild;
+	
+	
+// 获取元素节点的父/兄弟节点，通过具体的元素节点调用
+	//1.获取该节点的父节点
+	 var f = son.parentNode;
+	//2.该节点的前一个兄弟节点
+	var br1 = son.previousSibling;//包括空格节点
+	var br1 = son.previousElementSibling;//获取前一个兄弟元素
+	//3.该节点的后一个兄弟节点
+	var br2 = son.nextSibling;
+	var br2 = son.nextElementSibling;//后一个兄弟元素
+	
+	
+	
+	// .innerHTML  打印内部的所有HTML结构 包括标签名
+	// .innerText  打印内部的文本内容 
+  </script>
+</body>
+</html>

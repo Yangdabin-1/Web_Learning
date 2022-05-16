@@ -1,0 +1,139 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<link rel="stylesheet" type="text/css" href="../css/员工信息.css"/>
+</head> 
+<script type="text/javascript">
+	window.onload = function(){
+		
+		function fun1(){
+		//删除a的父元素 就可以删除一整行
+			var td = this.parentNode;
+			var tr = td.parentNode;
+			var name = tr.children[0].innerHTML;
+			
+			if(confirm("确定要删除"+name+"的信息吗?")){
+				tr.parentNode.removeChild(tr);
+			}
+			return false;
+		}	
+
+		//为各个Delete添加删除功能
+		var allA = document.getElementsByTagName("a");
+		for(var i=0;i<allA.length;i++){
+			allA[i].onclick = fun1;
+		}
+		//添加提交功能
+		var submit = document.getElementById("submit");
+		submit.onclick= function(){
+			var tbody = document.getElementsByTagName("tbody")[0];
+			//获取三个需要提交的对象
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var salary = document.getElementById("salary").value;
+			//分别三个节点封装进标签
+				//1.创建文本节点
+				var nameText = document.createTextNode(name);
+				var emailText = document.createTextNode(email);
+				var salaryText = document.createTextNode(salary);
+				var aText = document.createTextNode("Delete");
+				//2.创建th元素节点
+				var nameth = document.createElement("th");
+				var emailth = document.createElement("th");
+				var salaryth = document.createElement("th");
+				var ath = document.createElement("th");
+				var a = document.createElement("a");
+					a.href = "javascript:;"
+				//3.创建tr元素节点
+				var tr = document.createElement("tr");
+				//4.添加tbale元素节点
+				var idtable = document.getElementById("idtable");
+				//5.将文本放进th,th放入tr,tr放入idtable
+					nameth.appendChild(nameText);
+					emailth.appendChild(emailText);
+					salaryth.appendChild(salaryText);
+					a.appendChild(aText);
+					ath.appendChild(a);
+					// th放入tr
+					tr.appendChild(nameth);
+					tr.appendChild(emailth);
+					tr.appendChild(salaryth);
+					tr.appendChild(ath);
+					//tr放进tbody
+					tbody.appendChild(tr);
+			//成功将信息添加进表格，但是删除无反应
+			//提交新信息前，删除的事件已经绑定好了
+			//所有需要重新给每个a绑定单击事件
+				for(var i =0;i<allA.length;i++){
+					allA[i].onclick = fun1;
+				}	
+		}//submit.onclick
+		var clear = document.getElementById("clear");
+		clear.onclick = function(){
+			var name = document.getElementById("name");
+			var email = document.getElementById("email");
+			var salary = document.getElementById("salary");
+			
+			
+		}
+	}//window.onload
+</script>
+
+
+
+
+<body>
+  <table id="idtable">
+  	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Salary</th>
+		<th>&nbsp;</th>
+	</tr>
+  	<tr>
+		<th>Tom</th>
+		<th>fhasih@qq.com</th>
+		<th>34214</th>
+		<th><a href="www.baidu.com">Delete</a></th>
+	</tr>
+	<tr>
+		<th>Jake</th>
+		<th>asdfdsa@qq.com</th>
+		<th>12123</th>
+		<th><a href="www.badiu.com">Delete</a></th>
+	</tr>
+	<tr>
+		<th>Toole</th>
+		<th>12355h@qq.com</th>
+		<th>32341</th>
+		<th><a href="www.baidu.com">Delete</a></th>
+	</tr>
+  </table>
+  <table id = "puttable">
+  	<td>
+		<th>添加新员工</th>
+	</td>
+	<tr>
+		<th>name:</th>
+		<th><input type="text" name="name" id="name" /></th>
+	</tr>
+	<tr>
+		<th>email</th>
+		<th><input type="text" name="email" id="email" /></th>
+	</tr>
+	<tr>
+		<th>salary:</th>
+		<th><input type="text" name="salary" id="salary" /></th>
+	</tr>
+	<td>
+		<button id="submit" type="button">Submit</button>
+		<button id="clear" type="button">Clear</button>
+	</td>
+  </table>
+
+</body>
+</html>

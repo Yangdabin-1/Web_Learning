@@ -1,0 +1,67 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 
+	因为-全局作用域-无法读取，也无法对-函数作用域-内的局部变量进行操作
+ */
+
+	//所以闭包的作用在于此，可以从外部读取，操作函数内的局部变量
+	function fun2(){
+		var a = 1
+		
+		// function fun2(){
+		// 	a++
+		// 	console.log(a)
+		// }
+		a++
+	}
+	// fun1()
+	// console.log(a)
+	//加入没有闭包，那么在全局作用域函数就无法读取函数内部的a,进行a++更不行
+	
+	//所以需要闭包来向外暴露局部变量
+	function fun1(){
+		var a = 1
+		//创建闭包
+		function cancle(){  //这个函数也是一个对象
+			a--
+			console.log(a)
+		}
+		function add(){   //这个函数也是一个对象
+			a++
+			console.log(a)
+		}
+		return add  //向外暴露局部变量
+	}
+	var f = fun1()  //这里的f就是fun2
+	//fun1调用结束后，里面的对象应该成为垃圾对象,且delete对象未被调用，所以被回收了
+	//但是add对象如果也被释放了，里面的a++应该也被释放了，为什么还可以作用呢
+	// 是因为f,f复制了add的内存地址，所以就算add被释放，但f还执行那个add的对象
+	
+	f() //执行内部函数:fun2
+	f = null  //让add成为垃圾对象
+	// f()  会报错
+	
+	
+	
+	/* 
+	所以闭包的作用
+		1.函数执行后，能够让局部变量的生命周期延长
+		2.在函数外部可以操作内部函数的局部变量
+	
+	闭包的生命周期
+		1.产生:嵌套函数 定义执行完成后（不是调用才产生）
+			函数定义执行，因为函数提升，所以在代码执行前就声明了
+		2.死亡：嵌套函数成为为垃圾对象时（无引用）
+	*/
+</script>
+</head> 
+<body>
+</body>
+</html>

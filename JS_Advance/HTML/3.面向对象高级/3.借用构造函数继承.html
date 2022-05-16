@@ -1,0 +1,34 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style>
+/* 如何让学生实例使用老师类的原型对象的属性 */
+</style>
+<script>
+	/* 
+		借用构造函数继承并非真的继承
+			而是临时调用了别人的属性
+	 */
+	function Teacher(name,age){
+		this.name = name
+		this.age = age 
+	}
+	function Student(name,age,grade){
+		Teacher.call(this,name,age)  //相当于this.Teacher(name,age)
+		//this.name
+		//this.age   相当于少写了这些
+		this.grade = grade
+	}
+	var s1 = new Student("小红",16,"高一")
+	//这里没有将name和age绑定给s1，s1却能调用了这些属性
+	//因为临时调用了别人的属性（this指向）
+	console.log(s1.name,s1.age,s1.grade)
+</script>
+</head> 
+<body>
+</body>
+</html>

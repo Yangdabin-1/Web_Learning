@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="zh-cn">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>子代选择器</title>
+ <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+ul {
+    list-style: none;
+   }                /*用子代选择器给三个list设置不同字体大小*/
+ul.list-1>li {
+  font-size: 30px;
+  color: red;
+}                   
+ul.list-2>li {
+  font-size: 20px;
+  color: blue;
+}
+ul.list-3>li {
+  font-size: 10px;
+  color:violet;
+}
+/*  
+    继承性：ul.list-1以下的list全部跟随变化--->包括list-2/3     叠加性：继续往下ul.list-2也设置样式的话--->就会叠加新样式或覆盖之前的样式--->权重是后面的>前面的
+*/         
+ </style>
+<body>
+  <ul class="list-1">
+    <li>list-1</li>
+    <li>list-1</li>
+    <li>list-1</li>
+    <li>
+      <ul class="list-2">
+        <li>list-2</li>
+        <li>list-2</li>
+        <li>list-2</li>
+        <li>
+          <ul class="list-3">
+            <li>list-3</li>
+            <li>list-3</li>
+            <li>list-3</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</head>
+</html>

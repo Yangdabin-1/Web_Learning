@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>vertical-align和opacity</title>
+ <style>
+   * {
+     margin: 0;
+     padding: 0;
+   }
+  .vertical { 
+               width:500px;
+               height:200px;
+               background-color: red;
+               opacity: 0.5;   /* 透明度为0.5  作用该元素内所有内容*/
+            }
+  img {
+        width:200px;
+        height:200px;
+        vertical-align:middle;  /* 垂直对齐模式：top middle baseline*/   
+
+      }
+  p.span1 {
+           display: inline-block;
+           /* border: 1px solid black; */
+           width:200px;
+           height:200px;
+           vertical-align:middle; 
+          
+         }
+   
+ </style>
+<body>
+<div class="vertical">
+  <img src="../bmp/1.gif" alt="!" width="400px" height="400px"> <!--alt不知为什么时用'！'-->
+  <p class="span1">这是一段文字啊艰苦撒是一段asd文字啊艰苦撒旦和法国实打实阿松是一段文字啊艰苦撒旦和法国实打实阿松是一段文字啊艰苦撒旦和法国实打实阿松旦和法国实打实阿松大</p>
+  <!--同一行内相邻的图片和文字：默认是以（基线）对齐的，即文字在图片基线位置-->
+</div>
+</body>
+</head>
+</html>

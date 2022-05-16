@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>盒子模型</title>
+<style>
+   * {
+      margin: 0;     /* 外边距*/
+      padding: 0;    /* 内边距*/
+    }
+  div {
+        border:none dashed black;   /*外边框   厚度-线型-颜色*/
+        border-top:5px solid blue;
+        border-right:5px solid black;
+        border-bottom:5px solid red;
+        border-left:5px solid yellow;
+        /*单例型写法
+        border-size: 15px;
+        border-type: solid;   有虚实线，双线点状....  none：边框不存在
+        border-color: blue
+        *
+        background-color:aqua  ; 
+        width: 100px;    /*内容的宽高*/
+        height: 100px;   /*内容的宽高*/
+        padding: 10px;
+        margin: 0px;     
+      }
+      /*外边距穿透：嵌套的两个盒子 外盒子是否封顶（m-t/p-t）会影响内盒子的m-top,
+      封顶就不会穿透        不封顶，mt穿透
+      （但是当外盒子设置成行内块元素时，无论是否封顶，都不能穿透）*/
+
+
+</style>
+<body>
+<div>红球红球红球红球红球红球红球<p>绿球绿球绿球</p></div>
+</div>
+</body>
+</head>
+</html>

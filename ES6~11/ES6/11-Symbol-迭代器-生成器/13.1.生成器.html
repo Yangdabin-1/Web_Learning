@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 生成器:是一个特殊的函数
+	用来实现异步编程的方案
+
+*/
+	function *print(){
+		console.log("输出一段文字")
+	}
+	print()//直接调用无法得到函数返回值，需要调用其next方法
+	print().next()//输出一段文字
+	console.log(print())
+	console.log("--------------------------")
+	//yield 就是函数代码的分割符，把函数分成了五个部分
+	function *gushi(){
+		console.log("开头")
+		yield 'no.0'
+		console.log("床前明月光")
+		yield 'no.1'
+		console.log("疑是地上霜")
+		yield 'no.2'
+		console.log("举头望明月")
+		yield 'no.3'
+		console.log("低头思故乡")
+		yield 'no.4'
+		console.log("结尾")
+		//结尾的下一个就是undefined
+	}
+	//获取迭代器对象
+	let result = gushi()//next的起始位置第一个元素的前面
+	result.next()//打印下一个分割符中的内容
+	result.next()
+	console.log(result.next())//会调用该部分的内容和分隔符里的语句
+	console.log(result.next())
+	console.log(result.next())
+	console.log(result.next())
+	
+	
+
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

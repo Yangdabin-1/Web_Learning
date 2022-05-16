@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+		//this是一个参数，指向一个对象(称为上下文对象)
+  /*
+		解析器在调用函数时，都会向给函数内部创建一个隐藏的参数-this
+		   谁调用,指向谁
+			-当函数作为普通函数被window调用时，this指向全局对象-window
+			-当函数作为方法被某对象调用时，this指向调用这个方法的对象
+  */ 
+	
+	//先创建一个对象
+	var obj1 = {
+		name : "方法的name",
+		age : 23,
+		sayName : fun1
+	}
+	
+	function fun1(){
+		                  //this是用来指向对象的
+		console.log(this.name);
+	}
+	
+	//这两个值相等
+	console.log(obj1.sayName == fun1);
+	
+	
+	//普通函数  fun1(); == window.fun();
+	var name = "全局的name";
+	fun1();//fun1 -> this -> window -> window.name
+	
+	//方法
+	obj1.sayName();
+	//obj1 -> sayName -> fun1 -> this -> obj1 -> obj1.name
+	
+  </script>
+</body>
+</html>

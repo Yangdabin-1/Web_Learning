@@ -1,0 +1,90 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	ul {
+		background-color:#BBFFAA;
+	}
+</style>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		var btn01 = document.getElementById("btn01");
+		var allA = document.getElementsByName("a");
+		for(var i=0 ; i<allA.length ; i++){
+			allA[i].onclick = function(){
+				alert("hahah ");}
+			}
+		
+		//点击按键时，就会生成新连接
+		btn01.onclick = function(){
+			var ul = document.getElementById("allA");
+			var li = document.createElement("li");
+			li.innerHTML = "<a href='javascript:;'>新链接</a>";
+			ul.appendChild(li);	
+			
+			//为新连接绑定事件 为什么要写点击事件里
+			for(var i=0 ; i<allA.length ; i++){
+				allA[i].onclick = function(){
+					alert("hahah");
+				}
+			}
+				
+				
+			/* 上述事件，每个超链接都要绑定一个事件，流程麻烦
+			并且新增超链接元素后，也要重新绑定事件
+			
+			需求：只需绑定一次事件，在这些元素的共通祖先元素绑定事件
+			
+			方式：事件的委派
+				-1.因为事件可以冒泡，所以当后代（超链接）触发的事件，这个事件可从祖先元素ul）冒泡来的
+				-2.event.targrt   可得到此时触发事件的元素
+				target = 触发事件的元素
+			
+			 */
+
+		}
+		//为超链接的共同祖先元素（ul）绑定事件
+		var allAA = document.getElementById("allAA");
+		var btn02 = document.getElementById("btn02")
+		allAA.onclick = function(event){
+			
+			//判读触发事件的对象 是否是超链接
+			if(event.target.className == "link"){
+				alert("NOPNONON");
+			}
+			
+		};
+		btn02.onclick = function(){
+			var li = document.createElement("li");
+			var ul = document.getElementById("allAA");
+			li.innerHTML = "<a href='javascript:;' class='link'>新链接</a>";
+			ul.appendChild(li);
+		}
+		
+		
+	}
+</script>
+</head> 
+<body>
+	<button id="btn01">新建连接</button>
+	<ul id ='allA'>
+		<li><a href="javascript:;" name="a">旧链接1</a></li>
+		<li><a href="javascript:;" name="a">旧链接2</a></li>
+		<li><a href="javascript:;" name="a">旧链接3</a></li>
+	</ul>
+	<br>
+	<button id="btn02">新建连接</button>
+	<ul id ="allAA">
+		<li>hahahahahah</li>
+		<li><a href="javascript:;" class="link">旧链接1</a></li>
+		<li><a href="javascript:;" class="link">旧链接2</a></li>
+		<li><a href="javascript:;" class="link">旧链接3</a></li>
+		<!-- 这里的link是用来标记a的 -->
+	</ul>
+</body>
+</html>

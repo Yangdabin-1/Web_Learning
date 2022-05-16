@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>渐变</title>
+  <style>
+    .box1,.box2,.box3,.box4{
+      display:inline-block;
+    }
+    .box1{
+      width: 200px;
+      height: 200px;
+      /*线性渐变*/
+      background-image: linear-gradient(to left,orange,green);
+      /* linear-gradient(to rigtht orange,green)
+          默认从上往下
+            -to right/l/top/bottom
+            -deg  10deg 标识度数
+            -turn  2turn  旋转两圈
+        */
+    }
+
+    /*同时指定多个颜色*/
+    .box2{
+      width: 200px;
+      height: 200px;
+ 
+      background-image: linear-gradient(rgb(170, 255, 0),pink,blue,#bfa);
+    }
+    
+
+    .box3{
+      width: 200px;
+      height: 200px;
+      background-image: linear-gradient(pink,blue 50px);
+      /*像素标识：纯色从哪里开始变化*/
+    }
+
+    /*可以平铺的渐变*/
+    .box4{
+      width: 200px;
+      height: 200px;
+      background-image: repeating-linear-gradient(pink 0px,blue 50px);
+    }
+
+    
+    
+  </style>
+</head>
+<body>
+  <div class="box1">1</div>
+  <div class="box2">2</div>
+  <br>
+  <div class="box3">3</div>
+  <div class="box4">4</div>
+</body>
+</html>

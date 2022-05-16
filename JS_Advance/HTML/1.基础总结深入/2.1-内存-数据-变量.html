@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  var a = {age : 13}//a指向一个对象A
+  var b = a //b赋值了a的内容，也指向对象A
+  a = {age:14} //a重新指向了另外一个对象B，b指向的还是对象A
+  
+  console.log(a.age)//14  （a.）点的作用是去找a引用到的对象的某个属性  （a.age）去找这个对象中的age属性值
+  console.log(b.age)//13
+
+  
+  function fun2(obj){ //1.函数调用前，此时局部变量Obj复制全局变量a的内容  指向的是对象B obj.age = 14
+     obj = {age : 15} //1.函数调用时，此时Obj指向另外一个对象C   obj.age = 15
+  }                   //3.函数调用后，对象C就被回收    局部变量obj被释放
+  fun2(a) 
+  console.log(a.age)//14
+
+  function fun1(obj){//1.函数调用前，此时Obj复制a的内容  指向的是对象B obj.age = 14
+    obj.age = 15     //2.函数调用时，此时Obj还是执行对象B  更改了这个对象的age obj.age = 15
+  }                  //3.因为a执行的也是对象B，所有a.age = 15
+  fun1(a)   //函数执行原理:将a的内容复制给obj
+  console.log(a.age) //15
+  
+  console.log("-------------------")
+
+  //调用函数时，形参是(值传递，还是引用传递)
+  /* 两种解释
+    1.是值（基本值，内存地址值）传递
+    2.可能是值传递，也可能是引用传递
+    
+  */
+    var aa = 2
+    function fun3(aa){
+       aa = aa + 1 // 左边的aa是写,在堆内存中写个aa   右边的aa是读，读取aa的值（3）
+      console.log(aa)//3
+    }
+    fun3(aa);
+    console.log(aa)//2
+  /* 为什么aa的结果不是3呢
+    1.fun3(aa)-----------------把aa的内容复制给函数的形参aa,所以 函数的形参=3
+    2.function fun3(aa){ ------此时aa = 3
+    3. aa = aa + 1 ------------此时函数内部在栈内存 创建 新的一个属性名为aa，然后把aa+1(3+1)赋值给aa ，这个新aa=3
+    4. console.log(aa) --------此时打印的是新aa的值，3
+    } -------------------------退出函数，新的aa被回收，外部的aa值未被改变
+  */
+  var obj = {name :"tony"}
+  function fun3(obj){
+    console.log(obj.name)
+  }
+  fun3(obj);//tony
+
+</script>
+</head>
+<body>
+</body>
+</html>

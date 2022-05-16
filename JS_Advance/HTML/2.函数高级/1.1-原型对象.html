@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  /* 
+      对象->prototype->原型对象
+      原型对象->constructor->对象
+  
+  */
+    function Fun1(name,age){ 
+      this.name = name;
+      this.age = 14
+    }
+    var a = new Fun1("张三",14)
+    Fun1.prototype.address = "beijing";
+    console.log(a) 
+  
+ ////////////////////////////////////////////////////////
+ 
+  function Person(){ //1.先在堆创建一个对象，将地址赋值给Person
+  }
+  var p1 = new Person()//这一步的步骤
+  //1.new Person :创建Person的实例对象
+  //2.将这个实例对象的内存地址复制给p1，所以P1指向的就是这个实例对象
+  //3.称p1是person的实例
+</script>
+</head>
+<body>
+</body>
+</html>

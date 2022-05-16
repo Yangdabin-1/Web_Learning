@@ -1,0 +1,46 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 题一 */
+var x = 10
+function fun1(){
+	console.log(x)
+}
+function fun2(){
+	var x = 20 
+	fun1()   //若要输出20, 在fun1里传递形参和实参
+}
+fun2() //输出：10
+/* 原因
+  1.函数的调用并不会影响函数的作用域
+  2.所有在fun2中调用fun1,并不会把fun1的作用域搞到fun2里面
+  3.所有执行fun1时，找到fun1的作用域后，在作用域链上找x
+ */
+
+
+/* 题二 */
+
+//此处才是函数作用域
+var obj = {            //此处不属于函数作用域
+	fun :function (){    
+		console.log(fun)
+	}
+}
+obj.fun()   //会报错
+/* 原因
+   打印fun时，会跳出函数作用域，寻找fun，寻找不到就会报错
+   只存在两种作用域，函数作用域和全局作用域
+ */
+
+
+</script>
+</head> 
+<body>
+</body>
+</html>

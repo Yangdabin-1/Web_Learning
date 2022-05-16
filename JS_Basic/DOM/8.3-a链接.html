@@ -1,0 +1,84 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<link rel="stylesheet" type="text/css" href="../css/员工信息.css"/>
+</head> 
+<script type="text/javascript">
+	window.onload = function(){
+
+		var allA = document.getElementsByTagName("a");
+
+		for(var i=0;i<allA.length;i++){
+			allA[i].onclick = function(){
+				
+				//循环总是在文档加载结束后立刻执行
+				//而单击对象绑定的函数只有在调用使才执行
+				// 所以这里的i，是单击前，循环已经结束，单击后，循环外的i就是3
+				//所以打印aLLA[3]是未定义的数据
+				console.log(this);
+				return false;
+			}
+
+}
+		
+	}
+</script>
+
+
+
+
+<body>
+  <table id="idtable">
+  	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Salary</th>
+		<th>&nbsp;</th>
+	</tr>
+  	<tr>
+		<th>Tom</th>
+		<th>fhasih@qq.com</th>
+		<th>34214</th>
+		<th><a href="http://www.baidu.com">Delete</a></th>
+	</tr>
+	<tr>
+		<th>Jake</th>
+		<th>asdfdsa@qq.com</th>
+		<th>12123</th>
+		<th><a href="www.badiu.com">Delete</a></th>
+	</tr>
+	<tr>
+		<th>Toole</th>
+		<th>12355h@qq.com</th>
+		<th>32341</th>
+		<th><a href="www.baidu.com">Delete</a></th>
+	</tr>
+  </table>
+  <table id = "puttable">
+  	<td>
+		<th>添加新员工</th>
+	</td>
+	<tr>
+		<th>name:</th>
+		<th><input type="text" name="name" id="name" /></th>
+	</tr>
+	<tr>
+		<th>email</th>
+		<th><input type="text" name="email" id="email" /></th>
+	</tr>
+	<tr>
+		<th>salary:</th>
+		<th><input type="text" name="salary" id="salary" /></th>
+	</tr>
+	<td>
+		<button id="submit" type="button">Submit</button>
+		<button id="clear" type="button">Clear</button>
+	</td>
+  </table>
+
+</body>
+</html>

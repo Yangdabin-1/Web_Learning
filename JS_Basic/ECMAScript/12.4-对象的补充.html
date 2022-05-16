@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+   //对象的某个属性的属性值可以是函数
+  //这种属性就叫做对象的方法
+   
+   var obj1 = {
+		name : "张三",
+		age : 23,
+		address : "北京",
+		sayName : function(){
+								console.log("名字是:" + obj1.name);
+							}
+   }
+   
+   //sayName就是函数的方法
+   obj1.sayName();
+   // sayName();  不能越过对象直接调用函数
+   
+   
+   
+   
+   //枚举对象中的变量
+   //for...in
+   //对象中有几个属性，就会循环几次，把属性名赋给n
+   for(var n in obj1){
+	   console.log("属性名:" + n +",属性值:" + obj1[n]);
+   };
+   //这里属性值不能使用obj1.n
+   // 因为n不是obj1中的属性，而[]能传递属性
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charest='utf-8'>
+  <meta name='keywords' content='aa'>
+  <meta name='description' content='aaaa'>
+  <title></title>
+  <style>
+    *{
+      margin: 0;
+    }
+    .class1,.class2,.class3,.class4,.class5{
+      width: 200px;
+      height: 200px;
+    }
+    .class1 {
+      background-color: aqua;
+      outline: black 11px solid;
+      /*轮廓---不会影响布局 只会遮挡*/
+    }
+
+    span {
+      color: blue;
+    }
+    .class2{
+      background-color: red;
+      box-shadow:15px 15px 20px blue;
+      /*阴影-   -x    y    模糊程度*/
+      
+    }
+    .class3{
+      background-color: green;
+      border-radius: 50px;
+      /*圆角--
+      三种写法（对角线）
+      10px 10px  左上/右下和右上/左下  
+      */
+    }
+    .class4{
+      background-color: pink;
+      border-radius: 70px;
+    }
+    .class5{
+      background-color:royalblue;
+      border-radius: 50px/25px;
+      /*圆角-椭圆（x轴/y轴）*/
+    }
+
+  </style>
+
+<body>
+  <div class="class1">轮廓会遮住其他元素不影响布局</div>
+  <span>wordasds</span>
+  <div class="class2">box2</div>
+  <br>
+  <br>
+  <div class="class3">box3</div>
+  <div class="class4">box4</div>
+  <div class="class5">box5</div>
+  
+</body>
+</head>
+
+</html>

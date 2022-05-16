@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">     
+  <meta name="keywords" content="a"> 
+  <meta name="description" content="a">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+  <title>aa</title> 
+  <style></style>
+<script>
+	/* 构造函数创建实例 */
+	function Person(name,age){
+		this.name = name
+		this.age = age
+	}
+	let p1 = new Person("lily",23)
+	console.log(p1.name)
+	
+	/* 用class字面量创建实例 */
+	let methed02 = "sayAge"
+	class Animal{
+		constructor(kind,age) { //为类添加属性
+		    this.kind = kind
+			this.age = age
+		}	
+		sayName(){ //为类的原型对象添加方法
+			console.log(this.name)
+		}
+		[methed02](){
+			console.log(this.age)
+		}
+	}
+	let a1 = new Animal("柯基",3)
+	console.log(a1.kind)
+	a1.sayAge()
+	
+	/* class 也可以用表达式创建 */
+		let student= class Student{  //类的名字是Student,但只能在class内部使用
+		//在外部Student只能用boy引用
+			constructor(name,grade) {
+				this.name = name 
+				this.grade = grade
+			}
+			sayName(){
+				console.log(this.name)
+			}
+		}
+		let s1 = new student("小航","高一")
+		s1.sayName()
+	/*如果me没有在内部使用到，可以省略me,且直接执行student */
+	/* student1是一个立即执行的类的实例 */
+	/* 它的类就是class */
+	/* var fun1 = new Function */
+		let s2 = new class {  
+			constructor(name,grade) {
+				this.name = name 
+				this.grade = grade
+			}
+			sayName(){
+				console.log(this.name)
+			}
+		}("小红","大三")
+		s2.sayName()
+		console.log(s2)
+		
+/* static关键字 
+	-在方法前面加static,会让这个方法只给类调用，不会继承给实例
+		如果想要继承给实例，需要在内部定义 class 实例 extends 类
+    -这种方法成为静态方法，静态方法里的this永远指向类 
+*/
+	class Teacher {
+		static sayName() {
+			return "name"
+		}
+	}
+	class t1 extends Teacher {
+		static sayName(){
+			return super.sayName() + "sa"
+		}
+	}
+	console.log(t1.sayName()) 
+</script>
+</head> 
+<body>
+</body>
+</html>

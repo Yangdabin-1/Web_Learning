@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+ <style>
+</style>
+<body>
+   <audio src="../audio/1.mp3" controls autoplay loop></audio>
+   <!--双标签- 
+                controls:是否让用户控制音乐的播放
+               autoplay：是否自动播放（不兼容大部分浏览器）
+               loop:音乐结束后会继续循环播放
+    -->
+    <audio controls>
+      对不起，您的浏览器不支持播放音频，请升级!  
+       <source src="../audio/1.mp3">
+       <source src="../audio/1.mp3">
+       <!--
+        不兼容的浏览器就会只显示文字 
+        source选择一个，优先从上到下-->
+    </audio>
+
+    <!--可以兼容老版本IE（少用）-->
+    <embed src="../audio/1.mp3" type="audio/mp3">
+
+    <video>
+      <source src="路径"> 
+      <embed src="" type="">    <!--可以兼容老版本IE（少用）-->
+    </video>
+    
+</body>
+</head>
+</html>

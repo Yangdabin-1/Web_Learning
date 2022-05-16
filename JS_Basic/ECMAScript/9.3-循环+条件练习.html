@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+ <style>
+
+</style>
+<body>
+  <script>
+
+  //写法一
+  var score1=+prompt("输入成绩1:");
+  while(score1 >100 || isNaN(score1))
+  //当输入大于100 或输入不是数字时
+  {
+    score1=+prompt("重新输入成绩:");
+    //重新输入
+  }
+
+  
+
+  switch(parseInt(score1/10)){
+    case 10:document.write("优秀");break;
+    case 9:document.write("良");break;
+    case 8:document.write("及格");break;
+    case 7:document.write("及格");break;
+    case 6:document.write("及格");break;
+    case 5:document.write("不及格");break;
+    case 4:document.write("不及格");break;
+    case 3:document.write("不及格");break;
+    case 2:document.write("不及格");break;
+    case 1:document.write("不及格");break;
+    case 0:document.write("挂科");break;
+  }
+     
+
+  //写法二
+
+
+  while(1)
+  //死循环
+  {
+    var score2=+prompt("输入成绩2:");
+    if(score2 >=0 && score2 <= 100)
+    //如果成绩输入正确，跳出循环
+    {
+      break;
+    }
+  }
+  switch(parseInt(score2/10)){
+    case 10:document.write("优秀");break;
+    case 9:document.write("良");break;
+    case 8:document.write("及格");break;
+    case 7:document.write("及格");break;
+    case 6:document.write("及格");break;
+    case 5:document.write("不及格");break;
+    case 4:document.write("不及格");break;
+    case 3:document.write("不及格");break;
+    case 2:document.write("不及格");break;
+    case 1:document.write("不及格");break;
+    case 0:document.write("挂科");break;
+  }
+   </script>
+</body>
+</head>
+</html>

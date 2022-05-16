@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //相等 ==
+    document.write(22 == 22);//true
+    document.write('22' == 22);//true
+    //将字符串转化为数值
+
+    document.write(true == 3);//false
+    //将布尔值转化为数值
+
+    document.write('<br>')
+    document.write(NaN == undefined);//false
+    //NaN和任何类型比较（包括自己），结果都为false
+
+    document.write(null == 0);//false 
+    document.write(Number(null));
+    //特例：null的数据值为0，但此处不是转化为数值比较
+
+    document.write(null == undefined);
+    //undefined是null的衍生，所以相等
+
+
+    //不相等：！=
+
+
+    //全等：  === 指的是数据类型和数据值都相等
+    document.write('123' === 123);//false
+    document.write(null === undefined);//false
+    //不全等：！==
+    
+  </script>
+</body>
+</html>

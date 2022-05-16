@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<script type="text/javascript">
+	window,onload = function(){
+	var box1 = document.getElementById("box1");
+	var box2 = document.getElementById("box2");
+	box1.style.width = "200px";
+	box1.style.height = "200px";
+	box1.style.marginLeft = "35px";
+	box1.style.backgroundColor = "#bfa"; 
+	
+	box2.style.width = "50px";
+	box2.style.height = "50px";
+	box2.style.backgroundColor = "red"; 
+	box2.style.marginLeft = "35px"; 
+	
+	box1.onclick = function(){
+		alert("绿色");
+	}
+	box2.onclick = function(){
+		alert("红色");
+		event.cancelBubble = true;
+	}
+	document.onclick =function(){
+		alert("Document");
+	}
+	
+	
+	
+	/*	事件冒泡 Bubble
+		1. 冒泡就是事件的上传导
+		2.如果父元素和子元素都设置的事件， 当事件发生在父元素上时，因为子元素被父元素包括，所以子元素的事件也被触发了
+		3.如点击红色警告，没有点击到绿色警告，绿色也会弹出
+		
+		4.可以通过事件方法来阻止事件冒泡
+		
+			需要阻止冒泡的元素的事件.cancelBubble = true;
+		
+	*/
+   
+	}
+	
+</script>
+</head> 
+<body>
+	点击
+	<div id="box1">
+		点击
+		<div id="box2">点击</div>
+	</div>
+
+</body>
+</html>

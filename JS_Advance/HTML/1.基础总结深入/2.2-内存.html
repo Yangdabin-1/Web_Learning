@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  /*  JS引擎如何管理内存？
+    -内存的生命周期
+      1.分配一个小内存空间  var a
+      2.对数据进行存储+操作   a = 1
+      3. 释放这个内存空间
+    
+    -释放内存    (垃圾回收 != 内存释放)
+      1.局部变量
+        在函数调用后，变量被自动释放
+      2.对象
+        成为垃圾对象(没有一个引用时/null)后，过一段时间，被垃圾回收站回收
+  
+  */
+ var obj = {} //obj 占据两个空间：堆和栈
+ obj = null //obj 依旧占两个空间 ：堆和栈 只不过他的堆和栈的联系切掉了而已  堆中的对象过段时间才会被回收
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

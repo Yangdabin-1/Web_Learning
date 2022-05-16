@@ -1,0 +1,221 @@
+/* 小米首页的样式表 */
+.w{
+  width: 1226px;
+}
+body{
+  background-color:#FFFFFF ;
+  min-width: 1226px;
+  margin: 0 auto;
+}
+.nav{
+  height:40px;
+  background-color:#333333;
+  position: relative;
+}
+li{
+  list-style: none;
+}
+
+.nav a{
+  text-decoration: none;
+  color: #b0b0b0;
+  font:12px Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+  line-height: 40px;
+}
+.nav .content{
+  width: 1226px;
+  height: inherit;
+  position: relative;
+  margin: 0 auto;
+}
+.line{
+  display: inline-block;
+  width:1px;
+  height: 16px;
+  background-color: #424242;
+  margin: auto 4px;
+  vertical-align:middle;
+}
+.leftmeau{
+  float: left;
+}
+
+.rightmeau{
+  float: right;
+}
+.box1{
+  margin-left:25px;
+  padding: 0 15px;
+  background-color: #424242;
+  float: right;
+}
+
+.box1:hover{
+  display: block;
+  background-color: white;
+}
+.box1:hover .splist{
+  display: block;
+}
+.splist{
+  display: none;
+  width: 317px;
+  height: 102px;
+  background-color:white;
+  box-shadow: 0 0 10px gray;
+  border-top: none;
+  position: absolute;
+  left: 909px;
+  z-index: 9999;
+}
+
+.bigbox{
+  height:100px;
+}
+.leftmeau2{
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius:15px/20px;
+  background-color:#FF6A00;
+  background-image: url(../img/mi-logo.png);
+  background-position: 4px 0;
+  float:left;
+}
+.content2{
+  height: 56px;
+  margin:22px auto;
+}
+
+.midmeau2{
+  float: left; 
+  margin-top: 18px;
+  margin-left: 181px;
+}
+.midmeau2 a{
+  font-size: 16px;
+  display: inline-block;
+  margin: 0 10px;
+  /* margin: auto 0; */
+
+  color:#333333;
+}
+.rightmeau2{
+  position: relative;
+  left: -25px;
+  float: right;
+  width: 297px;
+}
+
+#s1{
+  display: inline-block;
+  position: relative;
+  left: 16px;
+  height: 50px;
+  width: 245px;
+  border: 1px solid #E0E0E0;
+}
+/* .search{
+  border: 1px solid gray;
+} */
+.logo{
+  display: inline-block;
+  position: relative;
+  height: 52px;
+  width: 52px;
+  left: 266px;
+  top:-54px;
+  border: 1px solid #E0E0E0;
+  border-collapse: collapse;
+}
+.fa-search{
+  color: #616161;
+  font-size: 25px;
+  margin-top: 13px;
+  margin-left: 14px;
+}
+.lunbo{
+  position: relative;
+  height: 460px;
+  margin-left: 300px;
+  margin: 0 455px;
+  background-image: url(../img/banner1.jpg);
+  overflow: hidden;
+}
+
+.leftmeau3{
+  width: 234px;
+  height: 460px;
+  background-color:rgba(68, 70, 74,.5);
+}
+
+.list2{
+  height: 420px;
+  padding: 20px 0;
+
+}
+.list2 li{
+  color: white;
+  position: relative;
+  width:234;
+  height: 42px;
+  padding-left:30px;
+  line-height: 42px;
+}
+.list2 li .fa-angle-right{
+  position:absolute;
+  top:12.665px;
+  right:2px;
+  margin-right:20px;
+  font-size: 16px;
+  color: #DEDEDE;
+}
+.list5:hover{
+  background-color:#FF6700;
+}
+.list4{
+  display: none;
+  position:absolute;
+  left: 234px;
+  top:0px;
+  height: 463px;
+  width: 950px;
+  background-color: white;
+  border: 1px gray solid;
+  border-left: none;
+
+}
+.list5:hover ~ .list4{
+  display:block;
+
+}
+.smallbox{
+  width:100%;
+  height:170px;
+  margin-top:24px;
+  overflow: hidden;
+}
+.smallbox .content{
+  width:1227px;
+  height: 171px;
+  margin: 0 auto;
+}
+
+.list6{
+  width: 236px;
+  height: 100%;
+  background-color: #5F5750;
+}
+.list6 li{
+  display: inline-block;
+  width:33.3%;
+  height: 50%;
+  background-color: #5F5750;
+}
+.circle{
+  float: right;
+  width: 10px;
+  height: 10px;
+  margin: 4px;
+  background-color: red;
+}

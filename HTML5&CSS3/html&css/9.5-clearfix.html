@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>解决外边距重叠</title>
+ <style>
+   /*分开两个盒子的上下外边距*/
+   .box1{
+     width: 400px;
+     height: 400px;
+     background-color: aqua;
+   }
+   .box2{
+     width: 200px;
+     height: 200px;
+     background-color: rgb(255, 38, 0);
+     margin-top: 100px;/*移动box2*/
+   }
+   .box1::before{
+      content: '';/*设置空元素*/
+      /* display:inline-block; */
+      display: table;/*解决外边距重叠*/
+   }
+   
+   .clearfix::before,
+   .clearfix::after{
+     content: '';   /*解决外边距重叠*/
+     display: table;/*外边距重叠*/
+     clear: both;   /*解决高度塌陷*/
+   }
+
+</style>
+<body>
+   <div class="box1 clearfix">
+      <!--在这里添加伪元素隔开外边距-->
+     <div class="box2"></div>
+   </div>
+</body>
+</head>
+</html>

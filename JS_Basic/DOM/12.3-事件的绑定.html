@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<script type="text/javascript">
+	window.onload =function(){
+		var btn01 = document.getElementById("btn01");
+		
+		/* 以下代码不会使按钮有三次警告
+			原因:使用 对象.事件 方法绑定的响应函数，不能绑定多个，只可覆盖
+			- 一个对象的同一个事件只能绑定一次响应函数
+			-可用addEventListener为一个元素的相同事件绑定多次响应函数
+		 */
+		btn01.onclick = function(){
+			alert("1");
+		}
+		btn01.onclick = function(){
+			alert("2");
+		}
+		btn01.onclick = function(){
+			alert("3");
+		}
+	
+		/*
+		 解决：addEventListener("事件名",响应函数，false/true);
+		 参数:
+			-1.事件的名称 ，不加"on"
+			-2.响应函数 function(){}
+			-3.是否在 捕获阶段 触发事件，一般为false
+		 兼容：IE8-不行
+		 */
+		btn01.addEventListener("click",function(){
+			alert("4");
+		},false);
+		btn01.addEventListener("click",function(){
+			alert("5");
+		},false);
+		
+		
+		
+		/*
+			兼容IE8 
+			参数：
+			-事件 加on
+			-响应函数
+			特点:先执行，后调用
+			btn01.attachEvent("onclick",function(){
+				alert("7");
+			});
+			btn01.attachEvent("onclick",function(){
+				alert("7");
+			});
+		*/
+	}
+</script>
+</head> 
+<body>
+	<button id="btn01">btn01</button>
+</body>
+</html>

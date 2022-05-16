@@ -1,0 +1,53 @@
+<!Doctype HTML>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'> 
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+  let obj ={
+    name :'lilt',
+    age :23,
+    address : 'beijing'
+
+  }
+  //1.Object.keys(obj1) 获取对象中的键
+  //2.Object.values(obj1) 获取对象中的值
+  
+  //3.Object.entires(obj1) 可以将对象转为map
+  let result = Object.entries(obj)
+  let m = new Map(result)
+  console.log(m.get('name'))
+  
+  //4.对象属性的描述对象(涉及深拷贝)
+	//描述对象：属性作为对象时，内部有更多参数(是否可读，删除，枚举)
+  console.log(Object.getOwnPropertyDescriptors(obj))
+  
+  //创建描述对象
+  let obj2 = Object.create(null,{
+	  address : {
+		  configurable:true,
+		  enumerable:true,
+		  value:"beijing",
+		  writable:true
+	  },
+	  name : {
+	  		  configurable:true,
+	  		  enumerable:true,
+	  		  value:"lily",
+	  		  writable:true
+	  }
+	  
+  })
+  console.log(obj2)
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

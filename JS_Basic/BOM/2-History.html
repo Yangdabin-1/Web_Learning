@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<script type="text/javascript">
+	window.onload = function(){
+		var btn01 = document.getElementById("btn01");
+		var btn02 = document.getElementById("btn02");
+		btn01.onclick = function(){
+			history.back();//返回上一个页面
+		}
+		btn02.onclick = function(){
+			history.forward();//跳到下一个页面
+		}
+		/* 
+			go()
+			-参数为整数，表示向前/后跳转几个页面  1/-1
+			-同来跳转到指定页面
+		 */		
+			
+	}
+</script>
+</head> 
+<body>
+ 
+ <button id="btn01">返回</button>
+ <button id="btn02">前进</button><br>
+ <a href="1-BOM.html">1</a><br>
+ <a href="http://www.4399.com">2</a>
+ 
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charest='utf-8'>
+  <meta name='keywords' content='aa'>
+  <meta name='description' content='aaaa'>
+  <title>relative</title>
+  <style>
+    div {
+      font-size: 60px;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+      width: 200px;
+      height: 200px;
+    }
+
+    .box1 {
+      background-color: blueviolet;
+    }
+
+    .box2 {
+      background-color: rgb(70, 238, 3);
+      /*定位：position
+      1.定位是一种更高级的布局方式，可以任意移动元素位置，不影响其他元素
+      2.层次会提升，但不脱离文档流,不改变元素的性质
+      3.position:属性值
+          -static 默认值，即没有开启定位
+          -relative 相对定位
+          -absolute 绝对定位
+          -fixed    固定定位
+          -sticky   粘滞定位
+     */
+      position: relative;
+      top: -200px;
+      left: 200px;
+      /*1.相对定位：relative
+          -开启定位后，设置偏移量来移动
+        2.偏移量：offset
+          -偏移大小：定位元素和定位位置的距离
+          -定位位置（参照物）：元素的原来位置（即文档流的位置）
+          -top/bottom/left/right
+          -
+      */
+    }
+
+    .box3 {
+      background-color: blue;
+    }
+  </style>
+
+<body>
+  <div class="box1">1</div>
+  <div class="box2">2</div>
+  <div class="box3">3</div>
+</body>

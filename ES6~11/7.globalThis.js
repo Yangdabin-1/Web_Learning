@@ -1,0 +1,1 @@
+console.log(globalThis) //开启run code :指向global

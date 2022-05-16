@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charest='utf-8'>
+  <meta name='keywords' content='aa'>
+  <meta name='description' content='aaaa'>
+  <title>图标字体:iconfont</title>
+  <link rel="stylesheet" href="iconfont/css/all.css">
+
+  <style>
+    /*
+      有些网页需要小图标来装饰，直接使用图片过大，不灵活
+      所以直接把图标设成字体格式
+
+      图标网站：-fontawesome
+                -iconfont
+
+      1.下载压缩包
+      2.解压-将css/webfonts移到项目中
+      3.link all.css到网页
+      4.使用方式:
+        -类名：fas/fab+图标类名
+        class="fas fa-bell"
+        class="fab fa-accessible-icon"   
+    */ 
+    ul{
+      list-style: none;
+    }
+    
+    /*
+      通过伪类选择器设置
+    */
+    li::before{
+      content:'\f368';/*图标编号*/
+      font-family: 'Font Awesome 5 Brands';/*图标字体族*/
+    }
+    span.fas.fa-bell{/*直接上方设置大小无法设置的话，用后代选择器设置*/
+      font-size: 60px;
+    }
+
+   
+       
+  </style>
+
+<body>
+  <p class="fas fa-bell" style="color:red;font-size:30px"></p>
+  <p class="fab fa-accessible-icon"></p>
+
+
+  <ul>
+    <li><span class="fas fa-bell"></span>
+      富强民主文明和谐</li>
+    <li><span class="fas">&#xf0f2;</span>
+      爱国敬业诚信友善</li>
+      <!--通过类+实体+编码设置-->
+    <li>富强民主文明和谐</li>
+    <li>爱国敬业诚信友善</li>
+  </ul>
+</body>
+</head>
+
+</html>

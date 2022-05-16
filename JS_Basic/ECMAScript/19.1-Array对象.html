@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+  //构造函数创造数组
+   var arr1 = new Array();
+   //字面量创造数组
+   var arr2 = [];
+   
+   //数组是通过索引（index）来操作数据
+
+	// 数组赋值
+	arr1[0] = 12;
+	arr1[1] = true;
+	arr1[2] = 13;
+	
+	arr2[0] = 12;
+	arr2[2] = 13;
+	
+	// 数组长度
+	console.log(arr1.length);//长度3
+	//不存在的索引为undefined
+	
+	//长度可以修改
+	// 如果变长，多出的数组为空
+	// 变短，多出的数组删除
+	arr1.length = 5;
+	
+	// 向数组的最后一个位置添加元素
+	arr1[arr1.length] = "新元素";
+	
+	//创建一个数组长度为10的数组
+	var arr3 = new Array(10);
+	console.log(arr3.length);//10
+
+
+	//数组的四个方法 push pop shift unshift
+	 var arr4 = [0,1,2,3,4,5,6,7];
+	 console.log(arr4);
+	 
+	 //往数组的最后添加元素，返回值为新的数组长度
+	 arr4.push(8,9);
+	 
+	 //往数组的最后删除元素，，返回值为被删除的这个元素
+	 arr4.pop();
+	 
+	 //往数组的开头添加元素，返回值为新的长度
+	arr4.unshift();
+	
+	//往数组的开头删除元素，返回值为被删除的这个元素
+	arr4.shift();
+	
+	//返回某一元素，在数组中的索引
+	arr4.indexOf(5);
+  </script>
+</body>
+</html>

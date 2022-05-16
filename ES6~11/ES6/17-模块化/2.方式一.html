@@ -1,0 +1,43 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script type="module">
+//1)通用的导入方式(导入.js中所有暴露的变量,选择调用即可)
+//取全部,在挑
+	//1.引入某个js中指定暴露的变量
+	// import *as m1 from './JS/m1.js'
+	// console.log(m1.name)
+	// m1.sayName()
+	//2.引入某个js中统一暴露的变量
+	import *as m2 from './JS/m2.js'
+	m2.sayName()
+	//3.引入某个js中默认暴露的变量(需要调用default属性)
+	import *as m3 from './JS/m3.js'
+	console.log(m3.default.name)
+	m3.default.sayName()
+
+//2)解构赋值方式(导入.js中指定的变量(在所有暴露的变量中选择))
+//取需要用到的
+	import{name,sayName} from './JS/m1.js'
+	//如果引入有重名,可以为变量添加小名  as 小名
+	import{name as m2name,sayName as m2sayname} from './JS/m2.js'
+	import{default as newm3} from './JS/m3.js'
+	
+//3)简便形式(只适用默认暴露 dafault)
+	import M3 from './JS/m3.js'
+	
+	
+//使用以上方式,把import写在script标签里,代码会太长
+//所以可以把import语句放入js文件中,再通过script标签引入
+</script>
+<script>
+</script>
+</head> 
+<body>
+</body>
+</html>

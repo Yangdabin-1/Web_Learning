@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<body>
+   <script>
+      //swtich
+    var score1=+prompt("输入成绩:");
+    //将score转化为number
+    switch(parseInt(score1/10)){
+      //scora/10 得到可能是小数 将其转化为整数
+      case 10:document.write("优秀");break;
+      case 9:document.write("良");break;
+      case 8:document.write("及格");break;
+      case 7:document.write("及格");break;
+      case 6:document.write("及格");break;
+      case 5:document.write("不及格");break;
+      case 4:document.write("不及格");break;
+      case 3:document.write("不及格");break;
+      case 2:document.write("不及格");break;
+      case 1:document.write("不及格");break;
+      default:alert("输入错误");break;
+    }
+
+    var score2=+prompt("方法二:");a
+    switch(true){
+      case score2 >=90 :document.write("优秀4");break;
+      case score2 >=60 && score2 < 90:document.write("优秀");break;
+      case score2 <60 && score2 > 0:document.write("不及格");break;
+      default:alert("输入错误2");break;
+
+    }
+
+   </script>
+</body>
+</head>
+</html>

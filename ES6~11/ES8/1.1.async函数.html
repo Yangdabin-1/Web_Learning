@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 
+	async+await 是一种新的用来异步编程的方案,让异步代码看起来像同步
+		-解决异步编程的方案:生成器,promise
+	用async操作的函数,这个函数必定有返回结果，返回的是一个promise对象,返回的值由返回的内容决定
+		1.设置return 一个非promise对象,返回状态为成功,值为return的内容
+		2.设置return 一个promise对象,返回状态由promise的状态决定,值会promise的值
+		3.抛出错误,就是失败的promise
+ */
+
+	//返回非promise
+	async function fun1(){
+		return 'hahaahh'
+	}
+	let result1 = fun1()
+	console.log(result1)//状态为成功,值为hahah
+
+	//返回是promise对象,且成功
+	async function fun2(){
+		return new Promise((resolve,reject)=>{
+			resolve("成功了")
+			// reject("失败了")
+		})
+	}
+	let result2 = fun2()
+	// console.log(result2)//状态为成功,值为"成功了"
+	result2.then(value =>{
+		console.log(value)
+	},
+	reason =>{
+		console.error(reason)
+	})
+	
+	
+	
+
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

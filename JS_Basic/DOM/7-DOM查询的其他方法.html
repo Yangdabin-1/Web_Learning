@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+	//获取html的根标签
+	var HTML = document.documentElement;
+	console.log(HTML);
+	
+		//获取body节点
+		var body1 = document.getElementsByTagName("body");
+		var body2 = document.body;
+		console.log(body2)
+	
+   //得到页面中的所有元素（标签）
+	var all1 =document.all;
+	var all2 = document.getElementById("*");
+	console.log(all1);
+	
+		//通过class获得一组元素  不兼容IE8-
+		var class1 = document.getElementsByClassName("class");
+		//通过选择器获取一个元素节点对象
+			//需要选择器放在字符串中作为参数，兼容IE8+
+			//如果选择器class有多个重复的，只选择第一个
+		var class1 = document.querySelector(".class div");
+		
+		//通过选择器获取一组元素节点对象,由类数组封装
+		var class1 = document.querySelectorAll(".class");
+		
+	
+	
+  </script>
+</body>
+</html>

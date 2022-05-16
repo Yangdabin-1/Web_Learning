@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  var a = {
+    age : 18,
+    sayAge : function(age){
+      this.age = age
+    }
+  }
+  //调用属性
+  /* 
+    1.a.sayAge()
+    2.a["sayAge"]()
+      使用情况
+        1.属性名中有空格，-或其他字符 a["say age"]
+        2.属性名是变量时，后期需要修改时
+  */
+  a['sayAge'](24) //a.sayAge(24)
+  console.log(a.age)
+
+  var unkonwEvent = "address" //属性名
+  var place = "beijing"
+  a[unkonwEvent] = place; //方便修改一个属性的属性名
+  console.log(a.address)
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 变量声明提升/函数声明提升
+ */
+function fun2(){
+	
+}
+fun2()//写在前后都可以
+ 
+var fun3 = function(){
+}
+fun3()//不能写在前方
+
+
+// JS是解释执行语言的脚本语言，在一段代码执行前，需要通过JS引擎去解析代码
+//执行上下文就是代码被解析，执行时所存在的一个抽象环境
+/* 执行上下文
+	代码分为：全局，局部
+	
+	全局执行上下文
+		解析：1.在执行全局代码前，就会将 window对象 确定为 全局上下文对象
+		解析：2. 执行前对数据的处理
+			var a ---->a添加为window的属性
+			function fun(){}---->fun添加为window的方法
+			this--->指向window
+		3.开始执行全局代码前，马上创建全局执行上下文
+		
+	函数执行上下文
+		在函数体内创建的变量，都会放在栈中单独的空间，调用后释放
+		解析：1.在调用函数前，创建这个函数的 函数执行上下文 对象
+		解析：2.调用前对数据的处理
+			形参变量--->变成函数执行上下文的属性
+			argumen---->变成方法
+			var/func--->变成属性/方法
+			this--->执行调用这个函数的对象
+		3.调用函数时，执行函数体前，创建新的函数执行上下文
+ */
+</script>
+</head> 
+<body>
+</body>
+</html>

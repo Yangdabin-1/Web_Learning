@@ -1,0 +1,4 @@
+当只需要then中单独一个回调函数时
+	-只调value:省略reason---->p.then(value=>{})
+	-只调reason:用catch方法----->p.catch(reason=>{})
+

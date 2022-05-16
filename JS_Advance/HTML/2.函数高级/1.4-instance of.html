@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 	怎么判断 instance of 
+	- A instance of B
+	- B对象的显式原型在A对象的隐式原型链上
+ */
+	function fn(){
+		
+	}
+	var fun1 = new fn()
+	console.log(fun1 instanceof fn)
+	console.log(fn instanceof Function)
+	
+	console.log(Function instanceof Object)
+	console.log(Object instanceof Function)
+	
+	console.log(Object instanceof fn)
+	console.log(fn instanceof Object)
+	
+	
+	
+	//通过画原型链解决
+	function yes(){
+		Object.prototype.a = function(){
+			console.log("a")
+		}
+		Function.prototype.b = function(){
+			console.log("b")
+		}
+	}
+	var yyy = new yes()
+	yyy.a()
+	// yyy.b()
+	yes.a()
+	yes.b()
+	
+	
+
+</script>
+</head> 
+<body>
+</body>
+</html>

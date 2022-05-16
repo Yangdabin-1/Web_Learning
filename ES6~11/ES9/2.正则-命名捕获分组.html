@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>ģ��</title> 
+<style></style>
+<script>
+	let string1 = "<a href='http://www.baidu.com'>百度</a>"
+	//通过正则提取出href 和 txt
+	let reg1 = /<a href='(.*)'>(.*)<\/a>/
+	//返回一个类数组，分别有整个字符串和两个指定提取的内容
+	//exec提取某个内容
+	let result1 = reg1.exec(string1)
+	console.log(result1)
+	
+	//命名捕获分组
+	//如果需要给两个提取的内容设定名字，在（.*）里添加名字
+	//就会得到一个对象，对象里有两个属性，url和txt
+	let reg2 = /<a href='(?<url>.*)'>(?<txt>.*)<\/a>/
+	let result2 = reg2.exec(string1)
+	console.log(result2)
+	
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

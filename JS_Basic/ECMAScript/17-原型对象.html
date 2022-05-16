@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+	//每个函数都有一个原型对象
+	
+	/*
+		当解析器解析函数时，都会在函数里创建一个隐藏的属性-protype
+			这个属性会指向一个对象，这个对象就是原型对象
+				-如果这个函数是普通函数，这个protype无作用
+				-如果作为构造函数（Person）调用的话，它创建的对象(per1)也会有一个隐藏的属性
+						-这个属性会指向这个构造函数（Person）的原型对象
+	*/
+
+	//类.prototype和实例.__proto__指向用一个原型对象------没有原型返回null
+	
+	//这个原型对象相当于同一类的实例共有的空间，可以将实例共有的内容添加到这个空间里
+	//访问一个对象的某个属性，会从本身往起原型对象开始寻找,直到找到null,返回undefined
+	//这样就可以解决上次的问题
+	
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	
+	//给Person的原型对象添加方法
+	Person.prototype.sayName = function(){
+		console.log(this.name);//this指向调用它的对象
+	} 
+	var per1 = new Person("lily",23);
+	var per2 = new Person("jake",18);
+	per1.sayName();//
+	console.log(per1.__proto__ == Person.prototype)//true
+	
+	
+	//类和实例可以共享原型对象的属性，那么怎么看这个属性是本身拥有的/还是原型拥有的
+	
+	console.log(Person.hasOwnProperty("sayName"));//false
+	console.log(Person.hasOwnProperty("name"));//true
+	//这个hasOwnProperty也是方法，那是谁的属性
+	console.log(Person.prototype.__proto__.hasOwnProperty("hasOwnProperty"));//true
+	//这个hasOwnProperty是Person原型对象的原型对象的属性
+	
+	
+	//检查一个实例是否在一个类中  (实例 instanceof Person)
+	console.log(per1 instanceof Person);
+
+
+	
+  </script>
+</body>
+</html>

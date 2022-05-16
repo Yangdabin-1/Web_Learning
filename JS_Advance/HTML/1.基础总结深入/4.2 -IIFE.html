@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style>
+  /*  IIFE (立即执行函数表达式) 
+      作用
+        1.隐藏实现
+        2.防止污染外部作用域的命名空间
+        3.可以编写JS代码
+  */
+</style>
+<script>
+  (function(){  //匿名函数自调用就是一种IIFE
+    console.log("这是一段匿名函数")
+  })()
+
+  ;(function(){
+    var a = 1
+    function add(){
+      console.log(++a)
+    }
+    window.$ = function(){ //在window对象中添加一个属性----->向外暴露一个全局函数
+      return {
+        add : add
+      }
+    }
+  })()  //   (匿名函数)()  调用这个匿名函数
+
+  $().add()   //解析这个语句  1.$跟着括号->是个函数  2.点调用,表示这个函数返回了一个对象
+  // 3.调用了这个对象中的add属性   4.add跟着括号说明这个属性的属性值是个函数
+  
+</script>
+</head>
+<body>
+</body>
+</html>

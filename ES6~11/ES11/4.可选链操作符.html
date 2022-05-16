@@ -1,0 +1,46 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+/*   可选链操作符( 应用在对象的参数)
+   当对象的参数深度较深时,可以不层层都判断也能读取里面的属性
+*/
+
+  //需要层层判断的情况
+  function main(obj){
+    //如果参数存在/看看参数里有没有obj1//如果有Obj1,看看里面有没有名字
+    const obj1Name = obj && obj.obj1 && obj.obj1.name
+    //使用层层判断,如果函数不输入实参的话就会报错
+    console.log(obj1Name)
+  }
+  main({
+    obj1 :{
+      name : 'aa',
+      age : 23
+    },
+    obj2 : {
+      address : 'asdas',
+      price : "$320"
+    }
+  })
+
+  //使用可选操作符,不输入实参,也不会报错
+  function main1(obj){
+    //?.:判断前面的值有没有传入,有的话读取后面的值
+    const obj1Name = obj ?. obj.obj1 ?. obj.obj1.name
+    //显示undeined
+    console.log(obj1Name)
+  }
+  main1()
+
+</script>
+</head>
+<body>
+</body>
+</html>

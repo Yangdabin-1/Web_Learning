@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>低副作用解决高度塌陷</title>
+ <style>
+   /*设置一个空标签，其外边距是蓝盒子的高度，就解决高度塌陷  */
+   .box1{
+     border: 10px solid red;
+   }
+   .box2{
+     width: 200px;
+     height: 200px;
+     background-color: rgb(0, 132, 255);
+     float: left;
+   }
+   .box1::after{
+      content: '';  /* 1.设置空内容 */
+     clear: left;   /*2.清楚浮动对其影响*/
+     display:block; /* 3.设置成-块元素-独占一行使其可以放在盒子下方 */
+   }
+</style>
+<body>
+   <div class="box1">
+     <div class="box2"></div>
+   </div>
+</body>
+</head>
+</html>

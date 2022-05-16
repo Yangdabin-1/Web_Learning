@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var a = 10;
+			console.log(a);
+			//先声明 后调用
+			
+			console.log(b);//先调用b -> b有声明但是未赋值->/var之后b会在最上方就声明了，但是未赋值
+			var b = 20;  //此行才会赋值b
+			/*
+				var b;  这个在最上方
+				b = 20;  这个在原位置
+			*/
+			
+			//函数声明 创建的函数会放在最上方，所以声明无所谓提前
+			fun1();
+			function fun1(){
+				console.log("hahaha");
+			}
+			fun1();
+			
+			//函数表达式 创建的函数相当于变量，不会提前创建
+			
+			// fun2();  先调用则undefined
+			var fun2 = function(){
+				console.log("nononono");
+			}
+			fun2();
+		</script>
+	</body>
+</html>

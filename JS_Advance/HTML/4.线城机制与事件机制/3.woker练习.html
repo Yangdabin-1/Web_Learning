@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style>
+/* 要求：在分线程中完成斐波那契计算，将结果返回到主线程中 */
+</style>
+<script>
+	//1.创建运行在分线程的JS文件,并引用
+	//2.绑定事件
+	window.onload = function(){
+		//3.创建workerd对象
+		var worker = new Worker("worker.js")
+		
+		var input = document.getElementsByTagName("input")[0]
+		var btn01 = document.getElementById("btn01")
+		btn01.onclick = function(){
+			//从输入框中的到数组
+			var num = +input.value
+			console.log("向主线程发送数据:" + num)
+			//4.向分线程发送消息
+			worker.postMessage(num)
+		}
+		//5.绑定接受消息的监听
+		worker.onmessage = function(event){
+			console.log("从分线程接收数据:" + event.data)
+		}
+	}
+</script>
+</head> 
+<body>
+	<input type="text" id="text"/>
+	<button id="btn01">计算</button>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+//rest参数可以代替arguments（伪数组）得到实参的数据
+/* 
+	1.只能在实参尾部放入...args
+	2.形参个数>实参：args=[] ; 形参个数小于实参：args=[多余部分的实参+自 身位置的实参]
+*/
+	let add1 = (a,b,c,d) => a+b+c+d
+	console.log(add1(1,2,3,4))//
+	let add2 = (a,b,...args) => console.log(args)
+	add2(1,2,3,4,5,7)//3，4，5，7
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建一个类
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+				//对象中添加一个方法
+				this.sayName = function fun1(){
+									console.log(this.name);
+								};
+			}
+			//创建person的几个实例
+			var per1 = new Person("lily",23);
+			var per2 = new Person("Jake",18);
+			
+			//每次实例调用时，都会执行一次构造函数，也会创建一次方法
+			per1.sayName();
+			per2.sayName();//调用了两次方法
+			
+			console.log(per1.sayName == per2.sayName) //false 虽然是同一段代码，但两个都是新的方法
+			//每执行一次函数就创建新的方法，而这些方法都是一样的，这样就会耗内存
+			
+			
+			//所以把方法定义到全局作用域里
+			//这种方法，构造函数无论执行多少此，方法就执行了一次
+			function Animal(name,age){
+				this.name = name;
+				this.age = age;
+				this.sayName =fun1;
+			}
+			function fun1(){
+								console.log(this.name);
+							};
+			var an1 = new Animal("lily",23);
+			var an2 = new Animal("Jake",18);
+			an1.sayName();
+			an2.sayName();
+			console.log(an1.sayName == an2.sayName);//true
+			//缺点：把方法定义到全局作用域里会抢占空间 容易被覆盖
+			//所以方法尽量不要定义到全局里，所以引申到原型对象
+		</script>
+	</body>
+</html>

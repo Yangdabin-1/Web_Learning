@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 
+	箭头函数
+		1.this是静态的，它始终指向-箭头函数声明时所在的作用域-this的值
+		2.如果参数只有一个，可以不加括号
+		3.如果函数内的语句只有一条，那么可以省略return
+		4.需要注意this的函数尽量不用用箭头函数（回调函数,call方法）
+		5.不能使用arguments
+		5.箭头函数不能作为构造函数
+ */
+
+	//一般函数
+	let add = function(a,b){
+		return a+b
+	}
+	console.log((1,2))
+	//箭头函数
+	let cha = (a,b) => {
+		return a-b
+	}
+	console.log(cha(100,1))
+	//简约写法
+	let mi = n => n*n
+	console.log(mi(4))
+	
+	//this指向
+	let sayName1 = () =>{
+		console.log(this.name)
+	}
+	
+	function sayName2(){
+		console.log(this.name)
+	}
+	name = "全局的name"
+	const p1 = {
+		name :"p1的name"
+	}
+	sayName1.call(p1)//this指全局
+	sayName2.call(p1)//this指向p1的name
+	
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

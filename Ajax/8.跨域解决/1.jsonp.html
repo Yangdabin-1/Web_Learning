@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style>
+  #box1{
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+  }
+</style>
+<script>
+</script>
+</head>
+<body>
+<div id="box1"></div>
+<script>
+  const box1 = document.getElementById('box1')
+  function display(data){
+    box1.innerHTML = data.name
+  }
+</script>
+<!-- 
+  script标签会自动将返回的字符变成对象
+ -->
+<script src="http://127.0.0.1:5500/8.%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3/jsonp.js"></script>
+</body>
+</html>

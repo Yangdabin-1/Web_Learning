@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charest="utf-8">
+  <meta name="keywords" content="aa">
+  <meta name="description" content="aaaa">
+  <title>块级元素和行内元素和行内块元素</title>
+   <!--
+       块元素
+    1.默认宽度和body宽度一样  可以修改其宽高度  所以可以依此搭建不同区域
+    2.块元素独占一行  例如a标签一行可写多个 p只有一个
+    3.常见块元素：div/p/ul/ol/dl/
+    4.块元素内部可以放其他块或行元素
+        行元素
+    1.无默认宽度且不能设置 其宽度就是内容宽度  所以无结构性  
+    2.行元素内部只可以放文本和其他行元素   <a>除外：扩展热区
+    3.常见：a,span,em,b,del
+    4.一行可以由多个行元素，元素之间可以有间隙，代码中有连续空格只解析一个空格，换行之间隐藏了一个空格
+    5.<imag>是特殊的行元素，可设置宽高  是多媒体元素
+       行内块元素
+    1.可以让一行显示多个块元素
+    2.可以更改其宽高
+  -->
+  <style>
+  div {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+      }
+  .a  {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    span {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color:  darkgreen;
+        }
+  </style>
+  <body>
+  <!--                                           块元素                                         -->
+  <p>p</p><div>div</div>
+  <h1>h1</h1>
+  <ul>
+    <li>li1</li>
+    <li>li2</li>
+  </ul>
+  <!--                                           行元素                                                         -->
+  <em>emememme</em>
+  <del>deldelde</del>
+  <!--                                           行内块                                                          -->
+  <div class="a">块元素1</div><div class="a">块元素2</div><div class="a">块元素3</div>
+  <span>更改元素后的span</span>
+</body>
+</head>
+</html>  

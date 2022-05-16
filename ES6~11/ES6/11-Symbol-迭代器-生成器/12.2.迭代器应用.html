@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+	const MyClass = {
+		name : "一班",
+		member :["a","b","c","d"],
+		//设置iterator接口,接口就是方法
+		[Symbol.iterator]:function(){
+			let index = 0;
+			let _this = this
+			//返回指针对象
+			return {
+				//设置next方法
+				next:function(){
+					if(index < _this.member.length){
+						let result = {value:_this.member[index],done:false}
+						index++
+						return result
+					}else{
+						return {value:undefined,done:true}
+					}
+				}//设置next
+			}//接口返回值
+		}//设置接口
+	}
+	//遍历班级的成员
+	for(let i of MyClass){
+		console.log(i)
+	}
+	//面向对象：通过对象来操作对象里的属性，而不是直接调用对象里的属性
+	//比如遍历对象里的数据，通过对象来遍历，而不是对象.foreach（）来遍历
+	// MyClass.member.forEach(function(value,index,object){
+	// 	console.log("面向过程的遍历:" + value)
+	// })
+</script>
+</head> 
+<body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<body>
+   <script>
+     //break用来跳出离他最近的循环
+        //再if语句中使用，不会跳出if，会报错
+     
+    //想要指定bbreak跳出的哪个循环，给循环添加标签label
+    //label:某循环
+    tiaochu:for(var i=1;i <= 10;i++){
+      for(var j = 1; j <= 10;j++){
+        if(j ==4){
+          break tiaochu;
+          //指定跳出循环
+        }
+        document.write(""+i+'.'+j+' ');
+        
+      }
+      document.write("<br>");
+    }
+
+    document.write("<br>"+"<hr>");
+
+    //continue 用来跳出这次循环，继续此次循环的下一个循环 
+   </script>
+</body>
+</head>
+</html>

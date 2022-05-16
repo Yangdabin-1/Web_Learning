@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>背景图</title>   
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    width: 100%;
+  }
+  body {
+    width: 100%;
+  }
+  .aa {
+        width:500px;
+        height:500px;
+        padding: 20px;
+        border:10px solid transparent;  /*边框透明*/
+
+         /*背景五要素*/
+        background-color:red;
+         /*背景颜色*/
+        background-image: url(../bmp/1.gif);
+        /* 背景图片路径*/
+        background-repeat:no-repeat;
+        /* 背景图片平铺：不平铺///repeat-x:横轴平铺///repeat-y;纵轴平铺*/
+        background-size:cover;
+        /* 背景图片尺寸：宽/高占父元素的百分比  也可以直接数值px
+        background-size:cover;     图片等比扩大后覆盖   left/center/right  top/center/bottom
+        */
+        background-position: 0px 0px;
+        /* 背景图片位置移动  可以具体数值/比例 */
+       /*
+        background: red url(../bmp/jpg.jpg) no-repeat 200px 200px/300px 200px; 
+        复合型写法    颜色         路径           平铺      位置  /     尺寸     */
+        background-clip: border-box;
+        /* 图片填满后 背景图填充层级 border：从边框开始填充 padding/content*/
+        background-origin:padding;
+        /* origin:原点  图片从padding开始延展*/
+      }
+   
+      /* 伪类选择器：鼠标移到该标签上时使其有新的样式*/
+    p:hover {
+        background-color: red;    
+            }                  /* 鼠标移上去时 背景变红*/
+
+</style>
+<body>
+<div class="aa">
+  <p>一段文字段文字段文字段文字段文字段文字</p>
+</div><br>
+</body>
+</head>
+</html>

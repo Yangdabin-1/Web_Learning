@@ -1,0 +1,80 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	#box1{
+		width: 200px;
+		height: 250px;
+		background-color: #99FF99;
+	}
+</style>
+</head> 
+<body>
+	<button id="btn01">更改样式</button>
+	<button id="btn02">显示样式</button>
+	<br><br>
+	<div id="box1"></div>
+	<script type="text/javascript">
+		//获取DOM节点
+		var btn01 = document.getElementById("btn01");
+		var btn02 = document.getElementById("btn02");
+		var box1 = document.getElementById("box1");
+		
+		btn01.onclick = function(){
+			
+			/* 通过style属性修改样式
+				这个方式只能更改内联样式上的属性（样式表不行）
+				元素.style.属性 = "属性值"    
+			 */
+			box1.style.width = "300px";
+			box1.style.backgroundColor = "red";
+			
+			//读取样式也只能读取内敛样式
+			alert(box1.style.height);
+		}
+		
+		
+		//读取当前显示的样式，是window的方法,只能读取不能修改
+		btn02.onclick = function(){
+			
+		/* 
+			只有IE适用
+			1.元素.currentStyle.样式
+				var result = box1.currentStyle.width;
+			2.
+		*/
+		   
+		/* 
+			其他浏览器适配的方法,IE8-不支持 
+			1.getComputedStyle(元素,伪元素);
+				-伪元素可以写null
+			3.返回值为一个对象，封装了样式
+			2.如果获取的值没有设置，则回返回这个样式的具体值，而不是默认值（auto）
+				
+		*/
+		var result = getComputedStyle(box1,null);
+		alert(result.width);
+		
+		// 如果想要兼容两个浏览器，创建函数并通过判断选择
+		function getStyle(obj,name){
+			//判断是否有这个方法
+			if(window.getComputedStyle){
+				//其他浏览器适配
+				return getComputedStyle(obj,null)[name];
+			}else{
+				//IE8适配
+				return obj.currentStyle[name];
+			}
+		}
+ 		console.log(getStyle(box1,"height"));
+
+	}
+		
+		
+	</script>
+</body>
+</html>

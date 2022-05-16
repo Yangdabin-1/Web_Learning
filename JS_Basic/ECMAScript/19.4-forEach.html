@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+   //forEach方法
+   //用来遍历数组，但不兼容IE8以下浏览器
+   var arr1 =["a","b","c","d","e","f"];
+   
+
+   /* 
+		foreach需要通过一个函数作为参数
+		这个函数不被开发者调用，由浏览器调用，此类函数称为回调函数
+		
+		我们用匿名函数来作为这个函数，这个函数可以由三个形参，他们对于返回值是值/索引/数组
+		数组有几个元素，这个函数就执行几次
+
+   */
+   arr1.forEach(function(value,index,array){
+	   console.log(value);
+   });
+   
+  </script>
+</body>
+</html>

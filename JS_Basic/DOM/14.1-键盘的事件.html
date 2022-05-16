@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<script type="text/javascript">
+	/* 键盘事件
+		一般绑定给获取焦点的对象或者doucment
+		1.onkeydown
+			-按键一直按着，事件会连续触发
+			-第一次事件和第二次事件触发会有卡顿，防止误触
+		2.onkeyup
+			-按键一直按着不会连续触发
+
+	*/
+	
+	window.onload = function(){
+		var input = document.getElementById("input");
+		input.onkeydown = function(){
+			console.log("event.code:" + event.code);
+			console.log("event.key:" + event.key);
+			console.log("输入key的类型:" + typeof event.key);
+		}
+	}
+</script>
+</head> 
+<body>
+	<input type="text" id="input"/>
+</body>
+</html>

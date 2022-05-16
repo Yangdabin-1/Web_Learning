@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	#box1 {
+	width : 100px;
+	height: 100px;
+	background-color: #BBFFAA;
+	}
+</style> 
+<script type="text/javascript">
+window.onload = function(){
+	var box1 = document.getElementById("box1");
+	box1.onwheel = function(event){
+		//event.wheelDelta  向上滚是120/向下滚是-120
+		
+		box1.style.height = (box1.clientHeight-(event.wheelDelta/120)*10)+"px";
+		
+		
+		// 默认情况下，元素内滚动，浏览器也会跟随滚动（即窗口随着元素滚动也滚动）
+		return false;
+		
+		//如果使用addEventListener绑定的函数，用于event.preventDefault()来取消行为
+	}
+
+}
+</script>
+</head> 
+<body>
+	<div id="box1">文字会不会移动</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style></style>
+<script>
+  window.onload = function(){
+    const btn01 = document.getElementById('btn01')
+    let xhr = null
+    //创建 是否发送请求的标识量
+    let isSending = false
+    btn01.onclick = function(){
+      //如果点击时，上次的请求还没到4，关闭它
+      if(isSending)  xhr.abort()
+      xhr = new XMLHttpRequest()
+      //标识 打开请求
+      isSending = true
+
+
+      xhr.open('POST','http://127.0.0.1:8000/delay')
+      xhr.send()
+      xhr.onreadystatechange = function(){
+        if(x.readyState == 4){
+          //接收完响应的数据后，请求标识为关闭
+          isSending = false 
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body>
+  <button id='btn01'>发送请求</button>
+</body>
+</html>

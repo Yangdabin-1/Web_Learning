@@ -1,0 +1,67 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	var per1 =new  Person("lily",23);
+	var per2 =new Person("jake",18);
+	var per3 =new  Person("nike",51);
+	var per4 =new  Person("pooly",13);
+	var per5 =new Person("ewr",22);
+	var per6 =new  Person("asd",3);
+	var per7 =new  Person("niasd",53);
+	//创建一个数组存储所有人
+    var personarr =[per1,per2,per3,per4,per5,per6,per7];
+	
+	
+	//创建一个函数，可以把一个数组里的成年人信息提取出来
+	function showAdult(array){
+		//用来存储成年人信息的数组
+		var adult = [];
+		for(i = 0;i<array.length;i++){
+			if(array[i].age<=18){
+				adult.push(array[i]);
+			    // adult.push(); 新数组的长度
+				console.log(adult[adult.push()-1]);
+			}
+		}
+		return adult;
+	}
+	var result = showAdult(personarr);
+	
+	
+	console.log("-----------------------")
+	
+	//去重练习
+	var arr1 = [0,13,2,4,4,6,43,22,5,72,0,13,7,43,2,6];
+	var arr2 = [3,2,55,23,12,43,2,65,45,78,6,2,3,12,55];
+	
+	//创建一个函数，能对输入的数组去重
+	function quChong(array){
+		for(i=0;i<array.length;i++){
+			for(j=i+1;j<array.length;j++){
+				if(array[i] == array[j]){
+					array.splice(j,1);
+				}
+			}			
+		}
+		console.log(array);	
+		return array;		
+	}
+	quChong(arr1);
+	quChong(arr2);
+	 
+	
+	
+  </script>
+</body>
+</html>

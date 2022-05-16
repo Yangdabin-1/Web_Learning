@@ -1,0 +1,105 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<!-- 对象创建方式 -->
+<script>
+/* 一：构造函数 创建对象
+	优点：可以动态的添加属性
+	使用：不知道需要添加哪些属性时
+	缺点：代码太多
+ */
+	var obj1 = new Object()
+	obj1.name = "Lily"
+	obj1.age = 23
+	var obj2 = new Object()
+	obj2.name = "Jake"
+	obj2.age = 18
+	console.log(obj1.name,obj2.name)
+console.log("<--------------------------------->")
+/* 二：对象字面量 创建对象
+	适用：编写时，内部数据是确定的
+	缺点：如果创建多个对象，重复代码多
+ */
+	var obj3 = {
+		name :"Luce",
+		age : 43
+	}
+	var obj4 = {
+		name :"Nike",
+		age : 12
+	}
+	console.log(obj3.name,obj4.name)
+console.log("<--------------------------------->")
+/* 三：工厂模式
+	适用：需要创建多个对象时
+	缺点：无法细分这些对象的类型，都是Object类型
+	
+	工厂函数：返回类型为一个对象的函数
+*/
+	function Person(name,age){
+		var id = {
+			name : name ,
+			age : age,
+			changeName : function(name){
+				this.name = name
+			}
+		}
+		return id  //返回一个对象
+	}
+	var p1 = new Person("Anta",12)
+	var p2 = new Person("LiNing",50)
+	p1.changeName("AnTa")
+	console.log(p1.name,p2.name)
+	console.log(typeof p1,typeof p2)
+	var result = p1 instanceof Person
+	console.log("p1是不是Person的实例:" + result)
+	//原因:p1复制的内存地址，是Person函数返回值的地址，即id对象的地址
+	// 通过画原型链可得 ，p1的隐式原型是复制id的显示原型，执行Object原型	  对象
+console.log("<--------------------------------->")
+/* 四：自定义构造函数 
+	使用：可以区分实例的类
+	缺点：每次创建函数，都会调用一次新方法，而这些方法都是一样的方法，使用把这些方法放到原型对象中
+*/
+	function Teacher(name,age){
+		this.name = name,
+		this.age = age,
+		this.changeAge = function(age){
+			this.age = age
+		}
+	}
+	function Student(name,age){
+		this.name = name,
+		this.age = age,
+		this.changeAge = function(age){
+			this.age = age
+		}
+	}
+	var t1 = new Teacher("Liy",40)
+	var s1 = new Student("Maker",15)
+	t1.changeAge(55)
+	console.log(t1.name,s1.name,t1.age)
+	var result = t1 instanceof Teacher
+console.log("t1是不是Teacher的实例:" + result)
+	console.log("<--------------------------------->")
+/* 五：自定义函数加原型对象 */
+	function Animal(kind,age){
+		this.kind = kind
+		this.age = age
+	}
+	Animal.prototype.changeKind = function(kind){
+		this.kind = kind
+	}
+	var dog = new Animal("柯基",5)
+	var cat = new Animal("拉菲",2)
+	dog.changeKind("拉布拉多")
+	console.log(dog.kind,cat.kind)	
+</script>
+</head> 
+<body>
+</body>
+</html>

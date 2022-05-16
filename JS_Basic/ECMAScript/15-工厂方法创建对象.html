@@ -1,0 +1,35 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title></title> 
+</head> 
+<body>
+  <script>
+		//创建一个函数用来输出信息
+		function ID(name,age,address){
+			//创建一个对象用来储存信息内容
+			var obj = {
+				name : name,
+				age : age,
+				address : address,
+				haha : function(){
+					alert(this.name);
+				}
+				//设置一个属性值为函数，通过this来返回值
+			}
+			//返回这个对象
+			return obj;
+		}
+		
+		var obj1 = ID("张三",45,"北京");
+		console.log(ID("张三",45,"北京"));
+		console.log(ID("李四",23,"上海"));
+		console.log(ID("王五",15,"南京"));
+		obj1.haha();
+		
+  </script>
+</body>
+</html>

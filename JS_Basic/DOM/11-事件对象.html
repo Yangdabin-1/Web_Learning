@@ -1,0 +1,97 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	*{
+		margin : 0px;
+	}
+	#box1 {
+		width : 300px;
+		height:100px;
+		border: 1px solid #000000;
+	}
+	#box2 {
+		width : 300px;
+		height:30px;
+		border: 1px solid #000000;
+	}
+	#box3 {
+		width : 50px;
+		height:50px;
+		background-color: #BBFFAA;
+		float: left;
+		position: relative;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var box1 = document.getElementById("box1");
+		var box2 = document.getElementById("box2");
+		
+		
+		/*  		得到元素内鼠标的坐标
+			1.当事件的响应函数触发时，浏览器每次都会向函数传送一个实参
+			2.这个实参就是一个对象，这个对象封装了这个事件的一切信息
+			onmousemove  --->  鼠标在元素上/鼠标点击使/鼠标离开元素时
+		 */
+		box1.onmousemove = function(event){
+			//有浏览器的event属于window,进行判断
+			event = event || window.event;
+			
+			//获取鼠标的坐标（无单位）
+			var x = event.clientX;
+			var y = event.clientY;
+			box2.innerHTML = "x坐标:" + x +";y坐标:" + y;
+		}
+		box1.onmouseout = function(){
+			box2.innerHTML = "目前鼠标不在目标上";
+		}
+		
+		
+		/*			盒子随鼠标移动而移动
+		 
+		*/
+	   var box3 = document.getElementById("box3");
+	   document.onmousemove = function(){//绑定在document上
+			//设置滚动条滚动距离是HTML元素的\
+			var xx = document.documentElement.scrollLeft;
+			var yy = document.documentElement.scrollTop;
+			
+			var x = event.clientX;
+			var y = event.clientY ;
+			
+				
+			/* 用偏移量（有单位）!!!!需要开启定位，
+			    1.clientX/Y,鼠标的坐标是相对于可是窗口的
+				2.而元素left/right偏移量是相对与整个页面的 
+				
+				解决方法1：设置鼠标坐标为相对于整个页面的坐标
+					var x = event.pageX;
+					var y = event.pageY;//但是IE8-不兼容
+				解决方法2：在元素的偏移量上加上 滚动条滚动的距离
+			*/
+			
+			box3.style.left = x + "px";
+			box3.style.top = y + "px ";
+			
+			box3.style.left = x + xx +"px";//方法2
+			box3.style.top = y + yy +"px ";
+			
+			
+	   }
+		
+	}
+</script>
+</head> 
+<body style="height: 1000px; width:1000px;">
+	<div id="box3"></div>
+	<div id="box1"></div>
+	<br>
+	<div id="box2"></div>
+	
+</body>
+</html>

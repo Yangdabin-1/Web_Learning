@@ -1,0 +1,52 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>ģ��</title> 
+<style></style>
+<script>
+//返回promise,但失败,此时会报错,报错的结果需要用try...catch捕获
+// try...catch需要在await中使用
+
+/* 
+	1.await必须写在async中
+	2.await的一般是promise对象
+	3.await返回的是promise成功的值
+	  如果promise失败,失败的结果需要用try..catch捕获
+ */
+
+	let p1 = new Promise((resolve,reject)=>{
+			resolve('成功')
+		})
+	let p2 = new Promise((resolve,reject)=>{
+			reject('失败')
+		})
+		
+	//await 相当于封装了then,如果成功,返回成功的状态和值;失败则需要捕获
+	async function fun1(){
+		let result = await p1
+		console.log(result)
+	}
+	fun1()
+	
+	// 失败捕获 try{成功的操作}catch(e){失败的操作,e为失败时传递的值}
+	async function fun2(){
+		try{
+			let value = await p2
+			console.log(value)
+		}catch(reason){
+			console.log(reason)
+		}
+	}
+	fun2()
+	
+
+
+</script>
+</head> 
+<body>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style>
+ #box2{
+    width: 200px;
+    height: 200px;
+    border: black 2px solid;
+  }
+</style>
+<script>
+window.onload = function(){
+  //nodemon自动重启工具，不用每次修改服务器js都要开启终端
+  //nodemon server-json.js
+  const box2 = document.getElementById("box2")
+  box2.addEventListener('mouseover',function(){
+    const xhr = new XMLHttpRequest()
+    xhr.open('POST','http://127.0.0.1:8000/server')
+    //设置请求头
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+    //设置请求体
+    xhr.send('a=1&b=1&C=1')
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+        if(xhr.status >= 200 && xhr.status < 300){
+          box2.innerHTML += "xhr.response"
+        }
+      }
+    }
+  })
+}
+</script>
+</head>
+<body>
+  <div id="box2"></div>
+</body>
+</html>

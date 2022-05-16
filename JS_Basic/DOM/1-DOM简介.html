@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+	<!-- DOM  (document object model)(宿主对象：DOM/BOM) -->
+	<!-- 
+		 作用：让JS通过DOM操作HTML中的元素
+		 组成：
+			-文档:整个网页
+			-对象：网页中每一部分都转化为一个对象（网页中一切都是对象）
+			-模型：用来表示各个对象之间的关系
+			
+		 节点：网页中每一部分都是一个节点（类型，属性，方法都有不同）
+			-文档节点：整个网页
+			-元素节点：网页中某个某个标签
+			-属性节点：元素的某个属性
+			-文本节点：元素的文本内容
+	 -->
+	
+	<button id="bt1">这是个按钮</button>
+  <script>
+		/* 想要把上面的按钮转化为一个可操作的对象，需要先去访问文档节点
+		
+		浏览器已经为我们提供了一个文档节点对象（Document）,这个对象是window对象的属性	
+				-  document == window.document
+		 */
+		
+		
+		// 1.获取button对象
+		var btn1 = document.getElementById("bt1");
+		//2.调用对象的方法
+		btn1.innerHTML = "我还是原来的按钮";	
+  </script>
+</body>
+</html>

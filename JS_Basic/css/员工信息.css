@@ -1,0 +1,23 @@
+*{
+	margin: 0px;
+}
+#idtable{
+	margin: 50px auto;
+	border: 1px solid black;
+	border-collapse:collapse;
+}
+#idtable th{
+	border: 1px solid black;
+}
+#idtable td{
+	border: 1px solid black;
+}
+
+#puttable{
+	margin: 50px auto;
+	border: 1px solid black;
+}
+a {
+	text-decoration: none;
+	color: red;
+}

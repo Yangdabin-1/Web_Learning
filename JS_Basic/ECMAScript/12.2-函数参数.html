@@ -1,0 +1,44 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+   function fun1(a,b){
+	   document.write("a=" + a);
+	   document.write(" b=" + b);
+	   document.write(" 和=")
+	   document.write(a+b);
+	   document.write("<br>");
+  }
+  fun1(3,2);
+  
+  //函数不会检查实参的类型
+  fun1(3,"hahah");
+  
+  //若实参大于形参个数，忽略多余
+  fun1(3,2,1423,"hahah");
+	   
+  //若实参下与形参个数，无实参的形参就是undefined
+  fun1(true);
+  
+  
+  
+  //函数如果不设置返回值，则返回值则是undefined;
+  //只有写了return,没说return谁，也是返回undefined;
+  function fun2(a,b,c){
+	  var z =a + b + c;
+
+	  return z;//语句到这里就返回结果，后面的语句不返回
+	  document.write("不会出现的文字");
+  }
+  result = fun2(1,2,3);
+  document.write("返回的结果=" + result);
+  
+  </script>
+</body>
+</html>

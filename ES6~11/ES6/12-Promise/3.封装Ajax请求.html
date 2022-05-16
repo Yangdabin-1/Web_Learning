@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+	/* promise封装的优点：
+		-1.把结果的处理放在异步后面（then）,方便管理 	
+		-2.在处理结果时，如果需要创建节点，则不会推进(嵌套)太多
+	*/
+	const p = new Promise(function(resolve,reject){
+		const xhr = new XMLHttpRequest()
+		xhr.open('POST','http://www.baidu.com/')
+		xhr.send()
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4){
+				if(xhr.status >=200 && xhr.status<300){
+					// console.log(xhr.response)
+					resolve(xhr.response)
+				}else{
+					// console.error(xhr.status)
+					reject(xhr.status)
+				}
+			}
+		}
+	})
+	p.then(function(value){
+		console.log(value)
+	},
+	function(reason){
+		console.error(reason)
+	})
+
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

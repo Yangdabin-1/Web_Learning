@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<script>
+
+//条件运算符=三目运算符
+//条件判断？语句1：语句2；
+
+//判断最大值
+var a=123;
+var b=130;
+var c=223;
+  //两数比较
+  var max=a>b?a:b;
+  document.write('最大值:' + max);
+  //三数比较
+  var max=a>b?a:b;
+  max=max>c?max:c;
+  document.write('最大值:' + max);
+  //嵌套使用（不推荐使用）
+  var min=a<b?(a<c?a:c):(b<c?b:c);
+  document.write('最小值:' + min);
+
+
+document.write("<br>");
+//若条件判断结果不是布尔值，将其转化为布尔值
+""?alert("语句1"):alert("语句2");//语句2，空字符串为false
+null?alert("语句11"):alert("语句22");//语句22，null为false
+
+
+</script>
+<body>
+   
+</body>
+</head>
+</html>

@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+//创建对象的新方法
+//Object.fromEntries(参数)  参数要为二维数组/map
+
+//二维数组
+let obj1 = Object.fromEntries([
+  ['name',"lily"],  //['属性名'，属性值]
+  ['age',12],
+])
+console.log(obj1)
+
+//map
+let m1 = new Map()
+m1.set('name','Acie')
+m1.set('address','beijing')
+let obj2 = Object.fromEntries(m1)
+console.log(obj2 )
+
+//ES8 将对象变成二维数组
+let obj3 ={
+  price : 100,
+  grade : '高三',
+  name : 'Jake'
+}
+let arr2 = Object.entries(obj3)
+console.log(arr2)
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+  
+/* 自定义instanceof 方法 */
+	class Person {
+		//自定义来判断人的种族
+    //  A instanceof B ,可以读取A，进而可以通过Symbol的方法 => 自定义的判断
+		static [Symbol.hasInstance](input){
+			if(input.kind == "human")
+			return true
+		}
+	}
+	let person1 = {
+		kind : "dog"
+	}
+	let person2 = {
+		kind : 'human'
+	}
+	console.log(person1 instanceof Person)//false
+	console.log(person2 instanceof Person)//true
+</script>
+</head> 
+<body>
+</body>
+</html>

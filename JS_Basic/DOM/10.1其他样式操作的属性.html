@@ -1,0 +1,97 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	#box1 {
+		width : 300px;
+		height : 200px;
+		padding : 10px;
+		border: 10px solid #000000;
+		background-color: #99FF99;
+		overflow: auto;
+	}
+	#scroolbox {
+		width: 500px;
+		height: 500px;
+		background-color: #FF0000;
+	}
+</style>
+<script type="text/javascript">	
+	window.onload = function(){
+		var btn01 = document.getElementById("btn01");
+		var box1 = document.getElementById("box1");
+		var box2 = document.getElementById("box2");
+		var box3 = document.getElementById("box3");
+		btn01.onclick = function(){
+			/* 		clientWidth/clientHeight
+				-1.获取元素的可见高度和宽度
+				-2.宽高=内容+内边距
+				-3.返回值为纯数字，不带单位
+				-4.这个属性为只读，不可修改属性值
+			 */
+			console.log(box1.clientWidth);//303
+			console.log("clientHeight",box1.clientHeight);//203
+			
+			/*      offsetWidth/offsetHeight
+				-1.获取元素的整个高度和宽度
+				-2.宽高=内容+内边距+边框
+			 */
+			console.log(box1.offsetWidth);//340
+			console.log(box1.offsetHeight);//240
+			
+			/* 		offsetParent
+				-1.用来获取 离这个元素 最近的 开启了定位的 祖先元素
+				-2.如果没有开了定位的祖先元素，就选择body元素
+			 */
+			console.log(box1.offsetParent);//body
+			
+			/*		offsetTop
+				-1.用来获取这个元素 关于其开启定位的祖先元素 的水平/垂直偏移量
+			 */
+			console.log(box1.offsetLeft);//8
+			console.log(box1.offsetTop);//52
+			
+			/* scrollWidth/scrollHeight
+				-1.获取元素的整个滚冻区域的宽高
+			 */
+			console.log(box1.scrollWidth);//510
+			console.log(box1.scrollHeight);//520
+			
+			/* 	scrollLeft/scrollTop
+				-1.获取水平/垂直 滚动条滚动的距离
+	
+			 */
+			console.log(box1.scrollLeft);
+			console.log(box1.scrollTop);
+			
+			
+			/* 
+				scroolHeight - scroolTop == clientHeight
+				//说明 垂直滚动条 滚动到底了
+			 */
+		}
+	}
+	
+</script>
+
+</head> 
+<body>
+	<button id="btn01">获取大小</button>
+	<br><br>
+	<div id="box3">
+    box3
+		<div id="box2">
+      box2
+			<div id="box1">
+        box1
+				<div id="scroolbox">scrollbox</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

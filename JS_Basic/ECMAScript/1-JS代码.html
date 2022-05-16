@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>嗷嗷</title>
+
+  <!-- type可以不用写，默认值就是如下 -->
+  <script type="text/javascript" src="../js/1.js">
+
+    //三个JS代码   （以下是用来输出的三条语句）
+
+    alert("这是一个警告框");
+    // 可以在浏览器窗口弹出一个警告框
+
+    document.write("这是显示的一段文字");
+    //让页面显示一段文字，于body中输出
+
+  
+    //在控制台输出一个日志  
+    console.log("在控制台的文字 ");
+
+    document.write("无法显示的文字1");
+    document.write("无法显示的文字2");
+    //在同一个script标签下，如果引入的外部文件，原来内部里的js代码就会失效
+ 
+  </script>
+
+
+  <!-- 想要原来的script内容生效，需要新的标签 -->
+  <script>
+    alert("这是一个新的警告");
+  </script>
+
+
+</head>
+<body>
+    <br>
+    <!-- 将js代码写进标签的属性中-->
+    <!-- 这种写法因为结构和行为耦合，不推荐，推荐写到script标签里  -->
+    <button onclick="alert('点我作甚')">点击这里</button>   <br>
+    <!-- 当被点击时，js代码（alert）生效 -->
+
+    <a href="javascript:alert('点我作甚？？？')">这也点以下</a>
+</body>
+</html>

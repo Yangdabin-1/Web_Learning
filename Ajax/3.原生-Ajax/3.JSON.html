@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<style>
+  #box1{
+    height: 100px;
+    width: 100px;
+    border: black 2px solid;
+  }
+</style>
+<script>
+window.onload = function(){
+  const box1 = document.getElementById("box1")
+  window.onkeydown = function(){
+    const xhr = new XMLHttpRequest()
+    //自动转换
+    xhr.responseType = 'json'
+    xhr.open('POST','http://127.0.0.1:8000/json-server')
+
+    // 解决ie缓存问题
+    // xhr.open('POST','http://127.0.0.1:8000/json-server?t='+ Date.now())
+    
+    xhr.send()
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4){
+        if(xhr.status >=200 & xhr.status < 300){
+          box1.innerHTML += xhr.response.name//接受到的是字符串
+          //1.手动将字符串转为对象
+        //  const result = JSON.parse(xhr.response)
+        //  box1.innerHTML += result.name
+         //2.利用XHR对象的属性，自动转换接受的数据为对象
+        }
+      }
+    }
+  }
+}
+</script>
+</head>
+<body>
+  <div id = box1></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 算数运算符=操作符
+        -通过算数运算符,可以对多个值运算并得到结果
+           例如:typeof 用字符串的形式返回某值的数据类型
+    */ 
+   var a=true;
+   b=typeof a;//得到返回值的类型是boolean
+   document.write(typeof b+"<br>"+"<br>"+"<br>");//得到返回值的类型是string
+
+   /*
+          "+"------可以数值加减/字符串拼接
+
+   */
+   var c=123;
+   document.write(c+321+"<br>");
+
+   document.write(c+"321"+"<br>");//'123321'
+  
+   document.write("c"+'asd'+"<br>");//'123asd'
+   document.write(c+''+'<br>');//"123"
+
+  document.write(c/2+"<br>"+"<br>"+"<br>");//65.5
+
+   //用非number时，将其转换成numer再操作
+   //ture+false=1+0=1;
+   var dd=123;
+   result=123 * "2";
+   document.write("result = "+result+"<br>");
+   //用此特性做类型转换
+   var cc="123";
+   cc=cc * 1;
+   document.write(typeof cc);//string->number
+
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

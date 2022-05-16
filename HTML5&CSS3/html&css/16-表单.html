@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>表单</title>
+ <style>
+  /* 表单：用于向服务器提交数据
+  举例：百度搜索，输入的关键字就是表单，点击搜索后，向服务器发送数据后
+  得到反馈 */
+
+  /* form  
+      -action:选择服务器地址
+      -type:输入类型
+      -name:类别（必备属性！） 设置后才能让服务器收到此数据
+      -value:传送数据的名字
+      -checked:默认选项
+      -select：默认选项
+   */
+</style>
+<body>
+   <form action="16.1-模拟服务器.html">
+      账号 <input type="text" name="账户" value="默认值">
+      <br><br>
+      <!--文本框 text-->
+
+      密码 <input type="password" name="密码" value="默认值">
+      <br><br>
+      <!-- 密码框 password -->
+      
+      单选按钮  <input type="radio" name="单选1" value="right">
+                <input type="radio" name="单选1" value="false" checked>
+      <br><br>
+      <!-- 单选选择框 radio-->
+
+      多选按钮 <input type="checkbox" name="多选1" value="A">
+              <input type="checkbox" name="多选1" value="B">
+              <input type="checkbox" name="多选1" value="C" checked>
+      <br><br>
+      <!-- 多选选择框 -->
+
+      选择类表 
+      <select name="选择一个">
+        <option value="1">选项1</option>
+        <option value="11" >选项2</option> 
+        <option value="111">选项3</option>
+        <option value="1111" selected>选项4</option>
+      </select>
+     <!-- 下拉列表：select  选项：option -->
+	 
+	  多行输入框
+	  <textarea rows="" cols=""></textarea>
+      <br><br>
+
+      <!-- 提交按钮：submit -->
+      <input type="submit" value="登录">
+
+
+
+
+
+   </form>
+</body>
+</head>
+</html>

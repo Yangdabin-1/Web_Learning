@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+	<!-- 事件：文档和浏览器交互的瞬间（点击按钮，移动鼠标...）
+		      用户和浏览器之间的交互行为
+	-->
+	
+	<!-- 通过内嵌式设置事件   此方法结构与行为耦合，不方便维护-->
+	<button id="bt1" onclick="alert('notouch');">点我就有警告</button>
+	<!-- 通过设置事件 -->
+	<button id="bt2">双击我有警告</button>
+  <script>
+  
+    //1.获取按钮对象
+	var bt2 = document.getElementById("bt2");
+	//2.给对象绑定一个单击事件
+	bt2.ondblclick = function(){
+		alert("NOtouch too");  //绑定回调函数的形式来响应事件
+	}
+	
+	
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!Doctype HTML>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='keywords' content='关键词'>
+<meta name='description' content='描述'>
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>网页名</title>
+<style></style>
+<script>
+/* 
+ */
+//1.Number.EPSILON 表示js中计算的最小精度
+  console.log(0.1+0.2) //0.30000000000000004
+  console.log(0.1+0.2 == 0.3)//false
+  function isEqual(a,b){
+	  if(Math.abs(a-b) < Number.EPSILON){
+		  return console.log("true")
+	  }else return console.log("false")
+  }
+  isEqual(0.1+0.2,0.3) //true
+  //2.Number.isFinite() 判断是否为优先数
+  //3.Number.isNaN 判断是否为NaN
+  //4.Number.isInteger 判断是否为整数
+  //5.Numer.parseInt/float 转换字符串为整数,浮点数
+  //6.Math.trunc 将数字的小数抹掉
+  //7.Math.sign 判断一个数是 正数 负数 还是 0
+</script>
+</head>
+<body>
+</body>
+</html>

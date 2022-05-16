@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- tr:行  td:列 -->
+  <table border="1" width="50%" align="center">
+     <tr>
+       <td>A1</td>
+       <td>B1</td>
+       <td>C1</td>
+       <td rowspan="2">D1</td>
+       <!-- rowspan 垂直合并2个单元格 -->
+     </tr>
+     <tr>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+    </tr>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <td>A4</td>
+      <td>B4</td>
+      <td colspan="2">C4</td>
+      <!-- colspan:水平合并两个单元格 -->
+    </tr>
+  </table>
+
+  <br>
+
+
+  <!-- 长表格：将表格分成三部分
+      表格中无tbody时候,只有th时,浏览器会自动创建tbody,并将所有的th放入其中
+  -->
+  <table border="2" width="50%" align="center">
+    <thead>
+      <th>科目</th>
+      <!-- th:头部的单元格 -->
+
+      <td>数学</td>
+      <td>英语</td>
+      <td>语文</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张三</td>
+        <td></td>
+        <td>78</td>
+        <td>67</td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>66</td>
+        <td>78</td>
+        <td>97</td>
+      </tr>
+      <tr>
+        <td>陶吴</td>
+        <td>62</td>
+        <td>98</td>
+        <td></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <td></td>
+      <td></td>
+      <td>合计</td>
+      <td>123</td>
+    </tfoot>
+  </table>
+</body>
+</html>

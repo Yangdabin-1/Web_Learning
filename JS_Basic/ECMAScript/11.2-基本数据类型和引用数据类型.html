@@ -1,0 +1,63 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title></title> 
+</head> 
+<body>
+  <script>
+   // 基本数据类型：string number boolean null undefined
+   // 引用数据类型：object
+   
+   var a = 10;
+   var b = a;//a的值复制给b
+   console.log(a == b);//a和b 值相等
+   a++;
+   console.log("a=:" + a);//a变大
+   console.log("b=" + b);//b不变
+   //因为a,b是基本数据类型，为独立个体
+   
+   var obj1 = new Object();//创建对象
+   obj1.age = 22;
+   var obj2 = "asd";
+   var obj2 = obj1;		//创建变量，并复制了obj1的值（即地址）
+   obj2.age = 23;//修改obj2的值,1的值不变
+   console.log(obj1.age);//22->23
+   console.log(obj2.age);//22->23
+   console.log(typeof obj2);//obj2 复制 obj1后变成对象类型
+   //因为obj1和obj2 的值关联到同一个地址，同一个对象 所以一起变化
+   
+   /*
+		JS中的变量都是保存在 栈内存 中----->分为:变量+值
+			  对象是保存在 堆内存 中------>开辟一个空间:此空间有个内存地址（例：0x123）
+			定义一个变量 var obj1 = new Object(); 
+			obj1 是变量 他的值是一个内存地址（通过地址引用堆内存中的对象） 
+			
+   
+   */
+   
+   obj2 = null;   //obj2的值设置为null，即无内存地址，与obj1取消了联系
+   console.log(obj1);//29->29
+   console.log(obj2);//29->null
+   
+   
+   var obj3 = new Object();
+   var obj4 = new Object();
+   obj3.name = "ywb";
+   obj4.name = "ywb";
+   console.log(obj3 == obj4);//false 此时比较的是他们的值
+   /*
+	虽然obj3和4 内容一样，但他们在堆内存中开辟的是两个不一样的空间
+						所以他们的值（内存地址）不一样
+	*/
+   
+   
+   
+   
+   
+   
+  </script>
+</body>
+</html>

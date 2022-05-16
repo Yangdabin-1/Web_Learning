@@ -1,0 +1,56 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+  
+	//fun1.call();
+	//fun1.apply();
+	//会把函数方法的参数 设置 为this指向的对象
+	
+	
+	//调用方法和不调用方法都会执行函数
+	function fun1(){
+		console.log(this);
+	}
+	var obj ={name:"obj",age : 23};
+	var obj2 = {};
+	
+	//
+	fun1.call(obj);
+	fun1.apply(obj.age);//this执行Obj;
+	
+	
+	// 当函数有参数
+	
+	function fun2(a,b){
+		console.log(this.name + "a= " + a);
+		console.log("b= " + b);
+	}
+	
+	fun2(1,2);//a=1,b=2;
+	fun2.call(obj,1,2);
+	fun2.apply(obj,[1,2]);//需要封装数组
+	
+	console.log("--------------------");
+	
+	
+	var obj3 ={
+		name:"lily",
+		sayName : function(){
+			console.log(this.name);
+		}
+	}
+	var obj4 = {
+		name : "Jake"
+	}
+	obj3.sayName.call(obj4);//用obj3的sayName显示obj4的name
+	//由此更可以看成call/apply的作用，更改this的对象
+  </script>
+</body>
+</html>

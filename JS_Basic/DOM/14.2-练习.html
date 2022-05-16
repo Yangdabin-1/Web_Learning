@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style type="text/css">
+	* {
+		margin: 0px;
+	}
+	#box1 {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		background-color: #BBFFAA;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var box1 = document.getElementById("box1");
+		
+		document.onkeydown = function(event){
+			var speed = 10;//可以定义一个变量方便更改速度
+			if(event.ctrlKey){speed = 30;}//设置加速功能
+			switch(event.code){
+				case "ArrowUp":
+ 				box1.style.top = box1.offsetTop - speed + "px";break;
+				case "ArrowDown":
+				box1.style.top = box1.offsetTop + speed + "px";break;
+				case "ArrowLeft":
+				box1.style.left =box1.offsetLeft - speed + "px";break;
+				case "ArrowRight":
+				box1.style.left = box1.offsetLeft + speed + "px";break;
+				case "Space":
+				box1.style.top = box1.offsetTop - speed*3 + "px";break;	
+			}
+		}
+	}
+</script>
+</head> 
+<body>
+	<div id="box1"></div>
+</body>
+</html>

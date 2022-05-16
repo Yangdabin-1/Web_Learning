@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title>
+ <script type="text/javascript">
+ 	/* 
+		BOM 浏览器对象
+		
+			-window
+			-location
+				浏览器当前文档的地址
+			-navigator
+				储存浏览器的信息,但是目前只能用userAgent来判断浏览器的信息
+			-history
+				历史记录，但只能用来返回当前页面的前后历史页面
+	 */
+	window.onload =function(){
+		var xinxi = navigator.userAgent;
+		if(/firefox/i.test(xinxi)){
+			console.log("火狐");
+		}else if(/chrome/i.test(xinxi)){
+			console.log("chrome浏览器");
+		}else if(/mise/i.test(xinxi)){
+			console.log("IE");
+		}else if("ActiveXObject" in window){
+			console.log("IE11");
+		}
+	}
+ </script>
+ 
+</head> 
+<body>
+ <a href="21-History.html">1</a>
+</body>
+</html>

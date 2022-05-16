@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<body>
+  <script>
+    //for 语法不同于 while
+
+    // for(初始化表达式；条件；变量更新){执行语句}
+
+    var i=1;
+    for(;i<10;){
+      i++;
+      document.write(i);
+    }
+    //三个分号可以省略，可以写在外部
+    //for的死循环：  for(;;){} 
+  
+    
+    document.write("<br>")
+    //1-20的奇数
+    for(var a = 1;a <= 20;a+=2){
+      document.write(a);
+    }
+
+    document.write("<br>")
+    document.write("<hr>")
+    //水仙花
+    for(var b = 100;b <= 999;b++){
+      bai=parseInt(b/100); 
+      shi=parseInt((b-bai*100)/10);
+      ge=b%10;
+      sum=bai**3 +shi**3+ge**3;
+      if(sum==b){
+        document.write(""+bai + shi + ge +' '+ sum +'<br>');
+      }
+    }
+
+    document.write("<br>")
+    document.write("<hr>")
+    //嵌套for循环输出阵法
+
+    var c=+prompt("输出几层阵法");
+    for(var i = 1;i <= c;i++){
+        for(var j = 1;j <= 2*i-1;j++){
+          document.write("*");
+        }
+        document.write("<br>");
+    }
+
+
+
+    
+
+
+
+    //
+  </script>
+</body>
+</head>
+</html>

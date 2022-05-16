@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title></title>
+<link rel="stylesheet" href="../html&css/iconfont/css/all.css">
+ <style>
+   body{
+     background-color:wheat;
+   }
+   *{
+     margin: 0;
+     list-style: none;
+   }
+   .clearfix::before,
+   .clearfix::after{
+     content: '';
+     clear: both;
+     display: table;
+   }
+   /*解决small box高度塌陷
+    左右菜单浮动->smallbox就无高度->bigbox就无高度
+   */
+   a{
+     text-decoration: inherit;
+     color: #999999;
+   }
+
+   .bigbox{
+     width:auto;
+     height: 31px;
+     background-color: #E3E4E5;
+     border-bottom: 1px solid #DDDDDD;
+   }
+
+   .smallbox{
+     font-size: 14px;
+     /* height:30px; */
+     width:1190px;
+     line-height: 30px;
+     /* background-color: red; */
+     margin: 0 auto;
+     position: relative;
+   }
+
+   /*设置分割线*/
+   .line{
+     width: 1px;
+     height: 11px;
+     background-color:#CCCCCC ;
+     margin: 10px 12px;
+   }
+
+
+   /*左右列表*/
+   .leftmeau{
+     font-size: 12px;
+     float: left;
+     position: relative;
+   }
+   .rightmeau{
+     float: right;
+   }
+   /*是右侧类表内容水平排列*/
+   .rightmeau li{
+     float:left;
+   }
+
+
+   /*下拉框*/
+   .list1{
+     display:none;/*平常不显示*/
+     width: 322px;
+     height: 465px;
+     background-color: rgb(255, 255, 255);
+     border: 1px solid rgb(204,204,204);
+     position: absolute;
+     top:31px;
+     z-index: 1000;
+   }
+
+   /*鼠标移动到左菜单时---list1要显示
+     hover绑定给box1,鼠标移到list1，下拉框依旧不显示
+     所以hover要同时绑定给box1和list1
+     即绑定他们的父元素即可（.leftmeau）
+   */
+   .leftmeau:hover .list1{
+     display:block;
+   }
+   /*鼠标移动到左菜单时---box1要显示*/
+   .leftmeau:hover .box1{
+     background-color: white;
+     border: 1px solid rgb(204,204,204);
+     border-bottom:none;
+   }
+
+
+   .box1{
+     width: 40px;
+     height: 31px;
+     z-index: 99; 
+     position: relative;
+   }
+
+
+</style>
+<body>
+ <div class="bigbox">
+   <div class="smallbox clearfix">
+    <div class="leftmeau">
+        <div class="box1">
+          <p class="fas fa-bell" style="color:red"></p>
+          <a href="javascript:;">广东</a> 
+        </div>
+        <div class="list1"></div>
+        
+    </div>
+
+    <div class="rightmeau">
+      <ul>
+        <li>
+          <a href="javascript:;">你好，请登录 免费注册</a>
+        </li>
+        <li class="line"></li>
+        <li><a href="javascript:;">我的订单</a></li><li class="line"></li>
+        <li><a href="javascript:;">我的京东</a></li><li class="line"></li>
+        <li><a href="javascript:;">政企采购</a></li><li class="line"></li>
+        <li><a href="javascript:;">客服服务</a></li><li class="line"></li>
+        <li><a href="javascript:;">网页导航</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+      </ul>
+    </div>
+   </div>
+ </div>  
+</body>
+</head>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charest='utf-8'>
+<meta name='keywords' content='aa'>
+<meta name='description' content='aaaa'>
+<title>Ajax工具库:Axios</title>
+<style></style>
+<script>
+window.onload = function(){
+  const btn = document.getElementsByTagName('button')
+  //fecth属于全局对象，返回结果是promise对象
+  btn[0].onclick = function(){
+    fetch('http://127.0.0.1:8000/axios-fetch?a=1&b=1',{
+      method:'POST',
+      headers:{
+        name:'fetch'
+      },
+      data:{
+        username:'admin',
+        userpassword:'adimin'
+      },
+    }).then(result =>{
+      return result.text()
+    })
+  } 
+}
+</script>
+</head>
+<body>
+  <button id="btn1">GET</button>
+</body>
+</html>

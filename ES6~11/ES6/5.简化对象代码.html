@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 
+ 可以直接写属性名，但必须所有属性都用这种方式写入，不能混合，不然报错
+ 
+ */
+	let name = "aa"
+	let age = 15
+	let address = "beijing"
+	let id = {
+		name, //旧的写法
+		age,
+		address
+	}
+	let id2 = {
+		sayname : function(){
+		}
+    // name  直接引入会报错
+	}
+	console.log(id)
+</script>
+</head> 
+<body>
+</body>
+</html>

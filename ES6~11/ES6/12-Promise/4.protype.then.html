@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">     
+  <meta name="keywords" content="a"> 
+  <meta name="description" content="a">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>11</title>   
+<script>
+	/*  result = p.then(value=>{},reason=>{})
+	then()返回的是一个promise对象,这个对象包括了promise状态和promise值
+		-promise状态：undefined,resolved,rejected
+			1)状态由各个回调函数的返回值决定
+				1.如果回调函数return是一个非promise类型，则状态为成功，promise值为retuen值
+				2.如果回调函数return是一个promise，则状态跟随这个return的promise的resolve/reject状态，值为这个状态的值
+				3.如果回调函数抛出错误（throw），则状态为失败，值跟随这个状态的值
+		-promise值	  
+	*/
+	const p = new Promise((resolve,reject)=>{
+		resolve('成功')
+		// reject('失败')
+	})
+	let result = p.then(value =>{
+		// console.log(value)
+		// return '成功了'
+		
+		// return new Promise((resolve,reject)=>{
+		// 	// resolve('成功2.0')
+		// 	reject('失败2.0')
+		// })
+		
+		throw ('出错啦')
+	},
+	reason =>{
+		// console.log(reason)
+		// return '失败了'
+		return new Promise((resolve,reject)=>{
+			// resolve('成功2.0')
+			reject('失败2.0')
+		})
+	}
+	)
+	console.log(result)
+</script>
+</head>
+<body>
+</body>
+</html>

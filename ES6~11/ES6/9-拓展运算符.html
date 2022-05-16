@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+/* 拓展运算符： ... 
+	 -能将一个数组的数据，转化为，用,隔开的参数序列
+*/
+	const age = [11,22,21,61]
+	function change(){
+		console.log(arguments) //显示输入的参数
+	}
+	change(...age) //相对于change(11,22,21,61)
+	
+	/* 拼接数组 */
+	let arr1 = ["唐僧","孙悟空"]
+	let arr2 = ["猪八戒","沙僧"]
+	let team = [...arr1,...arr2]//返回一个拼接好的数组
+	console.log(team.length)
+	/* 克隆数组的元素 */
+	let arr3 = [...arr1]
+	console.log(arr3)
+	/* 将一个伪数组变成数组 */
+	function add(a,b,c){
+		return arguments //arguments是保存实参的伪数组
+	}
+	let fakeArr = add(3,2,1) //返回一个伪数组
+	let arr4 =[...fakeArr]
+	console.log(arr4)
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>ģ��</title> 
+<style></style>
+<script>
+	//rest参数拓展
+	function fun({name,age,address}){
+		console.log(name)
+		console.log(age)
+		console.log(address)
+	}
+	fun({
+		name : 'li',
+		age : 23,
+		address : 'beijing'
+	})
+	
+	//拓展运算符，将多个对象的属性整合到一个对象中去(合并)
+	let skill1 ={
+		q : 'aaa'
+	}
+	let skill2={
+		w : 'bbb'
+	}
+	let skill3={
+		e : 'ccc'
+	}
+	let skill4={
+		r : 'ddd'
+	}
+	
+	let allSkill={...skill1,...skill2,...skill3}
+	console.log(allSkill)
+	
+</script>
+</head> 
+<body>
+</body>
+</html>

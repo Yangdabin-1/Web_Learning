@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<style></style>
+<script>
+function *gen(arg){
+	  console.log(arg)
+	  let one = yield 111
+	  console.log(one)
+	  let two = yield 222
+	  console.log(two)
+	  let end= yield 333
+	  console.log(end)//这里是undefined的部分
+	}
+	//获取迭代器对象
+	let result = gen("aaa")
+	//1.输出第一个部分中的内容
+	console.log(result.next(""))
+	//2.next语句可以传入实参，这个实参就是上一个yiled返回的结果
+	console.log(result.next("bbb"))
+	console.log(result.next("ccc"))
+	console.log(result.next("end"))
+	
+	
+</script>
+</head>
+<body>
+</body>
+</html>

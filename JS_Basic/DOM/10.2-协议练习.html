@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+<!-- 实现功能：滚动条移到底，可以勾选-->
+<style type="text/css">
+	#box1 {
+		width: 200px;
+		height: 200px;
+		background-color:#BBFFAA;
+		overflow: auto;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var input = document.getElementsByTagName("input");
+		var box1 = document.getElementById("box1");
+		box1.onscroll = function(){
+			if(box1.scrollHeight - box1.scrollTop == box1.clientHeight){
+				input[0].disabled = false;
+				input[1].disabled = false;
+			}
+		}
+	}
+</script>
+</head> 
+<body>
+	<h2>请阅读以下协议!</h2>
+		<p id="box1">
+			以下协议网络协议指的是计算机网络中互相通信的对等实体之间交换信息时所必须遵守的规则的集合。网络协议网络协议对等实体通常是指计算机网络体系结构中处于相同层次的信息单元。一般系统网络协议包括五个部分：通信环境，传输服务，词汇表，信息的编码格式，时序、规则和过程。1969年美国国防部建立最早的网络——阿帕计算机网络时，发布了一组计算机通信协议的军用标准，它包括了五个协议，习惯上以其中的TCP和IP两个协议作为这组协议的通称。TCP/IP是因特网的正式网络协议，是一组在许多独立主机系统之间提供互联功能的协议，规范因特网上所有计算机互联时的传输、解释、执行、互操作，解决计算机系统的互联、互通、操作性，是被公认的网络通信协议的国际工业标准。TCP/IP是分组交换协议，信息被分成多个分组在网上传输，到达接收方后再把这些分组重新组合成原来的信息。除TCP/IP外，常用的网络协议还有PPP、SLIP等。，信息的编码格式，时序、规则和过程。1969年美国国防部建立最早的网络——阿帕计算机网络时，发布了一组计算机通信协议的军用标
+			</p>
+	<input type="checkbox" disabled="disabled"/>我确定阅读
+	<input type="submit" disabled="disabled"/>
+	
+	<!-- disabled=:"disabled"  让这个表单为不可选择状态
+	 返回值为true，表示禁止选择
+	 -->
+</body>
+</html>

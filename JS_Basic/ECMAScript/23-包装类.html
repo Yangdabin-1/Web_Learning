@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+	// JS提供了三个包装类，可以把基础数据类型转化成为对象
+	//Boolean() Number() String()
+	var num = new Number(3);
+	var num1 = new Number(3);
+	var num2 = 3;
+	console.log(num);//此时比较的是属性
+	console.log(num2 == num1);//此时比较的是属性值
+	
+	var b = new Boolean(false);
+	if(b){
+		document.write("hello");
+	}
+	//为什么会打印出来，因为false转为boolean对象后，b也是对象
+	//所有对象转成boolean都是true
+	
+	//以上设计到基层的原理，不能直接用，而toString就是根据这个原理调用的
+	
+	var a = 123;
+	a = a.toString();//这里的a是基本数据类型，为什么能调用方法呢
+	//是因为执行a.toSting是，浏览器临时把a变成了字符串对象 a =new String();
+	// 在对这个对象调用方法后，将这个对象销毁了
+	
+	
+	a.hello = "你好";
+	//这个了添加属性并不会报错，因为同上，a变成了对象，然后又销毁了
+	console.log(a.hello);//这里a变成了一个新的对象
+	// 而不是上面的那个已经销毁了的对象，上面有赋值，而下面没有
+  </script>
+</body>
+</html>

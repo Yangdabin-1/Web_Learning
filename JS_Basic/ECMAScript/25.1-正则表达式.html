@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<meta name="keywords" content="aa">
+<meta name="description" content="aaaa">
+<title>ģ��</title> 
+</head> 
+<body>
+  <script>
+  /* 正则表达式（RegExp）
+			计算机可以根据此表达式，来检查一个字符串是否符合规则
+			将字符串中合法的规则提取出来
+  */
+ 
+  //使用 构造函数 创建一个正则表达式
+  // var rule = new RegExp("正则表达式","匹配模式");
+  
+  var reg = new RegExp("ab","i");
+  /* 
+	 正则表达式：
+		检查一个字符串时候里是否有ab
+	 匹配模式：
+		"i": 不区分大小写
+		"g":全局匹配模式
+		
+  */
+ 
+  // .test（"字符串"）  检查这个字符串是否符合正则表达式
+  console.log(reg.test("vxcvewrAb"));//true
+  console.log(reg.test("vxcvewrAsb"));//false
+  
+  
+  //使用 字面量 创建一个正则表达式
+  // var rule = /正则表达式/匹配模式
+  
+	// var rule = /abc/i;  表示a&b&c
+	// var rule = /a|b|c|d|e/i; 表示或 如果条件过多，书写会麻烦---->利用数组[abc],abc选一
+	var rule = /我[A-z]你/;  //表示格式为：我?你
+	console.log(rule.test("我S你"));//true
+	
+	var rule1 = /[^A]/;  //除了 A B AB都符合规则
+	console.log(rule1.test("C"))//true
+	
+
+	
+	
+  </script>
+</body>
+</html>
